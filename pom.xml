@@ -4,7 +4,7 @@
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>com.acme</groupId>
+  <groupId>io.knotx.acme</groupId>
   <artifactId>knotx-example-project</artifactId>
   <version>1.3.0-SNAPSHOT</version>
 
@@ -30,13 +30,15 @@
     <maven.nexus.staging.plugin.version>1.6.7</maven.nexus.staging.plugin.version>
     <maven.source.plugin.version>2.2.1</maven.source.plugin.version>
     <maven.javadoc.plugin.version>2.9.1</maven.javadoc.plugin.version>
+
+    <finalName>knotx-example-project-stack-${project.version}</finalName>
   </properties>
 
   <modules>
     <module>acme-handlebars-ext</module>
     <module>acme-action-adapter-http</module>
     <module>acme-gateway</module>
-    <!--<module>acme-app</module>-->
+    <module>acme-stack</module>
   </modules>
 
   <dependencyManagement>
