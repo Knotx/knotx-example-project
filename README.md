@@ -7,24 +7,26 @@
 - JDK 8+
 
 ## Getting started
-- Download distro
-- Unpack distro
-- Replace configs
-- Resolve dependencies
+### Run standalone (TBD)
+- Get acme zip (from maven or build)
+- Unpack
+- `bin/knotx run-knotx`
+
+### Run docker
+Build image from dockerfile
 ```
-bin/knotx resolve
+$> docker build -t acme/knotx-example .
 ```
-- Run knotx
+Run example as deamon
 ```
-bin/knotx run-knotx
+$> docker run -d -p8092:8092 acme/knotx-example knotx-example
 ```
 
+Follow logs
+```
+$> docker logs -f knotx-example
+```
 
-## Running the project
-Once you downloaded the Knot.x and added your configurations, just run:
-```
-bin/knotx run-knotx
-```
 [travis]:https://travis-ci.org/Knotx/knotx-example-project
 [travis img]:https://travis-ci.org/Knotx/knotx-example-project.svg?branch=master
 

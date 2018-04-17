@@ -29,19 +29,19 @@
       "transitive": false
     },
     {
-      "groupId": "com.acme",
+      "groupId": "io.knotx.acme",
       "artifactId": "acme-handlebars-ext",
       "version": "${acme.version}",
       "included": true
     },
     {
-      "groupId": "com.acme",
+      "groupId": "io.knotx.acme",
       "artifactId": "acme-action-adapter-http",
       "version": "${acme.version}",
       "included": true
     },
     {
-      "groupId": "com.acme",
+      "groupId": "io.knotx.acme",
       "artifactId": "acme-gateway",
       "version": "${acme.version}",
       "included": true
