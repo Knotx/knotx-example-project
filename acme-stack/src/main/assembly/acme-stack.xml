@@ -30,6 +30,16 @@
 
   <fileSets>
     <fileSet>
+      <directory>${project.basedir}/target/knotx/build/knotx</directory>
+      <excludes>
+        <exclude>**/*.conf</exclude>
+        <exclude>**/logback.xml</exclude>
+        <exclude>**/knotx-stack.json</exclude>
+      </excludes>
+      <outputDirectory>.</outputDirectory>
+    </fileSet>
+
+    <fileSet>
       <directory>${project.basedir}/src/main/packaging</directory>
       <outputDirectory>.</outputDirectory>
     </fileSet>
