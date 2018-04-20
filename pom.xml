@@ -276,7 +276,7 @@
           </configuration>
         </plugin>
       </plugins>
-    </pluginManagement>s
+    </pluginManagement>
   </build>
 
   <profiles>
