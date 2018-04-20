@@ -11,6 +11,8 @@
   <packaging>pom</packaging>
 
   <name>Acme project - Knot.x extensions</name>
+  <description>Knot.x example project</description>
+  <url>http://knotx.io</url>
 
   <scm>
     <connection>scm:git:git://github.com/Knotx/knotx-example-project.git</connection>
@@ -18,6 +20,21 @@
     <url>http://github.com/Knotx/knotx-example-project/tree/master</url>
     <tag>HEAD</tag>
   </scm>
+
+  <developers>
+    <developer>
+      <name>Tomasz Michalak</name>
+      <url>https://github.com/tomaszmichalak</url>
+    </developer>
+    <developer>
+      <name>Maciej Laskowski</name>
+      <url>https://github.com/Skejven</url>
+    </developer>
+    <developer>
+      <name>Marcin Czeczko</name>
+      <url>https://github.com/marcinczeczko</url>
+    </developer>
+  </developers>
 
   <repositories>
     <repository>
@@ -62,6 +79,7 @@
     <maven.nexus.staging.plugin.version>1.6.7</maven.nexus.staging.plugin.version>
     <maven.source.plugin.version>2.2.1</maven.source.plugin.version>
     <maven.javadoc.plugin.version>2.9.1</maven.javadoc.plugin.version>
+    <maven.gpg.plugin.version>1.5</maven.gpg.plugin.version>
 
     <finalName>knotx-example-project-stack-${project.version}</finalName>
   </properties>
@@ -232,7 +250,59 @@
             </systemPropertyVariables>
           </configuration>
         </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-gpg-plugin</artifactId>
+          <version>${maven.gpg.plugin.version}</version>
+          <executions>
+            <execution>
+              <id>sign-artifacts</id>
+              <phase>verify</phase>
+              <goals>
+                <goal>sign</goal>
+              </goals>
+            </execution>
+          </executions>
+        </plugin>
       </plugins>
     </pluginManagement>
   </build>
+
+  <profiles>
+    <profile>
+      <id>release</id>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-source-plugin</artifactId>
+            <version>${maven.source.plugin.version}</version>
+          </plugin>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-javadoc-plugin</artifactId>
+            <version>${maven.javadoc.plugin.version}</version>
+          </plugin>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-gpg-plugin</artifactId>
+            <version>${maven.gpg.plugin.version}</version>
+            <executions>
+              <execution>
+                <id>sign-artifacts</id>
+                <phase>verify</phase>
+                <goals>
+                  <goal>sign</goal>
+                </goals>
+              </execution>
+            </executions>
+          </plugin>
+          <plugin>
+            <groupId>org.sonatype.plugins</groupId>
+            <artifactId>nexus-staging-maven-plugin</artifactId>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
 </project>

@@ -51,6 +51,19 @@
       </includes>
       <outputDirectory>.</outputDirectory>
     </fileSet>
+
   </fileSets>
+
+  <dependencySets>
+    <dependencySet>
+      <useProjectArtifact>false</useProjectArtifact>
+      <outputDirectory>./lib</outputDirectory>
+      <scope>provided</scope>
+      <includes>
+        <include>io.knotx.acme:*</include>
+      </includes>
+    </dependencySet>
+  </dependencySets>
+
 
 </assembly>

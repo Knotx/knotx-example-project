@@ -1,0 +1,35 @@
+version: '3'
+
+services:
+  core:
+    build: ./core
+    image: acme-core:latest
+    ports:
+      - "8092:8092"
+  gateway:
+    build: ./gateway
+    image: acme-gateway:latest
+  hbs-1:
+    build: ./handlebars
+    image: acme-handlebars-1:latest
+    command: ["run-knotx", "-ha", "--hagroup hbs-group", "--quorum 2"]
+  hbs-2:
+    build: ./handlebars
+    image: acme-handlebars-2:latest
+    command: ["run-knotx", "-ha", "--hagroup hbs-group", "--quorum 2"]
+  hbs-bare:
+    build: ./handlebars
+    image: acme-handlebars-bare:latest
+    command: ["bare", "--hagroup hbs-group", "--quorum 2"]
+  service-adapter:
+    build: ./serviceAdapter
+    image: acme-service-adapter:latest
+  action-adapter:
+    build: ./actionAdapter
+    image: acme-action-adapter:latest
+  repo-mock:
+    build: ./repoMock
+    image: acme-repo-mock:latest
+  service-mock:
+    build: ./serviceMock
+    image: acme-service-mock:latest

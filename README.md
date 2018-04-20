@@ -1,7 +1,7 @@
 [![][travis img]][travis]
 [![][license img]][license]
 
-# Running the example project
+# Running the Knot.x example project
 
 ## Prerequisites
 - JDK 8+

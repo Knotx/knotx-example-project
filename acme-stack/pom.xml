@@ -37,6 +37,24 @@
       <version>${project.version}</version>
       <type>zip</type>
     </dependency>
+    <dependency>
+      <groupId>io.knotx.acme</groupId>
+      <artifactId>acme-action-adapter-http</artifactId>
+      <version>${project.version}</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>io.knotx.acme</groupId>
+      <artifactId>acme-gateway</artifactId>
+      <version>${project.version}</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>io.knotx.acme</groupId>
+      <artifactId>acme-handlebars-ext</artifactId>
+      <version>${project.version}</version>
+      <scope>provided</scope>
+    </dependency>
   </dependencies>
 
   <build>
