@@ -34,6 +34,12 @@ $> docker logs -f knotx-example
 
 Open the browser for `http://localhost:8092/content/local/simple.html` URL to see the example is running.
 
+### Run Knot.x cluster
+Clone this repository and go to `acme-cluster` folder and run the Knot.x cluster
+```
+$> docker-compose up
+```
+
 [travis]:https://travis-ci.org/Knotx/knotx-example-project
 [travis img]:https://travis-ci.org/Knotx/knotx-example-project.svg?branch=master
 
