@@ -7,8 +7,8 @@
 - JDK 8+
 
 ## Getting started
-### Run standalone (TBD)
-- Download and unpack [knotx-example-project-stack-X.Y.Z.zip](https://bintray.com/TBD)
+### Run locally
+- Download and unpack latest [knotx-example-project-stack](https://bintray.com/knotx/downloads/examples)
 - Alternatively, clone the repository and build the example project `mvn clean install`, 
 unpack the zip file from `knotx-example-project/acme-stack/target` to any folder
 - Go to the `acme-stack` folder in the unpacked zip file and run the Knot.x
