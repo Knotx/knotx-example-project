@@ -72,6 +72,11 @@ settings.json
 *.vlt
 *.vertx
 
+# Gradle
+.gradle
+build
+!gradle/wrapper/gradle-wrapper.jar
+
 target
 atlassian-ide-plugin.xml
 bin/

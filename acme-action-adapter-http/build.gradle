@@ -1,0 +1,27 @@
+plugins {
+  id 'java'
+}
+
+description = 'Acme Project - Action Adapter HTTP'
+
+defaultTasks 'build'
+
+dependencies {
+  implementation 'io.knotx:knotx-core'
+  implementation 'io.knotx:knotx-adapter-common'
+  implementation 'io.vertx:vertx-core'
+  implementation 'io.vertx:vertx-web-client'
+  implementation 'io.vertx:vertx-rx-java2'
+  implementation 'io.vertx:vertx-service-proxy'
+
+  testCompile 'junit:junit'
+  testCompile 'org.powermock:powermock-api-mockito'
+  testCompile 'org.powermock:powermock-module-junit4'
+  testCompile 'org.hamcrest:hamcrest-all'
+  testCompile 'org.mockito:mockito-all'
+  testCompile 'io.vertx:vertx-unit'
+  testCompile 'io.vertx:vertx-config'
+
+  testCompile 'io.knotx:knotx-core::tests'
+  testCompile "io.knotx:knotx-mocks:$knotxVersion"
+}

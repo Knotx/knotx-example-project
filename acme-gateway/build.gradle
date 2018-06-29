@@ -1,0 +1,14 @@
+plugins {
+  id 'java'
+}
+
+description = 'Acme Project - Sample Gateway'
+
+defaultTasks 'build'
+
+dependencies {
+  implementation 'io.knotx:knotx-core'
+  implementation 'io.vertx:vertx-core'
+  implementation 'io.vertx:vertx-rx-java2'
+  implementation 'io.vertx:vertx-service-proxy'
+}
