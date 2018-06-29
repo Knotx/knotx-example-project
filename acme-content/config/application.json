@@ -1,0 +1,25 @@
+{
+  "modules": [
+    "java:com.acme.content.MockRemoteRepositoryVerticle",
+    "java:com.acme.content.MockServiceVerticle"
+  ],
+  "config": {
+    "java:com.acme.content.MockRemoteRepositoryVerticle": {
+      "options": {
+        "config": {
+          "mockDataRoot": "mock/repository",
+          "httpPort": 3001
+        }
+      }
+    },
+    "java:com.acme.content.MockServiceVerticle": {
+      "options": {
+        "config": {
+          "mockDataRoot": "mock/service",
+          "bouncing": true,
+          "httpPort": 3000
+        }
+      }
+    }
+  }
+}

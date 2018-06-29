@@ -1,7 +1,7 @@
 {
   "modules": [
     "actionAdapter=java:com.acme.adapter.action.http.HttpActionAdapterVerticle",
-    "serviceMock=java:io.knotx.mocks.MockServiceVerticle"
+    "serviceMock=java:com.acme.content.MockServiceVerticle"
   ],
   "config": {
     "actionAdapter": {

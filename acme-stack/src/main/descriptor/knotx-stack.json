@@ -22,9 +22,9 @@
   "dependencies": [
     //Project dependencies
     {
-      "groupId": "io.knotx",
-      "artifactId": "knotx-mocks",
-      "version": "${knotx.version}",
+      "groupId": "io.knotx.acme",
+      "artifactId": "acme-content",
+      "version": "${acme.version}",
       "included": true,
       "transitive": false
     },
