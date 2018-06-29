@@ -55,6 +55,12 @@
       <version>${project.version}</version>
       <scope>provided</scope>
     </dependency>
+    <dependency>
+      <groupId>io.knotx.acme</groupId>
+      <artifactId>acme-content</artifactId>
+      <version>${project.version}</version>
+      <scope>provided</scope>
+    </dependency>
   </dependencies>
 
   <build>
@@ -90,7 +96,7 @@
               <goal>unpack-dependencies</goal>
             </goals>
             <configuration>
-              <includeArtifactIds>knotx-stack-manager</includeArtifactIds>
+              <includeArtifactIds>knotx-stack-manager,acme-content</includeArtifactIds>
               <outputDirectory>${project.build.directory}/knotx/build</outputDirectory>
               <markersDirectory>${project.build.directory}/marker-dependency</markersDirectory>
             </configuration>
