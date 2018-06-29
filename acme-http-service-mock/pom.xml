@@ -26,8 +26,8 @@
     <version>1.3.1-SNAPSHOT</version>
   </parent>
 
-  <artifactId>acme-content</artifactId>
-  <name>Acme Project - Content</name>
+  <artifactId>acme-http-service-mock</artifactId>
+  <name>Acme Project - HTTP service mock</name>
 
   <dependencies>
     <!-- Knot.x -->

@@ -98,7 +98,7 @@
     <module>acme-action-adapter-http</module>
     <module>acme-gateway</module>
     <module>acme-stack</module>
-    <module>acme-content</module>
+    <module>acme-http-service-mock</module>
   </modules>
 
   <dependencyManagement>
