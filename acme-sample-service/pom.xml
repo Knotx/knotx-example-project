@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 
-    Copyright (C) 2016 Cognifide Limited
+    Copyright (C) 2018 Knot.x Project
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -26,8 +26,8 @@
     <version>1.3.1-SNAPSHOT</version>
   </parent>
 
-  <artifactId>acme-http-service-mock</artifactId>
-  <name>Acme Project - HTTP service mock</name>
+  <artifactId>acme-sample-service</artifactId>
+  <name>Acme Project - Sample service</name>
 
   <dependencies>
     <!-- Knot.x -->
