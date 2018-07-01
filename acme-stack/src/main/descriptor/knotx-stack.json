@@ -23,7 +23,7 @@
     //Project dependencies
     {
       "groupId": "io.knotx.acme",
-      "artifactId": "acme-content",
+      "artifactId": "acme-sample-service",
       "version": "${acme.version}",
       "included": true,
       "transitive": false
@@ -55,12 +55,6 @@
     },
     {
       "groupId": "io.knotx",
-      "artifactId": "knotx-knot-service",
-      "version": "${knotx.version}",
-      "included": true
-    },
-    {
-      "groupId": "io.knotx",
       "artifactId": "knotx-knot-action",
       "version": "${knotx.version}",
       "included": true
@@ -71,16 +65,23 @@
       "version": "${knotx.version}",
       "included": true
     },
+    // Knot.x Ext dependencies
     {
       "groupId": "io.knotx",
-      "artifactId": "knotx-adapter-common",
-      "version": "${knotx.version}",
+      "artifactId": "knotx-data-bridge-api",
+      "version": "\${knotx.version}",
       "included": true
     },
     {
       "groupId": "io.knotx",
-      "artifactId": "knotx-adapter-service-http",
-      "version": "${knotx.version}",
+      "artifactId": "knotx-data-bridge-core",
+      "version": "\${knotx.version}",
+      "included": true
+    },
+    {
+      "groupId": "io.knotx",
+      "artifactId": "knotx-data-bridge-http",
+      "version": "\${knotx.version}",
       "included": true
     },
     // Vert.x dependencies
