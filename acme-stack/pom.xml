@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 
-    Copyright (C) 2016 Cognifide Limited
+    Copyright (C) 2018 Knot.x Project
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -52,6 +52,12 @@
     <dependency>
       <groupId>io.knotx.acme</groupId>
       <artifactId>acme-handlebars-ext</artifactId>
+      <version>${project.version}</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>io.knotx.acme</groupId>
+      <artifactId>acme-sample-service</artifactId>
       <version>${project.version}</version>
       <scope>provided</scope>
     </dependency>

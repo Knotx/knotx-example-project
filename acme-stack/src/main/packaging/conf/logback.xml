@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 
-    Copyright (C) 2016 Cognifide Limited
+    Copyright (C) 2018 Knot.x Project
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -16,13 +16,15 @@
     limitations under the License.
 
 -->
-<configuration scan="true">
-  <statusListener class="ch.qos.logback.core.status.NopStatusListener" />
-
-  <include resource="io/knotx/logging/logback/base.xml" />
+<configuration>
+  <include resource="io/knotx/logging/logback/defaults.xml"/>
+  <include resource="io/knotx/logging/logback/file-appender.xml"/>
+  <include resource="io/knotx/logging/logback/console-appender.xml"/>
   <include resource="io/knotx/logging/logback/access.xml" />
-  <include resource="io/knotx/logging/logback/netty.xml" />
 
-  <!-- Increase logging level for Knot.x -->
-  <logger name="io.knotx" level="DEBUG" />
+  <root level="INFO">
+    <appender-ref ref="FILE"/>
+    <appender-ref ref="CONSOLE"/>
+  </root>
+
 </configuration>

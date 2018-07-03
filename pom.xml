@@ -98,6 +98,7 @@
     <module>acme-action-adapter-http</module>
     <module>acme-gateway</module>
     <module>acme-stack</module>
+    <module>acme-sample-service</module>
   </modules>
 
   <dependencyManagement>

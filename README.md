@@ -7,6 +7,14 @@
 - JDK 8+
 
 ## Getting started
+
+Knot.x Example Project contains both custom modules, a sample content and mocked HTTP data sources 
+(REST endpoints). Open the browser for:
+- `http://localhost:8092/content/simple.html`
+- `http://localhost:8092/content/login/step1.html`
+
+to see the example is running.
+
 ### Run locally
 - Download and unpack latest [knotx-example-project-stack](https://bintray.com/knotx/downloads/examples)
 - Alternatively, clone the repository and build the example project `mvn clean install`, 
@@ -32,7 +40,7 @@ Follow logs
 $> docker logs -f knotx-example
 ```
 
-Open the browser for `http://localhost:8092/content/local/simple.html` URL to see the example is running.
+Open the browser for `http://localhost:8092/content/simple.html` URL to see the example is running.
 
 ### Run Knot.x cluster
 Clone this repository and go to `acme-cluster` folder and run the Knot.x cluster
