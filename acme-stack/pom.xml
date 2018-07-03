@@ -57,7 +57,7 @@
     </dependency>
     <dependency>
       <groupId>io.knotx.acme</groupId>
-      <artifactId>acme-http-service-mock</artifactId>
+      <artifactId>acme-sample-service</artifactId>
       <version>${project.version}</version>
       <scope>provided</scope>
     </dependency>
