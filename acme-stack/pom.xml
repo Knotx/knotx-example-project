@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
 
-    Copyright (C) 2016 Cognifide Limited
+    Copyright (C) 2018 Knot.x Project
 
     Licensed under the Apache License, Version 2.0 (the "License");
     you may not use this file except in compliance with the License.
@@ -96,7 +96,7 @@
               <goal>unpack-dependencies</goal>
             </goals>
             <configuration>
-              <includeArtifactIds>knotx-stack-manager,acme-content</includeArtifactIds>
+              <includeArtifactIds>knotx-stack-manager</includeArtifactIds>
               <outputDirectory>${project.build.directory}/knotx/build</outputDirectory>
               <markersDirectory>${project.build.directory}/marker-dependency</markersDirectory>
             </configuration>
