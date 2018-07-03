@@ -12,6 +12,7 @@ dependencies {
   deps project(':acme-gateway')
   deps project(':acme-handlebars-ext')
   deps project(':acme-action-adapter-http')
+  deps project(':acme-sample-service')
 }
 
 task cleanDistribution(type: Delete) {
