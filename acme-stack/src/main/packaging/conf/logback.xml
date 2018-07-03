@@ -16,13 +16,15 @@
     limitations under the License.
 
 -->
-<configuration scan="true">
-  <statusListener class="ch.qos.logback.core.status.NopStatusListener" />
-
-  <include resource="io/knotx/logging/logback/base.xml" />
+<configuration>
+  <include resource="io/knotx/logging/logback/defaults.xml"/>
+  <include resource="io/knotx/logging/logback/file-appender.xml"/>
+  <include resource="io/knotx/logging/logback/console-appender.xml"/>
   <include resource="io/knotx/logging/logback/access.xml" />
-  <include resource="io/knotx/logging/logback/netty.xml" />
 
-  <!-- Increase logging level for Knot.x -->
-  <logger name="io.knotx" level="DEBUG" />
+  <root level="DEBUG">
+    <appender-ref ref="FILE"/>
+    <appender-ref ref="CONSOLE"/>
+  </root>
+
 </configuration>
