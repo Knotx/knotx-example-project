@@ -1,5 +1,6 @@
 def downloadDir = file("${buildDir}/download")
 def distributionDir = file("${buildDir}/out")
+def stackName = "acme-stack"
 def acmeDistribution = "knotx-example-project-stack-${version}.zip"
 
 configurations {
@@ -16,57 +17,50 @@ dependencies {
 }
 
 task cleanDistribution(type: Delete) {
-  group = 'knotx'
-
   delete downloadDir, distributionDir
 }
 
 task downloadDistribution(type: Copy) {
-  group = 'knotx'
-
   from configurations.zipped
   into downloadDir
 }
 
 task unzipDistribution(type: Copy) {
-  group = 'knotx'
-
   def zipPath = project.configurations.zipped.find { it.name.startsWith('knotx-stack-manager') }
   from zipTree(zipPath)
   into distributionDir
 }
 
-task overrideConfigurations(type: Copy) {
-  group = 'knotx'
+task renameDistribution {
+  doLast {
+    file("${distributionDir}/knotx").renameTo(file("${distributionDir}/${stackName}"))
+  }
+}
 
+task overrideConfigurations(type: Copy) {
   from file("src/main/descriptor/knotx-stack.json")
-  into file("${distributionDir}/knotx")
+  into file("${distributionDir}/${stackName}")
 }
 
 task overrideDesciptor(type: Copy) {
-  group = 'knotx'
-
   from file('src/main/packaging')
-  into file("${distributionDir}/knotx")
+  into file("${distributionDir}/${stackName}")
 }
 
 task downloadDeps(type: Copy) {
-  group = 'knotx'
-
   from configurations.deps
-  into "${distributionDir}/knotx/lib"
+  into "${distributionDir}/${stackName}/lib"
 }
 
 task assembleDistributionWithDeps(type: Zip) {
-  group = 'knotx'
-
   from distributionDir
   archiveName acmeDistribution
 }
 
 downloadDistribution.dependsOn(cleanDistribution)
 unzipDistribution.dependsOn(downloadDistribution)
-overrideConfigurations.dependsOn(unzipDistribution)
+renameDistribution.dependsOn(unzipDistribution)
+overrideConfigurations.dependsOn(renameDistribution)
 overrideDesciptor.dependsOn(overrideConfigurations)
 downloadDeps.dependsOn(overrideDesciptor)
 assembleDistributionWithDeps.dependsOn(downloadDeps)
