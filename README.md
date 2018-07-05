@@ -8,7 +8,7 @@ files, sample content and modules.
 
 ## Prerequisites
 - JDK 8+
-- Maven & Gradle
+- Maven or Gradle
 
 ## Getting started
 The example project consists such modules like:
