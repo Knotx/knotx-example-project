@@ -11,13 +11,13 @@ files, sample content and modules.
 - Maven or Gradle
 
 ## Getting started
-The example project consists such modules like:
+The example project consists of:
 
-- `acme-stack` - contains all configuration files, the sample content
+- `acme-stack` - contains all configuration files and the sample content
 - `acme-action-adapter-http` - handles forms submit requests (POSTs), executes business logic and redirects to the next step / confirmation page / stay on the same page
 - `acme-gateway` - provides the Gateway API interface that can be used by front-end integration
 - `acme-handlebars-ext` - adds custom Handlebars directives
-- `acme-sample-service` - runs the HTTP server on the `3000` port, which emulates real JSON service responses
+- `acme-sample-service` - runs the HTTP server on the `3000` port, which mocks real JSON service responses
 
 The `acme-stack` module contains all required artifacts to build the example distribution. The result 
 of the build process is a ZIP file that you can deploy to the server, extract and run with 
@@ -51,7 +51,7 @@ or
 #### Run locally:
 Go to the `acme-stack` folder in the unpacked zip file and run the Knot.x script 
 
-##### Unix
+##### Unix and MacOS
 ```
 $> bin/knotx run-knotx
 ```
