@@ -1,0 +1,10 @@
+rootProject.name = 'knotx-example-project'
+
+include 'acme-action-adapter-http'
+include 'acme-gateway'
+include 'acme-handlebars-ext'
+include 'acme-sample-service'
+include 'acme-stack'
+
+// enables BOM import before gradle 5.0 is out
+enableFeaturePreview("IMPROVED_POM_SUPPORT")

@@ -1,0 +1,69 @@
+def downloadDir = file("${buildDir}/download")
+def distributionDir = file("${buildDir}/out")
+def stackName = "acme-stack"
+def acmeDistribution = "knotx-example-project-stack-${version}.zip"
+
+configurations {
+  zipped
+  deps
+}
+
+dependencies {
+  zipped group: 'io.knotx', name: 'knotx-stack-manager', version: knotxVersion, ext: 'zip'
+  deps project(':acme-gateway')
+  deps project(':acme-handlebars-ext')
+  deps project(':acme-action-adapter-http')
+  deps project(':acme-sample-service')
+}
+
+task cleanDistribution(type: Delete) {
+  delete downloadDir, distributionDir
+}
+
+task downloadDistribution(type: Copy) {
+  from configurations.zipped
+  into downloadDir
+}
+
+task unzipDistribution(type: Copy) {
+  def zipPath = project.configurations.zipped.find { it.name.startsWith('knotx-stack-manager') }
+  from zipTree(zipPath)
+  into distributionDir
+}
+
+task renameDistribution {
+  doLast {
+    file("${distributionDir}/knotx").renameTo(file("${distributionDir}/${stackName}"))
+  }
+}
+
+task overrideConfigurations(type: Copy) {
+  from file("src/main/descriptor/knotx-stack.json")
+  into file("${distributionDir}/${stackName}")
+}
+
+task overrideDesciptor(type: Copy) {
+  from file('src/main/packaging')
+  into file("${distributionDir}/${stackName}")
+}
+
+task downloadDeps(type: Copy) {
+  from configurations.deps
+  into "${distributionDir}/${stackName}/lib"
+}
+
+task assembleDistributionWithDeps(type: Zip) {
+  from distributionDir
+  archiveName acmeDistribution
+}
+
+downloadDistribution.dependsOn(cleanDistribution)
+unzipDistribution.dependsOn(downloadDistribution)
+renameDistribution.dependsOn(unzipDistribution)
+overrideConfigurations.dependsOn(renameDistribution)
+overrideDesciptor.dependsOn(overrideConfigurations)
+downloadDeps.dependsOn(overrideDesciptor)
+assembleDistributionWithDeps.dependsOn(downloadDeps)
+
+build.dependsOn(assembleDistributionWithDeps)
+clean.dependsOn(cleanDistribution)

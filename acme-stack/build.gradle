@@ -1,0 +1,11 @@
+plugins {
+  id 'base'
+}
+
+apply from: "${rootProject.projectDir}/acme-stack/knotx-assemble-distribution.gradle"
+
+task assembleKnotx() {
+  group = 'knotx'
+
+  dependsOn = ['assembleDistributionWithDeps']
+}
