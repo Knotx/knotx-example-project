@@ -14,7 +14,7 @@
 //
 {
   "variables": {
-    "vertx.version": "3.5.1",
+    "vertx.version": "3.5.3",
     "tcnative.version": "2.0.7.Final",
     "knotx.version": "1.3.1-SNAPSHOT",
     "acme.version": "1.3.1-SNAPSHOT"
@@ -68,20 +68,20 @@
     // Knot.x Ext dependencies
     {
       "groupId": "io.knotx",
-      "artifactId": "knotx-data-bridge-api",
-      "version": "\${knotx.version}",
+      "artifactId": "knotx-databridge-api",
+      "version": "${knotx.version}",
       "included": true
     },
     {
       "groupId": "io.knotx",
-      "artifactId": "knotx-data-bridge-core",
-      "version": "\${knotx.version}",
+      "artifactId": "knotx-databridge-core",
+      "version": "${knotx.version}",
       "included": true
     },
     {
       "groupId": "io.knotx",
-      "artifactId": "knotx-data-bridge-http",
-      "version": "\${knotx.version}",
+      "artifactId": "knotx-databridge-adapter-http",
+      "version": "${knotx.version}",
       "included": true
     },
     // Vert.x dependencies
