@@ -4,9 +4,9 @@ allprojects {
   version = '1.4.0-SNAPSHOT'
 
   repositories {
+    mavenLocal()
     jcenter()
     maven { url 'https://oss.sonatype.org/content/repositories/snapshots' }
-    mavenLocal()
   }
 }
 
@@ -18,9 +18,6 @@ subprojects {
   plugins.withId 'java', {
     dependencies {
       implementation "io.knotx:knotx-dependencies:$knotxVersion"
-      implementation "io.knotx:knotx-forms-api:$knotxVersion"
-      implementation "io.knotx:knotx-forms-adapter-http:$knotxVersion"
-
     }
   }
 }

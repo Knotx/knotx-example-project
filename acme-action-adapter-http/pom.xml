@@ -38,13 +38,11 @@
     <dependency>
       <groupId>io.knotx</groupId>
       <artifactId>knotx-forms-api</artifactId>
-      <version>1.4.0-SNAPSHOT</version>
       <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>io.knotx</groupId>
       <artifactId>knotx-forms-adapter-http</artifactId>
-      <version>1.4.0-SNAPSHOT</version>
       <scope>provided</scope>
     </dependency>
     <dependency>
