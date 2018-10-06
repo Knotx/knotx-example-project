@@ -6,7 +6,7 @@
 
   <groupId>io.knotx.acme</groupId>
   <artifactId>knotx-example-project</artifactId>
-  <version>1.4.0-SNAPSHOT</version>
+  <version>1.4.1-SNAPSHOT</version>
 
   <packaging>pom</packaging>
 
