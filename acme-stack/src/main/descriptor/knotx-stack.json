@@ -96,12 +96,6 @@
       "version": "${knotx.version}",
       "included": true
     },
-    {
-      "groupId": "io.knotx",
-      "artifactId": "knotx-forms-adapter-http",
-      "version": "${knotx.version}",
-      "included": true
-    },
     // Vert.x dependencies
     {
       "groupId": "io.vertx",
