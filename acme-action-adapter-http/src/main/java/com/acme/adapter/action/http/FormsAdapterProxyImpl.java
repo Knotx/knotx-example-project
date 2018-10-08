@@ -13,27 +13,28 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.acme.adapter.action.http.impl;
+package com.acme.adapter.action.http;
 
 
-import io.knotx.forms.http.common.http.HttpClientFacade;
+import com.acme.adapter.action.http.common.configuration.HttpFormsAdapterOptions;
+import com.acme.adapter.action.http.common.http.HttpClientFacade;
 import io.knotx.dataobjects.ClientResponse;
 import io.knotx.forms.api.FormsAdapterRequest;
 import io.knotx.forms.api.FormsAdapterResponse;
 import io.knotx.forms.api.reactivex.AbstractFormsAdapterProxy;
-import io.knotx.forms.http.common.configuration.HttpFormsAdapterOptions;
 import io.netty.handler.codec.http.HttpResponseStatus;
 import io.reactivex.Single;
 import io.vertx.core.buffer.Buffer;
 import io.vertx.core.http.HttpMethod;
+import io.vertx.core.json.JsonObject;
 import io.vertx.reactivex.core.Vertx;
 import io.vertx.reactivex.ext.web.client.WebClient;
 
-public class HttpActionAdapterProxyImpl extends AbstractFormsAdapterProxy {
+public class FormsAdapterProxyImpl extends AbstractFormsAdapterProxy {
 
   private HttpClientFacade httpClientFacade;
 
-  public HttpActionAdapterProxyImpl(Vertx vertx, HttpFormsAdapterOptions configuration) {
+  public FormsAdapterProxyImpl(Vertx vertx, HttpFormsAdapterOptions configuration) {
     this.httpClientFacade = new HttpClientFacade(
         WebClient.create(vertx, configuration.getClientOptions()),
         configuration);
@@ -42,6 +43,8 @@ public class HttpActionAdapterProxyImpl extends AbstractFormsAdapterProxy {
   @Override
   protected Single<FormsAdapterResponse> processRequest(FormsAdapterRequest request) {
     return httpClientFacade.process(request, HttpMethod.POST).map(this::prepareResponse);
+//    return  Single.just(new FormsAdapterResponse(new JsonObject().put("test", "bartek")));
+
   }
 
   private FormsAdapterResponse prepareResponse(ClientResponse response) {

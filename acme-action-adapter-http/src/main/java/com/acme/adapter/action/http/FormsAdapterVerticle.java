@@ -16,9 +16,8 @@
 package com.acme.adapter.action.http;
 
 
-import com.acme.adapter.action.http.impl.HttpActionAdapterProxyImpl;
+import com.acme.adapter.action.http.common.configuration.HttpFormsAdapterOptions;
 import io.knotx.forms.api.FormsAdapterProxy;
-import io.knotx.forms.http.common.configuration.HttpFormsAdapterOptions;
 import io.vertx.core.Context;
 import io.vertx.core.Vertx;
 import io.vertx.core.eventbus.MessageConsumer;
@@ -28,9 +27,9 @@ import io.vertx.core.logging.LoggerFactory;
 import io.vertx.reactivex.core.AbstractVerticle;
 import io.vertx.serviceproxy.ServiceBinder;
 
-public class HttpActionAdapterVerticle extends AbstractVerticle {
+public class FormsAdapterVerticle extends AbstractVerticle {
 
-  private static final Logger LOGGER = LoggerFactory.getLogger(HttpActionAdapterVerticle.class);
+  private static final Logger LOGGER = LoggerFactory.getLogger(FormsAdapterVerticle.class);
 
   private HttpFormsAdapterOptions configuration;
 
@@ -52,7 +51,7 @@ public class HttpActionAdapterVerticle extends AbstractVerticle {
     serviceBinder = new ServiceBinder(getVertx());
     consumer = serviceBinder
         .setAddress(configuration.getAddress())
-        .register(FormsAdapterProxy.class, new HttpActionAdapterProxyImpl(vertx, configuration));
+        .register(FormsAdapterProxy.class, new FormsAdapterProxyImpl(vertx, configuration));
   }
 
   @Override
