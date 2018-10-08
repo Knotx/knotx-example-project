@@ -26,7 +26,6 @@ import io.netty.handler.codec.http.HttpResponseStatus;
 import io.reactivex.Single;
 import io.vertx.core.buffer.Buffer;
 import io.vertx.core.http.HttpMethod;
-import io.vertx.core.json.JsonObject;
 import io.vertx.reactivex.core.Vertx;
 import io.vertx.reactivex.ext.web.client.WebClient;
 
@@ -43,8 +42,6 @@ public class FormsAdapterProxyImpl extends AbstractFormsAdapterProxy {
   @Override
   protected Single<FormsAdapterResponse> processRequest(FormsAdapterRequest request) {
     return httpClientFacade.process(request, HttpMethod.POST).map(this::prepareResponse);
-//    return  Single.just(new FormsAdapterResponse(new JsonObject().put("test", "bartek")));
-
   }
 
   private FormsAdapterResponse prepareResponse(ClientResponse response) {

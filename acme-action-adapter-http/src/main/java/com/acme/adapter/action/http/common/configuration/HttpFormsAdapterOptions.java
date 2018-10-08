@@ -15,7 +15,6 @@
  */
 package com.acme.adapter.action.http.common.configuration;
 
-import com.acme.adapter.action.http.common.configuration.HttpFormsAdapterOptionsConverter;
 import io.knotx.configuration.CustomHttpHeader;
 import io.vertx.codegen.annotations.DataObject;
 import io.vertx.core.json.JsonObject;
@@ -103,7 +102,7 @@ public class HttpFormsAdapterOptions {
    * @param address an event bus address
    * @return a reference to this, so the API can be used fluently
    */
-  public com.acme.adapter.action.http.common.configuration.HttpFormsAdapterOptions setAddress(
+  public HttpFormsAdapterOptions setAddress(
       String address) {
     this.address = address;
     return this;
@@ -163,7 +162,7 @@ public class HttpFormsAdapterOptions {
    * @param customHttpHeader the header name &amp; value
    * @return a reference to this, so the API can be used fluently
    */
-  public com.acme.adapter.action.http.common.configuration.HttpFormsAdapterOptions setCustomHttpHeader(
+  public HttpFormsAdapterOptions setCustomHttpHeader(
       CustomHttpHeader customHttpHeader) {
     this.customHttpHeader = customHttpHeader;
     return this;

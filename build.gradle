@@ -17,7 +17,6 @@ ext {
 subprojects {
   plugins.withId 'java', {
     dependencies {
-      compileOnly "io.knotx:knotx-dependencies:$knotxVersion"
       implementation "io.knotx:knotx-dependencies:$knotxVersion"
     }
   }
