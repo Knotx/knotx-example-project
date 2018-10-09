@@ -25,7 +25,7 @@ import java.util.List;
 /**
  * Options describing how an ServiceAdapter will make connections with external HTTP services.
  */
-// @Deprecated
+
 @DataObject(generateConverter = true, publicConverter = false)
 public class HttpFormsAdapterOptions {
 

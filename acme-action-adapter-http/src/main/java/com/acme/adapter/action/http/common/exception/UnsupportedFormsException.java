@@ -18,7 +18,7 @@ package com.acme.adapter.action.http.common.exception;
 /**
  * Thrown to indicate that adapter service contract was violated.
  */
-// @Deprecated
+
 public class UnsupportedFormsException extends RuntimeException {
 
   public UnsupportedFormsException(String message) {

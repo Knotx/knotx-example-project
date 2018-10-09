@@ -28,7 +28,7 @@ import java.util.stream.Collectors;
 /**
  * Describes a physical details of HTTP service endpoint the ServiceAdapter will use.
  */
-// @Deprecated
+
 @DataObject(generateConverter = true, publicConverter = false)
 public class HttpFormsSettings {
 

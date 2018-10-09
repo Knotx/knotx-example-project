@@ -19,7 +19,7 @@ import io.knotx.dataobjects.ClientRequest;
 import java.util.Arrays;
 import org.apache.commons.lang3.StringUtils;
 
-// @Deprecated
+
 public class RequestPlaceholderSubstitutor implements PlaceholderSubstitutor {
 
   @Override

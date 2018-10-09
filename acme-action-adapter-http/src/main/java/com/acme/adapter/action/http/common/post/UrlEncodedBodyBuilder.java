@@ -25,7 +25,7 @@ import java.util.Iterator;
 import java.util.Map.Entry;
 import org.apache.commons.lang3.StringUtils;
 
-// @Deprecated
+
 public final class UrlEncodedBodyBuilder {
 
   private UrlEncodedBodyBuilder() {

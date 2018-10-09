@@ -15,7 +15,7 @@
  */
 package com.acme.adapter.action.http.common.placeholders;
 
-// @Deprecated
+
 public class SlingUriInfo {
 
   private String path;

@@ -17,7 +17,7 @@ package com.acme.adapter.action.http.common.placeholders;
 
 import io.knotx.dataobjects.ClientRequest;
 
-// @Deprecated
+
 @FunctionalInterface
 public interface PlaceholderSubstitutor {
 

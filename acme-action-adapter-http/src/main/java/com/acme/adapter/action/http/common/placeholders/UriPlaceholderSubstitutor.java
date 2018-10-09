@@ -21,7 +21,7 @@ import java.util.Arrays;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.math.NumberUtils;
 
-// @Deprecated
+
 public class UriPlaceholderSubstitutor implements PlaceholderSubstitutor {
 
   private static final String URI_PREFIX = "uri.";

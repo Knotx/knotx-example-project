@@ -41,7 +41,7 @@ import java.util.Optional;
 import java.util.regex.Pattern;
 import org.apache.commons.lang3.tuple.Pair;
 
-// @Deprecated
+
 public class HttpClientFacade {
 
   private static final Logger LOGGER = LoggerFactory.getLogger(
