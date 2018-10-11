@@ -22,7 +22,7 @@
   <include resource="io/knotx/logging/logback/console-appender.xml"/>
   <include resource="io/knotx/logging/logback/access.xml" />
 
-  <root level="DEBUG">
+  <root level="INFO">
     <appender-ref ref="FILE"/>
     <appender-ref ref="CONSOLE"/>
   </root>

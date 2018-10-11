@@ -36,7 +36,7 @@
     },
     {
       "groupId": "io.knotx.acme",
-      "artifactId": "acme-action-adapter-http",
+      "artifactId": "acme-forms-adapter-http",
       "version": "${acme.version}",
       "included": true
     },

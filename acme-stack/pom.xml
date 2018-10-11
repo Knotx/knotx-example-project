@@ -39,7 +39,7 @@
     </dependency>
     <dependency>
       <groupId>io.knotx.acme</groupId>
-      <artifactId>acme-action-adapter-http</artifactId>
+      <artifactId>acme-forms-adapter-http</artifactId>
       <version>${project.version}</version>
       <scope>provided</scope>
     </dependency>
