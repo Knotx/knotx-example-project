@@ -51,7 +51,7 @@
         <p class="bg-danger">Invalid credentials</p>
         {{/if}}
         <p>Please provide your password</p>
-        <form data-knotx-forms-action="step2" data-knotx-forms-on-success="/content/simple.html"
+        <form data-knotx-forms-adapter="step2" data-knotx-forms-on-success="/content/simple.html"
               data-knotx-forms-on-error="_self" method="post">
           <input type="password" name="password"/>
           <input type="submit" value="Submit"/>
