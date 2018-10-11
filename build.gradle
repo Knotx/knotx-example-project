@@ -17,11 +17,11 @@ ext {
 
 subprojects {
   group 'io.knotx.acme'
+  apply from: "${rootProject.projectDir}/release.gradle"
+
   plugins.withId 'java', {
     dependencies {
       implementation "io.knotx:knotx-dependencies:$knotxVersion"
     }
   }
-
-//  apply from: "${rootProject.projectDir}/release.gradle"
 }
