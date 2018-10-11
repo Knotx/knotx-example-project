@@ -18,7 +18,6 @@ package com.acme.forms.adapter.http.common.http;
 import com.acme.forms.adapter.http.common.configuration.HttpFormsAdapterOptions;
 import com.acme.forms.adapter.http.common.configuration.HttpFormsSettings;
 import com.acme.forms.adapter.http.common.exception.UnsupportedFormsException;
-import com.acme.forms.adapter.http.common.placeholders.UriTransformer;
 import io.knotx.configuration.CustomHttpHeader;
 import io.knotx.dataobjects.ClientRequest;
 import io.knotx.dataobjects.ClientResponse;
@@ -132,8 +131,7 @@ public class HttpClientFacade {
    */
   protected ClientRequest buildServiceRequest(ClientRequest originalRequest, JsonObject params) {
     return new ClientRequest(originalRequest)
-        .setPath(UriTransformer
-            .resolveServicePath(params.getString(PATH_PROPERTY_KEY), originalRequest));
+        .setPath(params.getString(PATH_PROPERTY_KEY));
   }
 
   private Pair<ClientRequest, HttpFormsSettings> prepareRequestData(
