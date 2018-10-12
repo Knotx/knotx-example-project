@@ -13,14 +13,15 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.acme.adapter.action.http.impl;
+package com.acme.forms.adapter.http;
 
-import io.knotx.adapter.AbstractAdapterProxy;
-import io.knotx.adapter.common.configuration.ServiceAdapterOptions;
-import io.knotx.adapter.common.http.HttpClientFacade;
-import io.knotx.dataobjects.AdapterRequest;
-import io.knotx.dataobjects.AdapterResponse;
+
+import com.acme.forms.adapter.http.common.configuration.HttpFormsAdapterOptions;
+import com.acme.forms.adapter.http.common.http.HttpClientFacade;
 import io.knotx.dataobjects.ClientResponse;
+import io.knotx.forms.api.FormsAdapterRequest;
+import io.knotx.forms.api.FormsAdapterResponse;
+import io.knotx.forms.api.reactivex.AbstractFormsAdapterProxy;
 import io.netty.handler.codec.http.HttpResponseStatus;
 import io.reactivex.Single;
 import io.vertx.core.buffer.Buffer;
@@ -28,23 +29,23 @@ import io.vertx.core.http.HttpMethod;
 import io.vertx.reactivex.core.Vertx;
 import io.vertx.reactivex.ext.web.client.WebClient;
 
-public class HttpActionAdapterProxyImpl extends AbstractAdapterProxy {
+public class FormsAdapterProxyImpl extends AbstractFormsAdapterProxy {
 
   private HttpClientFacade httpClientFacade;
 
-  public HttpActionAdapterProxyImpl(Vertx vertx, ServiceAdapterOptions configuration) {
+  public FormsAdapterProxyImpl(Vertx vertx, HttpFormsAdapterOptions configuration) {
     this.httpClientFacade = new HttpClientFacade(
         WebClient.create(vertx, configuration.getClientOptions()),
         configuration);
   }
 
   @Override
-  protected Single<AdapterResponse> processRequest(AdapterRequest request) {
+  protected Single<FormsAdapterResponse> processRequest(FormsAdapterRequest request) {
     return httpClientFacade.process(request, HttpMethod.POST).map(this::prepareResponse);
   }
 
-  private AdapterResponse prepareResponse(ClientResponse response) {
-    AdapterResponse result = new AdapterResponse();
+  private FormsAdapterResponse prepareResponse(ClientResponse response) {
+    FormsAdapterResponse result = new FormsAdapterResponse();
 
     if (response.getStatusCode() == HttpResponseStatus.OK.code()) {
       if (isJsonBody(response.getBody()) && response.getBody().toJsonObject()

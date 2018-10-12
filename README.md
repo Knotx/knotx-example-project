@@ -14,7 +14,7 @@ files, sample content and modules.
 The example project consists of:
 
 - `acme-stack` - contains all configuration files and the sample content
-- `acme-action-adapter-http` - handles forms submit requests (POSTs), executes business logic and redirects to the next step / confirmation page / stay on the same page
+- `acme-forms-adapter-http` - handles forms submit requests (POSTs), executes business logic and redirects to the next step / confirmation page / stay on the same page
 - `acme-gateway` - provides the Gateway API interface that can be used by front-end integration
 - `acme-handlebars-ext` - adds custom Handlebars directives
 - `acme-sample-service` - runs the HTTP server on the `3000` port, which mocks real JSON service responses
@@ -22,7 +22,7 @@ The example project consists of:
 The `acme-stack` module contains all required artifacts to build the example distribution. The result 
 of the build process is a ZIP file that you can deploy to the server, extract and run with 
 `bin\knotx run-knotx`. The `run-knotx` command starts all Knot.x modules, configures logs, and sets 
-Java options. Note that all dependencies like `acme-action-adapter-http`, `acme-gateway`, 
+Java options. Note that all dependencies like `acme-forms-adapter-http`, `acme-gateway`, 
 `acme-handlebars-ext` and `acme-sample-service` are build and copied to the distribution.
 
 ### How to build

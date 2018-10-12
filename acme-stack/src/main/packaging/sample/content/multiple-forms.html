@@ -56,7 +56,7 @@
         <p>Submitted: {{action._result.form.name}}</p>
         {{else}}
         <p>Please subscribe to our new competition:</p>
-        <form data-knotx-action="subscribe-competition" data-knotx-on-success="_self" data-knotx-on-error="_self" method="post" class="form-inline">
+        <form data-knotx-forms-adapter="subscribe-competition" data-knotx-forms-on-success="_self" data-knotx-forms-on-error="_self" method="post" class="form-inline">
           <div class="form-group">
             <label for="name">Name</label>
             <input type="text" name="name" id="name"/>
@@ -85,7 +85,7 @@
             <p>Submitted: {{action._result.form.email}}</p>
           {{else}}
             <p>Please subscribe to our newsletter:</p>
-            <form data-knotx-action="subscribe-newsletter" data-knotx-on-success="_self" data-knotx-on-error="_self" method="post" class="form-inline">
+            <form data-knotx-forms-adapter="subscribe-newsletter" data-knotx-forms-on-success="_self" data-knotx-forms-on-error="_self" method="post" class="form-inline">
               <div class="form-group">
                 <label for="email2">Email</label>
                 <input type="email" name="email" id="email2"/>

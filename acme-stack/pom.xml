@@ -39,7 +39,7 @@
     </dependency>
     <dependency>
       <groupId>io.knotx.acme</groupId>
-      <artifactId>acme-action-adapter-http</artifactId>
+      <artifactId>acme-forms-adapter-http</artifactId>
       <version>${project.version}</version>
       <scope>provided</scope>
     </dependency>
@@ -58,6 +58,18 @@
     <dependency>
       <groupId>io.knotx.acme</groupId>
       <artifactId>acme-sample-service</artifactId>
+      <version>${project.version}</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>io.knotx</groupId>
+      <artifactId>knotx-forms-core</artifactId>
+      <version>${project.version}</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>io.knotx</groupId>
+      <artifactId>knotx-forms-api</artifactId>
       <version>${project.version}</version>
       <scope>provided</scope>
     </dependency>

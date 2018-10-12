@@ -36,7 +36,7 @@
     },
     {
       "groupId": "io.knotx.acme",
-      "artifactId": "acme-action-adapter-http",
+      "artifactId": "acme-forms-adapter-http",
       "version": "${acme.version}",
       "included": true
     },
@@ -81,6 +81,18 @@
     {
       "groupId": "io.knotx",
       "artifactId": "knotx-databridge-adapter-http",
+      "version": "${knotx.version}",
+      "included": true
+    },
+    {
+      "groupId": "io.knotx",
+      "artifactId": "knotx-forms-core",
+      "version": "${knotx.version}",
+      "included": true
+    },
+    {
+      "groupId": "io.knotx",
+      "artifactId": "knotx-forms-api",
       "version": "${knotx.version}",
       "included": true
     },

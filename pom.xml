@@ -95,7 +95,7 @@
 
   <modules>
     <module>acme-handlebars-ext</module>
-    <module>acme-action-adapter-http</module>
+    <module>acme-forms-adapter-http</module>
     <module>acme-gateway</module>
     <module>acme-stack</module>
     <module>acme-sample-service</module>

@@ -1,6 +1,7 @@
 defaultTasks 'build'
 
 allprojects {
+
   repositories {
     mavenLocal()
     jcenter()
@@ -15,6 +16,9 @@ ext {
 }
 
 subprojects {
+  group 'io.knotx.acme'
+  apply from: "${rootProject.projectDir}/release.gradle"
+
   plugins.withId 'java', {
     dependencies {
       implementation "io.knotx:knotx-dependencies:$knotxVersion"
