@@ -1,6 +1,6 @@
 rootProject.name = 'knotx-example-project'
 
-include 'acme-action-adapter-http'
+include 'acme-forms-adapter-http'
 include 'acme-gateway'
 include 'acme-handlebars-ext'
 include 'acme-sample-service'

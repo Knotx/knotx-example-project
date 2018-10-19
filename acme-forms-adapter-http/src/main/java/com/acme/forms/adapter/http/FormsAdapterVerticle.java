@@ -13,12 +13,11 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.acme.adapter.action.http;
+package com.acme.forms.adapter.http;
 
 
-import com.acme.adapter.action.http.impl.HttpActionAdapterProxyImpl;
-import io.knotx.adapter.common.configuration.ServiceAdapterOptions;
-import io.knotx.proxy.AdapterProxy;
+import com.acme.forms.adapter.http.common.configuration.HttpFormsAdapterOptions;
+import io.knotx.forms.api.FormsAdapterProxy;
 import io.vertx.core.Context;
 import io.vertx.core.Vertx;
 import io.vertx.core.eventbus.MessageConsumer;
@@ -28,11 +27,11 @@ import io.vertx.core.logging.LoggerFactory;
 import io.vertx.reactivex.core.AbstractVerticle;
 import io.vertx.serviceproxy.ServiceBinder;
 
-public class HttpActionAdapterVerticle extends AbstractVerticle {
+public class FormsAdapterVerticle extends AbstractVerticle {
 
-  private static final Logger LOGGER = LoggerFactory.getLogger(HttpActionAdapterVerticle.class);
+  private static final Logger LOGGER = LoggerFactory.getLogger(FormsAdapterVerticle.class);
 
-  private ServiceAdapterOptions configuration;
+  private HttpFormsAdapterOptions configuration;
 
   private MessageConsumer<JsonObject> consumer;
 
@@ -41,7 +40,7 @@ public class HttpActionAdapterVerticle extends AbstractVerticle {
   @Override
   public void init(Vertx vertx, Context context) {
     super.init(vertx, context);
-    this.configuration = new ServiceAdapterOptions(config());
+    this.configuration = new HttpFormsAdapterOptions(config());
   }
 
   @Override
@@ -52,7 +51,7 @@ public class HttpActionAdapterVerticle extends AbstractVerticle {
     serviceBinder = new ServiceBinder(getVertx());
     consumer = serviceBinder
         .setAddress(configuration.getAddress())
-        .register(AdapterProxy.class, new HttpActionAdapterProxyImpl(vertx, configuration));
+        .register(FormsAdapterProxy.class, new FormsAdapterProxyImpl(vertx, configuration));
   }
 
   @Override

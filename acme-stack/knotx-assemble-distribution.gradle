@@ -12,7 +12,7 @@ dependencies {
   zipped group: 'io.knotx', name: 'knotx-stack-manager', version: knotxVersion, ext: 'zip'
   deps project(':acme-gateway')
   deps project(':acme-handlebars-ext')
-  deps project(':acme-action-adapter-http')
+  deps project(':acme-forms-adapter-http')
   deps project(':acme-sample-service')
 }
 

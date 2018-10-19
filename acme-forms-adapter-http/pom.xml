@@ -26,8 +26,8 @@
     <version>2.0.0-SNAPSHOT</version>
   </parent>
 
-  <artifactId>acme-action-adapter-http</artifactId>
-  <name>Acme Project - Action Adapter HTTP</name>
+  <artifactId>acme-forms-adapter-http</artifactId>
+  <name>Acme Project - Forms Adapter HTTP</name>
 
   <dependencies>
     <dependency>
@@ -37,7 +37,12 @@
     </dependency>
     <dependency>
       <groupId>io.knotx</groupId>
-      <artifactId>knotx-adapter-common</artifactId>
+      <artifactId>knotx-forms-api</artifactId>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>io.knotx</groupId>
+      <artifactId>knotx-forms-core</artifactId>
       <scope>provided</scope>
     </dependency>
     <dependency>
