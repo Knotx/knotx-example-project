@@ -86,10 +86,12 @@ $> docker-compose up
 
 Knot.x works in two modes:
   - templating engine with custom business logic that integrates with any data source using 
+  [Knot.x Forms](https://github.com/Knotx/knotx-forms),
   [Knot.x Data Bridge](https://github.com/Knotx/knotx-data-bridge) and 
   [Handlebars](https://github.com/Cognifide/knotx/wiki/HandlebarsKnot) (back-end integration)
     - [http://localhost:8092/content/simple.html](http://localhost:8092/content/simple.html)
     - [http://localhost:8092/content/login/step1.html](http://localhost:8092/content/login/step1.html)
+    - [http://localhost:8092/content/multiple-forms.html](http://localhost:8092/content/multiple-forms.html)
   - [Gateway mode](https://github.com/Cognifide/knotx/wiki/GatewayMode) providing REST API (front-end integration)
     - [http://localhost:8092/customFlow/](http://localhost:8092/customFlow/)
 
