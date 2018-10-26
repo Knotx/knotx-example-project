@@ -6,6 +6,8 @@ RUN knotx resolve && rm -rf ${HOME}/.m2
 
 ## Copy ACME specific configs
 ADD conf ${KNOTX_HOME}/conf
+ADD sample ${KNOTX_HOME}/sample
+
 
 EXPOSE 8092
 
