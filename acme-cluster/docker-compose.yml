@@ -9,6 +9,9 @@ services:
   forms-adapter:
     build: ./formsAdapter
     image: acme-action-adapter:latest
+  fs-repo:
+    build: ./fsRepo
+    image: acme-fs-repo:latest
   gateway:
     build: ./gateway
     image: acme-gateway:latest
