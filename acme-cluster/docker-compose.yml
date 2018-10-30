@@ -6,6 +6,9 @@ services:
     image: acme-core:latest
     ports:
       - "8092:8092"
+  data-bridge-adapter:
+    build: dataSourceHttp
+    image: acme-data-bridge-adapter:latest
   forms-adapter:
     build: ./formsAdapter
     image: acme-action-adapter:latest
@@ -27,9 +30,6 @@ services:
     build: ./handlebars
     image: acme-handlebars-bare:latest
     command: ["bare", "--hagroup hbs-group", "--quorum 2"]
-  data-bridge-adapter:
-    build: dataSourceHttp
-    image: acme-data-bridge-adapter:latest
   repo-mock:
     build: ./repoMock
     image: acme-repo-mock:latest
