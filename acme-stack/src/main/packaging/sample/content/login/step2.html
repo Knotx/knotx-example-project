@@ -45,18 +45,21 @@
   </div>
   <div class="row">
     <div class="col-md-12">
-      <script data-knotx-knots="form-1,handlebars"
+      <knotx:snippet knots="form-1,handlebars"
               type="text/knotx-snippet">
         {{#if action._result.validationErrors}}
         <p class="bg-danger">Invalid credentials</p>
         {{/if}}
         <p>Please provide your password</p>
-        <form data-knotx-forms-adapter-name="step2" data-knotx-forms-on-success="/content/simple.html"
-              data-knotx-forms-on-error="_self" method="post">
+        <!-- TODO https://github.com/Knotx/knotx-forms/issues/9 -->
+        <form data-knotx-forms-adapter-name="step2"
+              data-knotx-forms-on-success="/content/simple.html"
+              data-knotx-forms-on-error="_self"
+              method="post">
           <input type="password" name="password"/>
           <input type="submit" value="Submit"/>
         </form>
-      </script>
+      </knotx:snippet>
     </div>
   </div>
 </div>
