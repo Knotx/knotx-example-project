@@ -44,10 +44,10 @@
     </div>
   </div>
   <div class="row">
-    <knotx:snippet data-knotx-knots="databridge,handlebars"
-            data-knotx-databridge-name="first-service"
-            data-knotx-databridge-name-second="second-service"
-            data-knotx-databridge-name-third="third-service"
+    <knotx:snippet knots="databridge,handlebars"
+            databridge-name="first-service"
+            databridge-name-second="second-service"
+            databridge-name-third="third-service"
             type="text/knotx-snippet">
 
       <div class="col-md-4">
@@ -70,8 +70,8 @@
   </div>
   <div class="row">
     <div class="col-md-4">
-      <knotx:snippet data-knotx-knots="databridge,handlebars"
-              data-knotx-databridge-name="second-service"
+      <knotx:snippet knots="databridge,handlebars"
+              databridge-name="second-service"
               type="text/knotx-snippet">
         <h2>Snippet2 - {{_result.message}}</h2>
         <p>Snippet2 - {{_result.body.a}}</p>
@@ -79,16 +79,16 @@
       </knotx:snippet>
     </div>
     <div class="col-md-4">
-      <knotx:snippet data-knotx-knots="databridge,handlebars"
-              data-knotx-databridge-name="third-service"
+      <knotx:snippet knots="databridge,handlebars"
+              databridge-name="third-service"
               type="text/knotx-snippet">
         <h2>Snippet3 - {{_result.message}}</h2>
         <p>Snippet3 - {{_result.body.a}}</p>
       </knotx:snippet>
     </div>
     <div class="col-md-4">
-      <knotx:snippet data-knotx-knots="databridge,handlebars"
-              data-knotx-databridge-name="third-service"
+      <knotx:snippet knots="databridge,handlebars"
+              databridge-name="third-service"
               type="text/knotx-snippet">
         <h2>Snippet4 - {{_result.message}}</h2>
         <p>Snippet4 - {{encode_uri _result.url}}</p>
