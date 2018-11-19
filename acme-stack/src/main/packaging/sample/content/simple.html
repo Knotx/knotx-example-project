@@ -44,10 +44,10 @@
     </div>
   </div>
   <div class="row">
-    <script data-knotx-knots="databridge,handlebars"
-            data-knotx-databridge-name="first-service"
-            data-knotx-databridge-name-second="second-service"
-            data-knotx-databridge-name-third="third-service"
+    <knotx:snippet knots="databridge,handlebars"
+            databridge-name="first-service"
+            databridge-name-second="second-service"
+            databridge-name-third="third-service"
             type="text/knotx-snippet">
 
       <div class="col-md-4">
@@ -66,33 +66,33 @@
         <h2>Snippet1 - {{third._result.message}}</h2>
         <div>Snippet1 - {{third._result.body.a}}</div>
       </div>
-    </script>
+    </knotx:snippet>
   </div>
   <div class="row">
     <div class="col-md-4">
-      <script data-knotx-knots="databridge,handlebars"
-              data-knotx-databridge-name="second-service"
+      <knotx:snippet knots="databridge,handlebars"
+              databridge-name="second-service"
               type="text/knotx-snippet">
         <h2>Snippet2 - {{_result.message}}</h2>
         <p>Snippet2 - {{_result.body.a}}</p>
         {{#string_equals _result.status "success"}}<p>Success!</p>{{/string_equals}}
-      </script>
+      </knotx:snippet>
     </div>
     <div class="col-md-4">
-      <script data-knotx-knots="databridge,handlebars"
-              data-knotx-databridge-name="third-service"
+      <knotx:snippet knots="databridge,handlebars"
+              databridge-name="third-service"
               type="text/knotx-snippet">
         <h2>Snippet3 - {{_result.message}}</h2>
         <p>Snippet3 - {{_result.body.a}}</p>
-      </script>
+      </knotx:snippet>
     </div>
     <div class="col-md-4">
-      <script data-knotx-knots="databridge,handlebars"
-              data-knotx-databridge-name="third-service"
+      <knotx:snippet knots="databridge,handlebars"
+              databridge-name="third-service"
               type="text/knotx-snippet">
         <h2>Snippet4 - {{_result.message}}</h2>
         <p>Snippet4 - {{encode_uri _result.url}}</p>
-      </script>
+      </knotx:snippet>
     </div>
   </div>
 </div>
