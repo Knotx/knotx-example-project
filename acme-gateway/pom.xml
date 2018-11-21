@@ -27,7 +27,7 @@
   </parent>
 
   <artifactId>acme-gateway</artifactId>
-  <name>Acme Project - Sample Gateway</name>
+  <name>Acme Project - Acme Gateway API</name>
 
   <dependencies>
     <dependency>
@@ -47,7 +47,7 @@
     </dependency>
     <dependency>
       <groupId>io.vertx</groupId>
-      <artifactId>vertx-service-proxy</artifactId>
+      <artifactId>vertx-web</artifactId>
       <scope>provided</scope>
     </dependency>
   </dependencies>
