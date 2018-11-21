@@ -46,3 +46,9 @@ paths:
       responses:
         default:
           description: local repository response with templating
+  /api/acmeEndpoint.json:
+    get:
+      operationId: acmeEndpoint
+      responses:
+        default:
+          description: Custom endpoint.

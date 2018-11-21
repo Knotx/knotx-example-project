@@ -93,7 +93,7 @@ Knot.x works in two modes:
     - [http://localhost:8092/content/login/step1.html](http://localhost:8092/content/login/step1.html)
     - [http://localhost:8092/content/multiple-forms.html](http://localhost:8092/content/multiple-forms.html)
   - [Gateway mode](https://github.com/Cognifide/knotx/wiki/GatewayMode) providing REST API (front-end integration)
-    - [http://localhost:8092/customFlow/](http://localhost:8092/customFlow/)
+    - [http://localhost:8092/api/acmeEndpoint.json](http://localhost:8092/api/acmeEndpoint.json)
 
 [travis]:https://travis-ci.org/Knotx/knotx-example-project
 [travis img]:https://travis-ci.org/Knotx/knotx-example-project.svg?branch=master
