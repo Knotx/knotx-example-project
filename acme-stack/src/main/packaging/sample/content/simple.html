@@ -98,10 +98,13 @@
       </knotx:snippet>
     </div>
   </div>
+
   <div class="news">Latest news:</div>
   <br>
+
+  <div id="status" class="news"></div>
   <script>
-    var eb = new EventBus("http://localhost:8092/eventbus");
+    var eb = new EventBus("http://localhost:8093/eventbus");
     eb.onopen = function () {
       eb.registerHandler("comments-feed", function (err, msg) {
         var str = "<code>" + msg.body + "</code><br>";
