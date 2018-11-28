@@ -32,7 +32,7 @@
   <dependencies>
     <dependency>
       <groupId>io.knotx</groupId>
-      <artifactId>knotx-knot-handlebars</artifactId>
+      <artifactId>knotx-template-engine-handlebars</artifactId>
       <scope>provided</scope>
     </dependency>
   </dependencies>

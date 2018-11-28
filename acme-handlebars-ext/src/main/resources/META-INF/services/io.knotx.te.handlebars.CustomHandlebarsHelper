@@ -15,3 +15,5 @@
 
 # bold helper
 com.acme.hbs.helpers.BoldHelper
+com.acme.hbs.helpers.EncodeUriHelper
+com.acme.hbs.helpers.StringEqualsHelper
