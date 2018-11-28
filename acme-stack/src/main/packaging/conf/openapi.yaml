@@ -52,3 +52,9 @@ paths:
       responses:
         default:
           description: Custom endpoint.
+  /eventbus/*:
+    get:
+      operationId: acmeSockJsEndpoint
+      responses:
+        default:
+          description: Custom endpoint.

@@ -1,0 +1,29 @@
+openapi: "3.0.0"
+info:
+  version: 1.0.0
+  title: Knot.x Stack OAS
+  description: This is the server API specification.
+#  license:
+#    name: Apache 2.0
+#    url: http://www.apache.org/licenses/LICENSE-2.0.html
+
+servers:
+- url: https://{domain}:{port}
+  description: The local API server
+  variables:
+    domain:
+      default: localhost
+      description: api domain
+    port:
+      enum:
+        - '9092'
+        - '443'
+      default: '9092'
+
+paths:
+  /content/*:
+    get:
+      operationId: templating
+      responses:
+        default:
+          description: remote repository response with templating

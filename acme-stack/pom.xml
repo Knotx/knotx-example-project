@@ -51,6 +51,12 @@
     </dependency>
     <dependency>
       <groupId>io.knotx.acme</groupId>
+      <artifactId>acme-eventbus-bridge</artifactId>
+      <version>${project.version}</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>io.knotx.acme</groupId>
       <artifactId>acme-handlebars-ext</artifactId>
       <version>${project.version}</version>
       <scope>provided</scope>
