@@ -46,6 +46,12 @@
       "version": "${acme.version}",
       "included": true
     },
+    {
+      "groupId": "io.knotx.acme",
+      "artifactId": "acme-template-engine",
+      "version": "${acme.version}",
+      "included": true
+    },
     //Knot.x dependencies
     {
       "groupId": "io.knotx",
