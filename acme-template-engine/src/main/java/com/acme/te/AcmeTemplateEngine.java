@@ -32,6 +32,6 @@ class AcmeTemplateEngine implements TemplateEngine {
 
   @Override
   public String process(Fragment fragment) {
-    return "<h1>Hello from Acme Template Engine</h1>";
+    return "<p>Hello from Acme Template Engine</p>";
   }
 }
