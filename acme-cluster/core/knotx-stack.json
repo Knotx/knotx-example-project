@@ -14,13 +14,20 @@
 //
 {
   "variables": {
-    "vertx.version": "3.5.1",
+    "vertx.version": "3.5.4",
     "tcnative.version": "2.0.7.Final",
     "knotx.version": "1.5.0-SNAPSHOT",
     "acme.version": "1.5.0-SNAPSHOT"
   },
   "dependencies": [
     //Project dependencies
+    {
+      "groupId": "io.knotx.acme",
+      "artifactId": "acme-sample-service",
+      "version": "${acme.version}",
+      "included": true,
+      "transitive": false
+    },
     {
       "groupId": "io.knotx",
       "artifactId": "knotx-mocks",
@@ -55,12 +62,6 @@
     },
     {
       "groupId": "io.knotx",
-      "artifactId": "knotx-knot-service",
-      "version": "${knotx.version}",
-      "included": true
-    },
-    {
-      "groupId": "io.knotx",
       "artifactId": "knotx-knot-action",
       "version": "${knotx.version}",
       "included": true
@@ -71,15 +72,34 @@
       "version": "${knotx.version}",
       "included": true
     },
+    // Knot.x Ext dependencies
     {
       "groupId": "io.knotx",
-      "artifactId": "knotx-adapter-common",
+      "artifactId": "knotx-databridge-api",
       "version": "${knotx.version}",
       "included": true
     },
     {
       "groupId": "io.knotx",
-      "artifactId": "knotx-adapter-service-http",
+      "artifactId": "knotx-databridge-core",
+      "version": "${knotx.version}",
+      "included": true
+    },
+    {
+      "groupId": "io.knotx",
+      "artifactId": "knotx-databridge-adapter-http",
+      "version": "${knotx.version}",
+      "included": true
+    },
+    {
+      "groupId": "io.knotx",
+      "artifactId": "knotx-forms-core",
+      "version": "${knotx.version}",
+      "included": true
+    },
+    {
+      "groupId": "io.knotx",
+      "artifactId": "knotx-forms-api",
       "version": "${knotx.version}",
       "included": true
     },
