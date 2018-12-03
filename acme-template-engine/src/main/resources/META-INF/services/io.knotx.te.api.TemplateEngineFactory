@@ -12,6 +12,4 @@
 #  See the License for the specific language governing permissions and
 #  limitations under the License.
 
-
-# bold helper
-com.acme.hbs.helpers.BoldHelper
+com.acme.te.AcmeTemplateEngineFactory

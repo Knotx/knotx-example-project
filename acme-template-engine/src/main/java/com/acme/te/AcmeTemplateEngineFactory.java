@@ -13,25 +13,22 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.acme.hbs.helpers;
+package com.acme.te;
 
-import com.github.jknack.handlebars.Options;
-import io.knotx.te.handlebars.CustomHandlebarsHelper;
-import java.io.IOException;
+import io.knotx.te.api.TemplateEngine;
+import io.knotx.te.api.TemplateEngineFactory;
+import io.vertx.core.json.JsonObject;
+import io.vertx.reactivex.core.Vertx;
 
-public class BoldHelper implements CustomHandlebarsHelper<Object> {
+public class AcmeTemplateEngineFactory implements TemplateEngineFactory {
 
   @Override
   public String getName() {
-    return "bold";
+    return "acme";
   }
 
   @Override
-  public CharSequence apply(Object value, Options options) throws IOException {
-    Options.Buffer buffer = options.buffer();
-    buffer.append("<strong>");
-    buffer.append(options.fn());
-    buffer.append("</strong>");
-    return buffer;
+  public TemplateEngine create(Vertx vertx, JsonObject config) {
+    return new AcmeTemplateEngine(vertx, config);
   }
 }

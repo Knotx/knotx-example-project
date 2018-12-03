@@ -18,20 +18,34 @@ package com.acme.hbs.helpers;
 import com.github.jknack.handlebars.Options;
 import io.knotx.te.handlebars.CustomHandlebarsHelper;
 import java.io.IOException;
+import org.apache.commons.lang3.StringUtils;
 
-public class BoldHelper implements CustomHandlebarsHelper<Object> {
+/**
+ * Checks if current value and given parameter are equal as Strings.<br> Usage:
+ * <pre>
+ *     {{#string_equals value "parameter"}}
+ *         equal
+ *     {{else}}
+ *         not equal
+ *     {{/string_equals}}
+ * </pre>
+ * If value is "parameter", the output will be "equal".
+ */
+public class StringEqualsHelper implements CustomHandlebarsHelper<Object> {
 
   @Override
   public String getName() {
-    return "bold";
+    return "string_equals";
   }
 
   @Override
   public CharSequence apply(Object value, Options options) throws IOException {
     Options.Buffer buffer = options.buffer();
-    buffer.append("<strong>");
-    buffer.append(options.fn());
-    buffer.append("</strong>");
+    if (StringUtils.equals(String.valueOf(value), options.param(0, StringUtils.EMPTY))) {
+      buffer.append(options.fn());
+    } else {
+      buffer.append(options.inverse());
+    }
     return buffer;
   }
 }

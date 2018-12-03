@@ -40,11 +40,16 @@
           <a class="btn btn-primary btn-large"
              href="https://github.com/Cognifide/knotx">Learn more</a>
         </p>
+        <knotx:snippet knots="te"
+                       te-strategy="acme"
+                       type="text/knotx-snippet">
+          This will be replaced!
+        </knotx:snippet>
       </div>
     </div>
   </div>
   <div class="row">
-    <knotx:snippet knots="databridge,handlebars"
+    <knotx:snippet knots="databridge,te"
             databridge-name="first-service"
             databridge-name-second="second-service"
             databridge-name-third="third-service"
@@ -70,7 +75,7 @@
   </div>
   <div class="row">
     <div class="col-md-4">
-      <knotx:snippet knots="databridge,handlebars"
+      <knotx:snippet knots="databridge,te"
               databridge-name="second-service"
               type="text/knotx-snippet">
         <h2>Snippet2 - {{_result.message}}</h2>
@@ -79,7 +84,7 @@
       </knotx:snippet>
     </div>
     <div class="col-md-4">
-      <knotx:snippet knots="databridge,handlebars"
+      <knotx:snippet knots="databridge,te"
               databridge-name="third-service"
               type="text/knotx-snippet">
         <h2>Snippet3 - {{_result.message}}</h2>
@@ -87,7 +92,7 @@
       </knotx:snippet>
     </div>
     <div class="col-md-4">
-      <knotx:snippet knots="databridge,handlebars"
+      <knotx:snippet knots="databridge,te"
               databridge-name="third-service"
               type="text/knotx-snippet">
         <h2>Snippet4 - {{_result.message}}</h2>

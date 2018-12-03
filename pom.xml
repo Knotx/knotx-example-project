@@ -97,8 +97,9 @@
     <module>acme-handlebars-ext</module>
     <module>acme-forms-adapter-http</module>
     <module>acme-gateway</module>
-    <module>acme-stack</module>
     <module>acme-sample-service</module>
+    <module>acme-template-engine</module>
+    <module>acme-stack</module>
   </modules>
 
   <dependencyManagement>

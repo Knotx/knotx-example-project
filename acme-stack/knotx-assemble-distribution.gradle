@@ -14,6 +14,7 @@ dependencies {
   deps project(':acme-handlebars-ext')
   deps project(':acme-forms-adapter-http')
   deps project(':acme-sample-service')
+  deps project(':acme-template-engine')
 }
 
 task cleanDistribution(type: Delete) {

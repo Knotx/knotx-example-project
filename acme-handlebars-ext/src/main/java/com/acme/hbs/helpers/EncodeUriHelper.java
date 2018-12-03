@@ -18,20 +18,27 @@ package com.acme.hbs.helpers;
 import com.github.jknack.handlebars.Options;
 import io.knotx.te.handlebars.CustomHandlebarsHelper;
 import java.io.IOException;
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
 
-public class BoldHelper implements CustomHandlebarsHelper<Object> {
+/**
+ * Encodes given value.<br> Usage:
+ * <pre>
+ *     {{encode_uri value}}
+ * </pre>
+ * If value is "ex@mple string", the output will be "ex%40mple+string"
+ */
+public class EncodeUriHelper implements CustomHandlebarsHelper<Object> {
 
   @Override
   public String getName() {
-    return "bold";
+    return "encode_uri";
   }
 
   @Override
   public CharSequence apply(Object value, Options options) throws IOException {
     Options.Buffer buffer = options.buffer();
-    buffer.append("<strong>");
-    buffer.append(options.fn());
-    buffer.append("</strong>");
+    buffer.append(URLEncoder.encode(String.valueOf(value), StandardCharsets.UTF_8.name()));
     return buffer;
   }
 }

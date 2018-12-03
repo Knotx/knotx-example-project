@@ -46,6 +46,12 @@
       "version": "${acme.version}",
       "included": true
     },
+    {
+      "groupId": "io.knotx.acme",
+      "artifactId": "acme-template-engine",
+      "version": "${acme.version}",
+      "included": true
+    },
     //Knot.x dependencies
     {
       "groupId": "io.knotx",
@@ -56,12 +62,6 @@
     {
       "groupId": "io.knotx",
       "artifactId": "knotx-knot-action",
-      "version": "${knotx.version}",
-      "included": true
-    },
-    {
-      "groupId": "io.knotx",
-      "artifactId": "knotx-knot-handlebars",
       "version": "${knotx.version}",
       "included": true
     },
@@ -93,6 +93,24 @@
     {
       "groupId": "io.knotx",
       "artifactId": "knotx-forms-api",
+      "version": "${knotx.version}",
+      "included": true
+    },
+    {
+      "groupId": "io.knotx",
+      "artifactId": "knotx-template-engine-api",
+      "version": "${knotx.version}",
+      "included": true
+    },
+    {
+      "groupId": "io.knotx",
+      "artifactId": "knotx-template-engine-core",
+      "version": "${knotx.version}",
+      "included": true
+    },
+    {
+      "groupId": "io.knotx",
+      "artifactId": "knotx-template-engine-handlebars",
       "version": "${knotx.version}",
       "included": true
     },

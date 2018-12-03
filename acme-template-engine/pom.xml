@@ -18,7 +18,7 @@
 -->
 <project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns="http://maven.apache.org/POM/4.0.0"
-    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>io.knotx.acme</groupId>
@@ -26,14 +26,16 @@
     <version>1.5.0-SNAPSHOT</version>
   </parent>
 
-  <artifactId>acme-handlebars-ext</artifactId>
-  <name>Acme Project - Knot.x handlebars extensions</name>
+  <artifactId>acme-template-engine</artifactId>
+  <name>Acme Project - Sample template engine</name>
 
   <dependencies>
+    <!-- Knot.x -->
     <dependency>
       <groupId>io.knotx</groupId>
-      <artifactId>knotx-template-engine-handlebars</artifactId>
+      <artifactId>knotx-template-engine-api</artifactId>
       <scope>provided</scope>
     </dependency>
+
   </dependencies>
 </project>
