@@ -52,7 +52,7 @@
       "artifactId": "knotx-core",
       "version": "${knotx.version}",
       "included": true
-    }
+    },
     // Knot.x Ext dependencies
     {
       "groupId": "io.knotx",
