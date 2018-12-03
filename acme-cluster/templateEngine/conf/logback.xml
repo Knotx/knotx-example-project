@@ -20,8 +20,8 @@
   <statusListener class="ch.qos.logback.core.status.NopStatusListener" />
 
   <include resource="io/knotx/logging/logback/base.xml" />
-  <include resource="io/knotx/logging/logback/access.xml" />
 
   <!-- Increase logging level for Knot.x -->
   <logger name="io.knotx" level="INFO" />
+  <logger name="io.knotx.te" level="DEBUG" />
 </configuration>
