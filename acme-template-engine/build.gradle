@@ -9,5 +9,5 @@ defaultTasks 'build'
 dependencies {
   implementation "io.knotx:knotx-dependencies:$knotxVersion"
 
-  implementation "io.kntox:knotx-template-engine-api:$knotxVersion"
+  implementation "io.knotx:knotx-template-engine-api:$knotxVersion"
 }
