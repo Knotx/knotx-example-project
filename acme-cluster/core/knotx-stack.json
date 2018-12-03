@@ -29,13 +29,6 @@
       "transitive": false
     },
     {
-      "groupId": "io.knotx",
-      "artifactId": "knotx-mocks",
-      "version": "${knotx.version}",
-      "included": true,
-      "transitive": false
-    },
-    {
       "groupId": "io.knotx.acme",
       "artifactId": "acme-handlebars-ext",
       "version": "${acme.version}",
@@ -59,13 +52,7 @@
       "artifactId": "knotx-core",
       "version": "${knotx.version}",
       "included": true
-    },
-    {
-      "groupId": "io.knotx",
-      "artifactId": "knotx-knot-action",
-      "version": "${knotx.version}",
-      "included": true
-    },
+    }
     // Knot.x Ext dependencies
     {
       "groupId": "io.knotx",
@@ -87,13 +74,13 @@
     },
     {
       "groupId": "io.knotx",
-      "artifactId": "knotx-forms-core",
+      "artifactId": "knotx-forms-api",
       "version": "${knotx.version}",
       "included": true
     },
     {
       "groupId": "io.knotx",
-      "artifactId": "knotx-forms-api",
+      "artifactId": "knotx-forms-core",
       "version": "${knotx.version}",
       "included": true
     },
