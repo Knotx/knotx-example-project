@@ -1,0 +1,79 @@
+#
+# Copyright (C) 2018 Knot.x Project
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#      http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License
+#
+# To execute this docker-swarm yml file use `docker stack deploy -c acme-cluster.yml acme`
+
+version: '3.6'
+
+networks:
+  knotx-net:
+    driver: overlay
+
+services:
+  cluster-mgnt:
+    image: hazelcast/management-center:3.11
+    ports:
+      - "8080:8080"
+    networks:
+      - knotx-net
+  core:
+    image: acme/acme-core:latest
+    ports:
+      - "8092:8092"
+    networks:
+      - knotx-net
+  data-bridge-adapter:
+    image: acme/acme-data-bridge-adapter:latest
+    networks:
+      - knotx-net
+  forms-adapter:
+    image: acme/acme-action-adapter:latest
+    networks:
+      - knotx-net
+  fs-repo:
+    image: acme/acme-fs-repo:latest
+    networks:
+      - knotx-net
+  gateway:
+    image: acme/acme-gateway:latest
+    networks:
+      - knotx-net
+  te-1:
+    image: acme/acme-te:latest
+    command: ["run-knotx", "-ha", "--hagroup te-group", "--quorum 2"]
+    networks:
+      - knotx-net
+  te-2:
+    image: acme/acme-te:latest
+    command: ["run-knotx", "-ha", "--hagroup te-group", "--quorum 2"]
+    networks:
+      - knotx-net
+  te-bare:
+    image: acme/acme-te:latest
+    command: ["bare", "--hagroup te-group", "--quorum 2"]
+    networks:
+      - knotx-net
+  http-repo:
+    image: acme/acme-http-repo:latest
+    ports:
+      - "3001:80"
+    networks:
+      - knotx-net
+  services:
+    image: acme/acme-services:latest
+    ports:
+      - "3000:80"
+    networks:
+      - knotx-net

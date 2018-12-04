@@ -61,25 +61,11 @@ $> bin/knotx run-knotx
 $> bin\knotx.bat run-knotx
 ```
 
-#### Run docker
-Build image from dockerfile being in the `knotx-example-project` folder
-```
-$> docker build -t acme/knotx-example .
-```
-Run Knot.x container in background
-```
-$> docker run -d -p8092:8092 acme/knotx-example knotx-example
-```
-
-Follow logs
-```
-$> docker logs -f knotx-example
-```
-
 #### Run Knot.x cluster
 Clone this repository and go to `acme-cluster` folder and run the Knot.x cluster
 ```
-$> docker-compose up
+$> ./build-cluster.sh
+$> docker stack deploy -c acme-cluster.yml acme
 ```
 
 ### How to verify
@@ -88,10 +74,10 @@ Knot.x works in two modes:
   - templating engine with custom business logic that integrates with any data source using 
   [Knot.x Forms](https://github.com/Knotx/knotx-forms),
   [Knot.x Data Bridge](https://github.com/Knotx/knotx-data-bridge) and 
-  [Handlebars](https://github.com/Cognifide/knotx/wiki/HandlebarsKnot) (back-end integration)
-    - [http://localhost:8092/content/simple.html](http://localhost:8092/content/simple.html)
-    - [http://localhost:8092/content/login/step1.html](http://localhost:8092/content/login/step1.html)
-    - [http://localhost:8092/content/multiple-forms.html](http://localhost:8092/content/multiple-forms.html)
+  [Knot.x Template Engine](https://github.com/Knotx/knotx-template-engine) (back-end integration)
+    - [http://localhost:8092/content/simple.html](http://localhost:8092/content/remote/simple.html)
+    - [http://localhost:8092/content/login/step1.html](http://localhost:8092/content/remote/login/step1.html)
+    - [http://localhost:8092/content/multiple-forms.html](http://localhost:8092/content/remote/multiple-forms.html)
   - [Gateway mode](https://github.com/Cognifide/knotx/wiki/GatewayMode) providing REST API (front-end integration)
     - [http://localhost:8092/customFlow/](http://localhost:8092/customFlow/)
 
