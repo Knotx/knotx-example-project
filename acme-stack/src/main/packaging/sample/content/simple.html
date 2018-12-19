@@ -100,6 +100,30 @@
       </knotx:snippet>
     </div>
   </div>
+  <div class="row">
+    <div class="col-md-4">
+      <knotx:snippet knots="databridge,te"
+                     databridge-name="missing-service"
+                     type="text/knotx-snippet">
+        <h2>Snippet4 - {{_result.message}}</h2>
+        <p>Snippet4 - {{_result.body.a}}</p>
+        {{#string_equals _result.status "success"}}<p>Success!</p>{{/string_equals}}
+      </knotx:snippet>
+    </div>
+    <div class="col-md-4">
+      <knotx:fallback fallback-id="ACME_CUSTOM_FALLBACK">
+        <h2>Snippet5 - fallback</h2>
+        <p class="error">This is ACME custom Fallback</p>
+      </knotx:fallback>
+      <knotx:snippet knots="databridge,te"
+                     databridge-name="missing-service"
+                     fallback="ACME_CUSTOM_FALLBACK"
+                     type="text/knotx-snippet">
+        <h2>Snippet5 - {{_result.message}}</h2>
+        <p>Snippet5 - {{_result.body.a}}</p>
+      </knotx:snippet>
+    </div>
+  </div>
 </div>
 <script src="https://code.jquery.com/jquery-2.2.4.min.js"
         integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
