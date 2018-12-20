@@ -16,7 +16,7 @@
 package com.acme.hbs.helpers;
 
 import com.github.jknack.handlebars.Options;
-import io.knotx.knot.templating.handlebars.CustomHandlebarsHelper;
+import io.knotx.te.handlebars.CustomHandlebarsHelper;
 import java.io.IOException;
 
 public class BoldHelper implements CustomHandlebarsHelper<Object> {

@@ -5,7 +5,7 @@ COPY knotx-stack.json ${KNOTX_HOME}/knotx-stack.json
 RUN knotx resolve && rm -rf ${HOME}/.m2
 
 ## Copy ACME specific configs
-ADD conf ${KNOTX_HOME}/conf
+COPY conf ${KNOTX_HOME}/conf
 
 EXPOSE 8092
 

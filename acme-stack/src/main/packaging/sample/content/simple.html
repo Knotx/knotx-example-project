@@ -40,11 +40,16 @@
           <a class="btn btn-primary btn-large"
              href="https://github.com/Cognifide/knotx">Learn more</a>
         </p>
+        <knotx:snippet knots="te"
+                       te-strategy="acme"
+                       type="text/knotx-snippet">
+          This will be replaced!
+        </knotx:snippet>
       </div>
     </div>
   </div>
   <div class="row">
-    <knotx:snippet knots="databridge,handlebars"
+    <knotx:snippet knots="databridge,te"
             databridge-name="first-service"
             databridge-name-second="second-service"
             databridge-name-third="third-service"
@@ -70,7 +75,7 @@
   </div>
   <div class="row">
     <div class="col-md-4">
-      <knotx:snippet knots="databridge,handlebars"
+      <knotx:snippet knots="databridge,te"
               databridge-name="second-service"
               type="text/knotx-snippet">
         <h2>Snippet2 - {{_result.message}}</h2>
@@ -79,7 +84,7 @@
       </knotx:snippet>
     </div>
     <div class="col-md-4">
-      <knotx:snippet knots="databridge,handlebars"
+      <knotx:snippet knots="databridge,te"
               databridge-name="third-service"
               type="text/knotx-snippet">
         <h2>Snippet3 - {{_result.message}}</h2>
@@ -87,11 +92,35 @@
       </knotx:snippet>
     </div>
     <div class="col-md-4">
-      <knotx:snippet knots="databridge,handlebars"
+      <knotx:snippet knots="databridge,te"
               databridge-name="third-service"
               type="text/knotx-snippet">
         <h2>Snippet4 - {{_result.message}}</h2>
         <p>Snippet4 - {{encode_uri _result.url}}</p>
+      </knotx:snippet>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-4">
+      <knotx:snippet knots="databridge,te"
+                     databridge-name="missing-service"
+                     type="text/knotx-snippet">
+        <h2>Snippet4 - {{_result.message}}</h2>
+        <p>Snippet4 - {{_result.body.a}}</p>
+        {{#string_equals _result.status "success"}}<p>Success!</p>{{/string_equals}}
+      </knotx:snippet>
+    </div>
+    <div class="col-md-4">
+      <knotx:fallback fallback-id="ACME_CUSTOM_FALLBACK">
+        <h2>Snippet5 - fallback</h2>
+        <p class="error">This is ACME custom Fallback</p>
+      </knotx:fallback>
+      <knotx:snippet knots="databridge,te"
+                     databridge-name="missing-service"
+                     fallback="ACME_CUSTOM_FALLBACK"
+                     type="text/knotx-snippet">
+        <h2>Snippet5 - {{_result.message}}</h2>
+        <p>Snippet5 - {{_result.body.a}}</p>
       </knotx:snippet>
     </div>
   </div>

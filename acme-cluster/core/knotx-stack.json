@@ -14,7 +14,7 @@
 //
 {
   "variables": {
-    "vertx.version": "3.5.1",
+    "vertx.version": "3.5.4",
     "tcnative.version": "2.0.7.Final",
     "knotx.version": "1.5.0-SNAPSHOT",
     "acme.version": "1.5.0-SNAPSHOT"
@@ -22,9 +22,9 @@
   "dependencies": [
     //Project dependencies
     {
-      "groupId": "io.knotx",
-      "artifactId": "knotx-mocks",
-      "version": "${knotx.version}",
+      "groupId": "io.knotx.acme",
+      "artifactId": "acme-sample-service",
+      "version": "${acme.version}",
       "included": true,
       "transitive": false
     },
@@ -53,33 +53,52 @@
       "version": "${knotx.version}",
       "included": true
     },
+    // Knot.x Ext dependencies
     {
       "groupId": "io.knotx",
-      "artifactId": "knotx-knot-service",
+      "artifactId": "knotx-databridge-api",
       "version": "${knotx.version}",
       "included": true
     },
     {
       "groupId": "io.knotx",
-      "artifactId": "knotx-knot-action",
+      "artifactId": "knotx-databridge-core",
       "version": "${knotx.version}",
       "included": true
     },
     {
       "groupId": "io.knotx",
-      "artifactId": "knotx-knot-handlebars",
+      "artifactId": "knotx-databridge-adapter-http",
       "version": "${knotx.version}",
       "included": true
     },
     {
       "groupId": "io.knotx",
-      "artifactId": "knotx-adapter-common",
+      "artifactId": "knotx-forms-api",
       "version": "${knotx.version}",
       "included": true
     },
     {
       "groupId": "io.knotx",
-      "artifactId": "knotx-adapter-service-http",
+      "artifactId": "knotx-forms-core",
+      "version": "${knotx.version}",
+      "included": true
+    },
+    {
+      "groupId": "io.knotx",
+      "artifactId": "knotx-template-engine-api",
+      "version": "${knotx.version}",
+      "included": true
+    },
+    {
+      "groupId": "io.knotx",
+      "artifactId": "knotx-template-engine-core",
+      "version": "${knotx.version}",
+      "included": true
+    },
+    {
+      "groupId": "io.knotx",
+      "artifactId": "knotx-template-engine-handlebars",
       "version": "${knotx.version}",
       "included": true
     },
