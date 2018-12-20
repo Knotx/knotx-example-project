@@ -4,6 +4,8 @@ All notable changes to `knotx-example-project` will be documented in this file.
 ## Unreleased
 List of changes that are finished but not yet released in any final version.
 
+## 1.5.0
+
 - [PR-33](https://github.com/Knotx/knotx-example-project/pull/33) - Update cluster to use template engine, replace mocks with simple httpd-based images
 - [PR-32](https://github.com/Knotx/knotx-example-project/pull/32) - Switched examples from `handlebars knot` to `knotx template engine`, example TE strategy implementation
 - [PR-25](https://github.com/Knotx/knotx-example-project/pull/25) - Fixed multiple-forms example. Updated Forms Knot attributes.
