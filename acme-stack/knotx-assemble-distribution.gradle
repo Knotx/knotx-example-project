@@ -15,6 +15,7 @@ dependencies {
   deps project(':acme-forms-adapter-http')
   deps project(':acme-sample-service')
   deps project(':acme-template-engine')
+  deps project(':acme-datasource-adapter')
 }
 
 task cleanDistribution(type: Delete) {

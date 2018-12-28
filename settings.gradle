@@ -6,6 +6,8 @@ include 'acme-handlebars-ext'
 include 'acme-sample-service'
 include 'acme-template-engine'
 include 'acme-stack'
+include 'acme-datasource-adapter'
 
 // enables BOM import before gradle 5.0 is out
 enableFeaturePreview("IMPROVED_POM_SUPPORT")
+

@@ -1,0 +1,10 @@
+[[ExampleDataSourceOptions]]
+== ExampleDataSourceOptions
+
+
+[cols=">25%,^25%,50%"]
+[frame="topbot"]
+|===
+^|Name | Type ^| Description
+|[[address]]`address`|`String`|-
+|===
