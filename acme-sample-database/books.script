@@ -1,0 +1,59 @@
+SET DATABASE UNIQUE NAME HSQLDB48B5668F44
+SET DATABASE GC 0
+SET DATABASE DEFAULT RESULT MEMORY ROWS 0
+SET DATABASE EVENT LOG LEVEL 0
+SET DATABASE TRANSACTION CONTROL LOCKS
+SET DATABASE DEFAULT ISOLATION LEVEL READ COMMITTED
+SET DATABASE TRANSACTION ROLLBACK ON CONFLICT TRUE
+SET DATABASE TEXT TABLE DEFAULTS ''
+SET DATABASE SQL NAMES FALSE
+SET DATABASE SQL REFERENCES FALSE
+SET DATABASE SQL SIZE TRUE
+SET DATABASE SQL TYPES FALSE
+SET DATABASE SQL TDC DELETE TRUE
+SET DATABASE SQL TDC UPDATE TRUE
+SET DATABASE SQL TRANSLATE TTI TYPES TRUE
+SET DATABASE SQL CONCAT NULLS TRUE
+SET DATABASE SQL UNIQUE NULLS TRUE
+SET DATABASE SQL CONVERT TRUNCATE TRUE
+SET DATABASE SQL AVG SCALE 0
+SET DATABASE SQL DOUBLE NAN TRUE
+SET FILES WRITE DELAY 0
+SET FILES BACKUP INCREMENT TRUE
+SET FILES CACHE SIZE 10000
+SET FILES CACHE ROWS 50000
+SET FILES SCALE 32
+SET FILES LOB SCALE 32
+SET FILES DEFRAG 0
+SET FILES NIO TRUE
+SET FILES NIO SIZE 256
+SET FILES LOG TRUE
+SET FILES LOG SIZE 50
+CREATE USER SA PASSWORD DIGEST 'd41d8cd98f00b204e9800998ecf8427e'
+ALTER USER SA SET LOCAL TRUE
+CREATE SCHEMA PUBLIC AUTHORIZATION DBA
+SET SCHEMA PUBLIC
+CREATE MEMORY TABLE PUBLIC.BOOKS(ID INTEGER NOT NULL PRIMARY KEY,TITLE VARCHAR(255) NOT NULL,ISBN VARCHAR(13) NOT NULL,SYNOPSIS VARCHAR(255),UNIQUE(ISBN))
+CREATE MEMORY TABLE PUBLIC.AUTHORS(ID INTEGER NOT NULL PRIMARY KEY,NAME VARCHAR(128) NOT NULL,AGE INTEGER)
+ALTER SEQUENCE SYSTEM_LOBS.LOB_ID RESTART WITH 1
+SET DATABASE DEFAULT INITIAL SCHEMA PUBLIC
+GRANT USAGE ON DOMAIN INFORMATION_SCHEMA.SQL_IDENTIFIER TO PUBLIC
+GRANT USAGE ON DOMAIN INFORMATION_SCHEMA.YES_OR_NO TO PUBLIC
+GRANT USAGE ON DOMAIN INFORMATION_SCHEMA.TIME_STAMP TO PUBLIC
+GRANT USAGE ON DOMAIN INFORMATION_SCHEMA.CARDINAL_NUMBER TO PUBLIC
+GRANT USAGE ON DOMAIN INFORMATION_SCHEMA.CHARACTER_DATA TO PUBLIC
+GRANT DBA TO SA
+SET SCHEMA SYSTEM_LOBS
+INSERT INTO BLOCKS VALUES(0,2147483647,0)
+SET SCHEMA PUBLIC
+INSERT INTO BOOKS VALUES(1,'RxJava Essentials','9781784393571','If you are an experienced Java developer, reactive programming will give you a new way to approach scalability and concurrency in your backend systems, without forcing you to switch programming languages.')
+INSERT INTO BOOKS VALUES(2,'Reactive Programming with RxJava','9781491931622','In today''s app-driven era, when programs are asynchronous and responsiveness is so vital, reactive programming can help you write code that''s more reliable, easier to scale, and better-performing. With this practical book, Java developers will first learn how to view problems in the reactive way, and then build programs that leverage the best features of this exciting new programming paradigm.')
+INSERT INTO BOOKS VALUES(3,'Reactive Java Programming','9781484214282','Learn reactive programming using Java and its functional aspects, sometimes called RxJava. This book shows you how to solve "callback hell" with RxJava and shows you how to write thread-safe code without hanging onto state variables which comes in handy for cloud computing software-as-a-service issues, especially when dealing with big data processes through streaming.')
+INSERT INTO BOOKS VALUES(4,'Learning Reactive Programming with Java 8','9781785282508','Whether you are a Java expert or at a beginner level, you''ll benefit from this book, because it will teach you a brand new way of coding and thinking. The book starts with an explanation of what reactive programming is, why it is so appealing, and how we can integrate it in to Java.')
+INSERT INTO BOOKS VALUES(5,'Learning Rxjava','9781787120426','Build concurrent, easy to maintain, and responsive applications in JavaAbout This Book Explore the essential tools and operators RxJava provides, and know which situations to use them in Delve into Observables and Subscribers, the core components of RxJava used for building scalable and performant reactive applications.')
+INSERT INTO BOOKS VALUES(6,'Clojure Reactive Programming','9781783986675','If you are a Clojure developer who is interested in using Reactive Programming to build asynchronous and concurrent applications, this book is for you. Knowledge of Clojure and Leiningen is required. Basic understanding of ClojureScript will be helpful for the web chapters, although it is not strictly necessary.')
+INSERT INTO AUTHORS VALUES (1, 'Ivan Morgillo', 58)
+INSERT INTO AUTHORS VALUES (2, 'Tomasz Nurkiewicz', 40)
+INSERT INTO AUTHORS VALUES (3, 'Ben Christensen', 64)
+INSERT INTO AUTHORS VALUES (4, 'Andrea Maglie', 19)
+INSERT INTO AUTHORS VALUES (5, 'Nickolay Tsvetinov', 51)
