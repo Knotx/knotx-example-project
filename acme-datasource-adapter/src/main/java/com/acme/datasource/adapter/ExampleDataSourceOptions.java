@@ -11,11 +11,11 @@ public class ExampleDataSourceOptions {
     ExampleDataSourceOptionsConverter.fromJson(config, this);
   }
 
-  String getAddress() {
+  public String getAddress() {
     return address;
   }
 
-  ExampleDataSourceOptions setAddress(String address) {
+  public ExampleDataSourceOptions setAddress(String address) {
     this.address = address;
     return this;
   }
