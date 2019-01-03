@@ -16,8 +16,8 @@
   "variables": {
     "vertx.version": "3.5.4",
     "tcnative.version": "2.0.7.Final",
-    "knotx.version": "1.5.0-SNAPSHOT",
-    "acme.version": "1.5.0-SNAPSHOT"
+    "knotx.version": "1.5.1-SNAPSHOT",
+    "acme.version": "1.5.1-SNAPSHOT"
   },
   "dependencies": [
     //Project dependencies

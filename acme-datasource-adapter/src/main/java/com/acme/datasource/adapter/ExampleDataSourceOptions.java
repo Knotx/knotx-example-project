@@ -5,6 +5,7 @@ import io.vertx.core.json.JsonObject;
 
 @DataObject(generateConverter = true, publicConverter = false)
 public class ExampleDataSourceOptions {
+
   private String address;
 
   public ExampleDataSourceOptions(JsonObject config) {

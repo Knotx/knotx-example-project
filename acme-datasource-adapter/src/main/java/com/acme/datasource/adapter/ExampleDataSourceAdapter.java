@@ -28,7 +28,8 @@ public class ExampleDataSourceAdapter extends AbstractVerticle {
 
   @Override
   public void start() throws Exception {
-    LOGGER.info("Starting <{}>", this.getClass().getSimpleName());
+    LOGGER.info("Starting <{}>", this.getClass()
+                                     .getSimpleName());
 
     //register the service proxy on event bus
     serviceBinder = new ServiceBinder(getVertx());

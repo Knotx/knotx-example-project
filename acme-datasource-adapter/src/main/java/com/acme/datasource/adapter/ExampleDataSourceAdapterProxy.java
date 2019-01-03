@@ -9,13 +9,15 @@ import io.vertx.core.buffer.Buffer;
 import io.vertx.core.logging.Logger;
 import io.vertx.core.logging.LoggerFactory;
 
-public class ExampleDataSourceAdapterProxy  extends AbstractDataSourceAdapterProxy {
+public class ExampleDataSourceAdapterProxy extends AbstractDataSourceAdapterProxy {
 
   private static final Logger LOGGER = LoggerFactory.getLogger(ExampleDataSourceAdapterProxy.class);
 
   @Override
-  protected Single<DataSourceAdapterResponse> processRequest(DataSourceAdapterRequest adapterRequest) {
-    final String message = adapterRequest.getParams().getString("message");
+  protected Single<DataSourceAdapterResponse> processRequest(
+      DataSourceAdapterRequest adapterRequest) {
+    final String message = adapterRequest.getParams()
+                                         .getString("message");
     LOGGER.info("Processing request with message: `{}`", message);
     return prepareResponse(message);
   }
