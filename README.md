@@ -18,8 +18,8 @@ The example project consists of:
 - `acme-gateway` - provides the Gateway API interface that can be used by front-end integration
 - `acme-handlebars-ext` - adds custom Handlebars directives
 - `acme-sample-service` - runs the HTTP server on the `3000` port, which mocks real JSON service responses
-- `acme-sample-database` - docker image with simple HSQLDB database instance.
-- `acme-datasource-adapter` - Simple custom data source adapter implementation.
+- `knotx-databridge` - modules which extends [Knot.x Data Bridge](https://github.com/Knotx/knotx-data-bridge)
+  - `acme-db-datasource-adapter` - Placeholder for data source adapter implementation, and docker image with simple HSQLDB database instance 
 
 The `acme-stack` module contains all required artifacts to build the example distribution. The result 
 of the build process is a ZIP file that you can deploy to the server, extract and run with 

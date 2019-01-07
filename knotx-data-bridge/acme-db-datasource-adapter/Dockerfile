@@ -1,6 +1,6 @@
 FROM java:openjdk-8-jre-alpine
 
-RUN apk add --update bash curl unzip
+RUN apk add --no-cache bash curl unzip
 
 RUN curl http://iweb.dl.sourceforge.net/project/hsqldb/hsqldb/hsqldb_2_4/hsqldb-2.4.1.zip -o /tmp/hsqldb-2.4.1.zip \
     && unzip /tmp/hsqldb-2.4.1.zip -d /opt \

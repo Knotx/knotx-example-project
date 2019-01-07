@@ -54,7 +54,7 @@
     },
     {
       "groupId": "io.knotx.acme",
-      "artifactId": "acme-datasource-adapter",
+      "artifactId": "acme-db-datasource-adapter",
       "version": "${acme.version}",
       "included": true
     },

@@ -100,7 +100,7 @@
     <module>acme-sample-service</module>
     <module>acme-template-engine</module>
     <module>acme-stack</module>
-    <module>acme-datasource-adapter</module>
+    <module>knotx-data-bridge/acme-db-datasource-adapter</module>
   </modules>
 
   <dependencyManagement>

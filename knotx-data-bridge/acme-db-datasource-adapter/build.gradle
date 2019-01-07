@@ -10,25 +10,13 @@ defaultTasks 'build'
 dependencies {
   compileOnly "io.knotx:knotx-dependencies:$knotxVersion"
 
-  compileOnly 'io.knotx:knotx-core'
   compileOnly 'io.knotx:knotx-databridge-api'
   compileOnly 'io.vertx:vertx-core'
   compileOnly 'io.vertx:vertx-rx-java2'
   compileOnly 'io.vertx:vertx-codegen'
-  compileOnly 'io.vertx:vertx-service-proxy'
 
 
-  testCompile 'junit:junit'
-  testCompile 'org.powermock:powermock-api-mockito'
-  testCompile 'org.powermock:powermock-module-junit4'
-  testCompile 'org.hamcrest:hamcrest-all'
-  testCompile 'org.mockito:mockito-all'
-  testCompile 'io.vertx:vertx-unit'
-  testCompile 'io.vertx:vertx-config'
-  testCompileOnly 'io.vertx:vertx-codegen'
-
-  testCompile 'io.knotx:knotx-core::tests'
-  testCompile "io.knotx:knotx-mocks:$knotxVersion"
+  testCompileOnly 'io.knotx:knotx-databridge-api'
 }
 sourceSets {
   main {

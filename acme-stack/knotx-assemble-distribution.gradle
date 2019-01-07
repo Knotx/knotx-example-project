@@ -15,7 +15,7 @@ dependencies {
   deps project(':acme-forms-adapter-http')
   deps project(':acme-sample-service')
   deps project(':acme-template-engine')
-  deps project(':acme-datasource-adapter')
+  deps project(':knotx-data-bridge/acme-db-datasource-adapter')
 }
 
 task cleanDistribution(type: Delete) {
