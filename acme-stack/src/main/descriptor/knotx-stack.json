@@ -52,12 +52,6 @@
       "version": "${acme.version}",
       "included": true
     },
-    {
-      "groupId": "io.knotx.acme",
-      "artifactId": "acme-db-datasource-adapter",
-      "version": "${acme.version}",
-      "included": true
-    },
     //Knot.x dependencies
     {
       "groupId": "io.knotx",

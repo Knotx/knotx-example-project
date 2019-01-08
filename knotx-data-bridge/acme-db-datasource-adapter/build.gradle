@@ -11,12 +11,10 @@ dependencies {
   compileOnly "io.knotx:knotx-dependencies:$knotxVersion"
 
   compileOnly 'io.knotx:knotx-databridge-api'
-  compileOnly 'io.vertx:vertx-core'
-  compileOnly 'io.vertx:vertx-rx-java2'
   compileOnly 'io.vertx:vertx-codegen'
 
-
   testCompileOnly 'io.knotx:knotx-databridge-api'
+  testCompileOnly 'io.knotx:knotx-junit5'
 }
 sourceSets {
   main {
