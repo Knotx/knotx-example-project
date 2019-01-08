@@ -50,10 +50,10 @@
   </div>
   <div class="row">
     <knotx:snippet knots="databridge,te"
-                   databridge-name="first-service"
-                   databridge-name-second="second-service"
-                   databridge-name-third="third-service"
-                   type="text/knotx-snippet">
+            databridge-name="first-service"
+            databridge-name-second="second-service"
+            databridge-name-third="third-service"
+            type="text/knotx-snippet">
 
       <div class="col-md-4">
         <h2>Snippet1 - {{_result.message}}</h2>
@@ -76,8 +76,8 @@
   <div class="row">
     <div class="col-md-4">
       <knotx:snippet knots="databridge,te"
-                     databridge-name="second-service"
-                     type="text/knotx-snippet">
+              databridge-name="second-service"
+              type="text/knotx-snippet">
         <h2>Snippet2 - {{_result.message}}</h2>
         <p>Snippet2 - {{_result.body.a}}</p>
         {{#string_equals _result.status "success"}}<p>Success!</p>{{/string_equals}}
@@ -85,16 +85,16 @@
     </div>
     <div class="col-md-4">
       <knotx:snippet knots="databridge,te"
-                     databridge-name="third-service"
-                     type="text/knotx-snippet">
+              databridge-name="third-service"
+              type="text/knotx-snippet">
         <h2>Snippet3 - {{_result.message}}</h2>
         <p>Snippet3 - {{_result.body.a}}</p>
       </knotx:snippet>
     </div>
     <div class="col-md-4">
       <knotx:snippet knots="databridge,te"
-                     databridge-name="third-service"
-                     type="text/knotx-snippet">
+              databridge-name="third-service"
+              type="text/knotx-snippet">
         <h2>Snippet4 - {{_result.message}}</h2>
         <p>Snippet4 - {{encode_uri _result.url}}</p>
       </knotx:snippet>
@@ -121,17 +121,6 @@
                      type="text/knotx-snippet">
         <h2>Snippet5 - {{_result.message}}</h2>
         <p>Snippet5 - {{_result.body.a}}</p>
-      </knotx:snippet>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-4">
-      <knotx:snippet knots="databridge,te"
-                     databridge-name="customDataSource"
-                     fallback="ACME_CUSTOM_FALLBACK"
-                     type="text/knotx-snippet">
-        <h2>Snippet6 - Custom data source</h2>
-        <p>Snippet6 - {{_result.message}}</p>
       </knotx:snippet>
     </div>
   </div>
