@@ -34,31 +34,23 @@
       <artifactId>knotx-databridge-api</artifactId>
       <scope>provided</scope>
     </dependency>
-    <dependency>
-      <groupId>io.vertx</groupId>
-      <artifactId>vertx-codegen</artifactId>
-      <scope>provided</scope>
-    </dependency>
+
     <dependency>
       <groupId>io.vertx</groupId>
       <artifactId>vertx-jdbc-client</artifactId>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.hsqldb</groupId>
+      <artifactId>hsqldb</artifactId>
+      <version>2.4.0</version>
       <scope>provided</scope>
     </dependency>
 
     <!-- Tests -->
     <dependency>
       <groupId>io.knotx</groupId>
-      <artifactId>knotx-databridge-api</artifactId>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>io.knotx</groupId>
       <artifactId>knotx-junit5</artifactId>
-      <scope>test</scope>
-    </dependency>
-    <dependency>
-      <groupId>io.vertx</groupId>
-      <artifactId>vertx-junit5</artifactId>
       <scope>test</scope>
     </dependency>
   </dependencies>

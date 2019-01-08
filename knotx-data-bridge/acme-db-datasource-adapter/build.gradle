@@ -12,9 +12,12 @@ dependencies {
 
   compileOnly 'io.knotx:knotx-databridge-api'
   compileOnly 'io.vertx:vertx-codegen'
+  compileOnly 'io.vertx:vertx-jdbc-client'
+  compileOnly 'org.hsqldb:hsqldb:2.4.0'
 
-  testCompileOnly 'io.knotx:knotx-databridge-api'
-  testCompileOnly 'io.knotx:knotx-junit5'
+  testCompile 'io.knotx:knotx-databridge-api'
+  testCompile 'io.knotx:knotx-junit5'
+
 }
 sourceSets {
   main {
@@ -54,3 +57,12 @@ task annotationProcessingCleanup() {
 annotationProcessing.dependsOn annotationProcessingCleanup
 
 compileJava.dependsOn annotationProcessing
+
+test {
+  useJUnitPlatform()
+  include 'io/knotx/databridge/**'
+
+  systemProperties = [
+      'vertx.logger-delegate-factory-class-name': 'io.vertx.core.logging.SLF4JLogDelegateFactory'
+  ]
+}
