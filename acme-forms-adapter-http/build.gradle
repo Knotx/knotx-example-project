@@ -1,10 +1,4 @@
-plugins {
-  id 'java'
-}
-
 description = 'Acme Project - Forms Adapter HTTP'
-
-defaultTasks 'build'
 
 dependencies {
   compileOnly "io.knotx:knotx-dependencies:$knotxVersion"
@@ -30,42 +24,5 @@ dependencies {
   testCompile 'io.knotx:knotx-core::tests'
   testCompile "io.knotx:knotx-mocks:$knotxVersion"
 }
-
-sourceSets {
-  main {
-    java {
-      srcDirs += 'src/main/generated'
-    }
-  }
-  test {
-    resources {
-      srcDirs += 'src/test/resources'
-    }
-  }
-}
-
-clean.doFirst {
-  file('src/main/generated').deleteDir()
-}
-
-task annotationProcessing(type: JavaCompile, group: 'build') { // codegen
-  source = sourceSets.main.java
-  classpath = configurations.compile + configurations.compileOnly
-  destinationDir = project.file('src/main/generated')
-  options.compilerArgs = [
-      "-proc:only",
-      "-processor", "io.vertx.codegen.CodeGenProcessor",
-      "-Acodegen.output=${destinationDir.absolutePath}"
-  ]
-}
-
-task annotationProcessingCleanup() {
-  doLast {
-    delete "${project.projectDir}/src/main/generated"
-    println "Removing: ${project.projectDir}/src/main/generated"
-  }
-}
-
-annotationProcessing.dependsOn annotationProcessingCleanup
 
 compileJava.dependsOn annotationProcessing

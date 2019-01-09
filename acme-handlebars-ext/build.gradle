@@ -1,10 +1,4 @@
-plugins {
-  id 'java'
-}
-
 description = 'Acme Project - Knot.x handlebars extensions'
-
-defaultTasks 'build'
 
 dependencies {
   implementation 'io.knotx:knotx-template-engine-handlebars'

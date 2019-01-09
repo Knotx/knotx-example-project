@@ -1,10 +1,4 @@
-plugins {
-  id 'java'
-}
-
 description = 'Acme Project - Sample service'
-
-defaultTasks 'build'
 
 dependencies {
   implementation 'io.knotx:knotx-core'
