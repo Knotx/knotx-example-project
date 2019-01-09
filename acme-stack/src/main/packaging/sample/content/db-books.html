@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Knot.x</title>
+  <link href="https://bootswatch.com/4/superhero/bootstrap.min.css" rel="stylesheet"/>
+</head>
+<body>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="panel panel-default">
+        <div class="panel-heading">Books list</div>
+        <div class="panel-body">
+          This section lists books from the database.
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <!-- list all books here -->
+    <knotx:fallback fallback-id="BOOKS_FALLBACK">
+      <h2>BOOKS LIST</h2>
+      <p class="error">Cannot fetch book list</p>
+    </knotx:fallback>
+
+    <knotx:snippet knots="databridge,te"
+                   databridge-name="books-listing"
+                   fallback="BOOKS_FALLBACK"
+                   type="text/knotx-snippet">
+      {{#each _result}}
+      <div class="col-sm-4">
+        <div class="card">
+          <div class="card-block">
+            <h2 class="card-title">{{this.TITLE}}</h2>
+            <h4 class="card-title">{{this.ISBN}}</h4>
+            <p class="card-text">
+              {{this.SYNOPSIS}}
+            </p>
+          </div>
+        </div>
+      </div>
+      {{/each}}
+    </knotx:snippet>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="panel panel-default">
+        <div class="panel-heading">Authors list</div>
+        <div class="panel-body">
+          This section lists authors from the database.
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <!-- list all authors here -->
+    <knotx:fallback fallback-id="AUTHORS_FALLBACK">
+      <h2>BOOKS LIST</h2>
+      <p class="error">Cannot fetch book list</p>
+    </knotx:fallback>
+    <knotx:snippet knots="databridge,te"
+                   databridge-name="authors-listing"
+                   fallback="AUTHORS_FALLBACK"
+                   type="text/knotx-snippet">
+      {{#each _result}}
+      <div class="col-sm-4">
+        <div class="card">
+          <div class="card-block">
+            <h2 class="card-title">{{this.NAME}}</h2>
+            <h4 class="card-title">{{this.AGE}}</h4>
+          </div>
+        </div>
+      </div>
+      {{/each}}
+    </knotx:snippet>
+  </div>
+</div>
+</body>
+</html>

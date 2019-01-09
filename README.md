@@ -94,6 +94,7 @@ Knot.x works in two modes:
     - [http://localhost:8092/content/simple.html](http://localhost:8092/content/simple.html)
     - [http://localhost:8092/content/login/step1.html](http://localhost:8092/content/login/step1.html)
     - [http://localhost:8092/content/multiple-forms.html](http://localhost:8092/content/multiple-forms.html)
+    - [http://localhost:8092/content/db-books.html](http://localhost:8092/content/db-books.html) _Note_: to have it working you need to run local DB. Details can be found [Readme](https://github.com/Knotx/knotx-example-project/tree/master/knotx-data-bridge/acme-db-datasource-adapter) 
   - [Gateway mode](https://github.com/Cognifide/knotx/wiki/GatewayMode) providing REST API (front-end integration)
     - [http://localhost:8092/customFlow/](http://localhost:8092/customFlow/)
 

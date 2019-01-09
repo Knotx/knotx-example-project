@@ -5,10 +5,10 @@ dependencies {
 
   compileOnly 'io.knotx:knotx-databridge-api'
   compileOnly 'io.vertx:vertx-codegen'
-  compileOnly 'io.vertx:vertx-jdbc-client'
-  compileOnly 'org.hsqldb:hsqldb:2.4.0'
+  compile 'io.vertx:vertx-jdbc-client'
+  compile 'org.hsqldb:hsqldb:2.4.0'
 
-  testCompile 'io.knotx:knotx-databridge-api'
+  testCompileOnly 'io.knotx:knotx-databridge-api'
   testCompile 'io.knotx:knotx-junit5'
   testCompile 'io.vertx:vertx-jdbc-client'
   testCompile  'org.hsqldb:hsqldb:2.4.0'
