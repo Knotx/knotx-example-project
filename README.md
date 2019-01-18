@@ -19,7 +19,7 @@ The example project consists of:
 - `acme-handlebars-ext` - adds custom Handlebars directives
 - `acme-sample-service` - runs the HTTP server on the `3000` port, which mocks real JSON service responses
 - `knotx-databridge` - modules which extends [Knot.x Data Bridge](https://github.com/Knotx/knotx-data-bridge)
-  - `acme-db-datasource-adapter` - Placeholder for data source adapter implementation, and docker image with simple HSQLDB database instance 
+  - `acme-db-datasource-adapter` - a sample JDBC Data Source Adapter to demonstrate how to implement and configure custom Data Source Adapters in Data Bridge (contains a docker image with a sample HSQLDB database instance)  
 
 The `acme-stack` module contains all required artifacts to build the example distribution. The result 
 of the build process is a ZIP file that you can deploy to the server, extract and run with 
@@ -94,7 +94,7 @@ Knot.x works in two modes:
     - [http://localhost:8092/content/simple.html](http://localhost:8092/content/simple.html)
     - [http://localhost:8092/content/login/step1.html](http://localhost:8092/content/login/step1.html)
     - [http://localhost:8092/content/multiple-forms.html](http://localhost:8092/content/multiple-forms.html)
-    - [http://localhost:8092/content/db-books.html](http://localhost:8092/content/db-books.html) _Note_: to have it working you need to run local DB. Details can be found [Readme](https://github.com/Knotx/knotx-example-project/tree/master/knotx-data-bridge/acme-db-datasource-adapter) 
+    - [http://localhost:8092/content/db-books.html](http://localhost:8092/content/db-books.html) _Note_: to have it working you need to run your local HSQLDB instance. More details can be found [here](https://github.com/Knotx/knotx-example-project/tree/master/knotx-data-bridge/acme-db-datasource-adapter). 
   - [Gateway mode](https://github.com/Cognifide/knotx/wiki/GatewayMode) providing REST API (front-end integration)
     - [http://localhost:8092/customFlow/](http://localhost:8092/customFlow/)
 
