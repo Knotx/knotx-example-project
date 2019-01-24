@@ -15,9 +15,6 @@ services:
   fs-repo:
     build: ./fsRepo
     image: acme-fs-repo:latest
-  gateway:
-    build: ./gateway
-    image: acme-gateway:latest
   te-1:
     build: ./templateEngine
     image: acme-te-1:latest
