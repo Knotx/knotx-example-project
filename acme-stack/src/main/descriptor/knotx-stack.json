@@ -41,6 +41,12 @@
       "included": true
     },
     {
+      "groupId": "io.knotx.acme",	
+      "artifactId": "acme-gateway",	
+      "version": "${acme.version}",	
+      "included": true	
+    },
+    {
       "groupId": "io.knotx.acme",
       "artifactId": "acme-template-engine",
       "version": "${acme.version}",
