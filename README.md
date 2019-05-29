@@ -1,102 +1,19 @@
-[![][travis img]][travis]
 [![][license img]][license]
+[![][gitter img]][gitter]
+
+> If you are looking for examples with Knot.x 1.X version please see this repository Tags,
+the latest 1.5.0 version code is available
+[here](https://github.com/Knotx/knotx-example-project/tree/1.5.0).
+
+### This repository is under construction... :)
 
 # Knot.x example project
-The example project shows how you can use Knot.x and develop it in a real project. Uses the 
-[Knot.x Stack](https://github.com/Knotx/knotx-stack) distribution and provides custom configuration 
-files, sample content and modules. 
-
-## Prerequisites
-- JDK 8+
-- Maven or Gradle
-
-## Getting started
-The example project consists of:
-
-- `acme-stack` - contains all configuration files and the sample content
-- `acme-forms-adapter-http` - handles forms submit requests (POSTs), executes business logic and redirects to the next step / confirmation page / stay on the same page
-- `acme-gateway` - provides the Gateway API interface that can be used by front-end integration
-- `acme-handlebars-ext` - adds custom Handlebars directives
-- `acme-sample-service` - runs the HTTP server on the `3000` port, which mocks real JSON service responses
-
-The `acme-stack` module contains all required artifacts to build the example distribution. The result 
-of the build process is a ZIP file that you can deploy to the server, extract and run with 
-`bin\knotx run-knotx`. The `run-knotx` command starts all Knot.x modules, configures logs, and sets 
-Java options. Note that all dependencies like `acme-forms-adapter-http`, `acme-gateway`, 
-`acme-handlebars-ext` and `acme-sample-service` are build and copied to the distribution.
-
-### How to build
-Clone the repository and build the example project:
-
-#### Maven build
-
-Let's run the command below:
-```
-$> mvn package
-```
-The distribution ZIP file location is `acme-stack/target/knotx-example-project-stack-X.X.X.zip`.
-
-#### Gradle build
-Let's run the command below:
-```
-$> gradlew
-```
-The distribution ZIP file location is `acme-stack/build/distributions/knotx-example-project-stack-X.X.X.zip`
-
-### How to run
-- Download and unpack latest [knotx-example-project-stack](https://bintray.com/knotx/downloads/examples)
-or
-- clone the repository and build the example project
-
-#### Run locally:
-Go to the `acme-stack` folder in the unpacked zip file and run the Knot.x script 
-
-##### Unix and MacOS
-```
-$> bin/knotx run-knotx
-```
-
-##### Windows
-```
-$> bin\knotx.bat run-knotx
-```
-
-#### Run docker
-Build image from dockerfile being in the `knotx-example-project` folder
-```
-$> docker build -t acme/knotx-example .
-```
-Run Knot.x container in background
-```
-$> docker run -d -p8092:8092 acme/knotx-example knotx-example
-```
-
-Follow logs
-```
-$> docker logs -f knotx-example
-```
-
-#### Run Knot.x cluster
-Clone this repository and go to `acme-cluster` folder and run the Knot.x cluster
-```
-$> docker-compose up
-```
-
-### How to verify
-
-Knot.x works in two modes:
-  - templating engine with custom business logic that integrates with any data source using 
-  [Knot.x Forms](https://github.com/Knotx/knotx-forms),
-  [Knot.x Data Bridge](https://github.com/Knotx/knotx-data-bridge) and 
-  [Handlebars](https://github.com/Cognifide/knotx/wiki/HandlebarsKnot) (back-end integration)
-    - [http://localhost:8092/content/simple.html](http://localhost:8092/content/simple.html)
-    - [http://localhost:8092/content/login/step1.html](http://localhost:8092/content/login/step1.html)
-    - [http://localhost:8092/content/multiple-forms.html](http://localhost:8092/content/multiple-forms.html)
-  - [Gateway mode](https://github.com/Cognifide/knotx/wiki/GatewayMode) providing REST API (front-end integration)
-    - [http://localhost:8092/api/acmeEndpoint.json](http://localhost:8092/api/acmeEndpoint.json)
-
-[travis]:https://travis-ci.org/Knotx/knotx-example-project
-[travis img]:https://travis-ci.org/Knotx/knotx-example-project.svg?branch=master
+The example project shows how you can use Knot.x and develop it in a real project.
+Each module presents different use case, please refer to `README.md` files inside the modules of
+this repository.
 
 [license]:https://github.com/Cognifide/knotx/blob/master/LICENSE
 [license img]:https://img.shields.io/badge/License-Apache%202.0-blue.svg
+
+[gitter]:https://gitter.im/Knotx/Lobby
+[gitter img]:https://badges.gitter.im/Knotx/knotx-extensions.svg

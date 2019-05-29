@@ -3,9 +3,7 @@ All notable changes to `knotx-example-project` will be documented in this file.
 
 ## Unreleased
 List of changes that are finished but not yet released in any final version.
-
-## 2.0.0-SNAPSHOT
-- [PR-37](https://github.com/Knotx/knotx-example-project/pull/37) - Remove old Gateway API configuration.
+- New repository structure.
 
 ## 1.5.0
 - [PR-33](https://github.com/Knotx/knotx-example-project/pull/33) - Update cluster to use template engine, replace mocks with simple httpd-based images
