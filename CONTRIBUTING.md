@@ -27,7 +27,7 @@ I hereby agree to the terms of the Knot.x Contributor License Agreement.
 ```
 
 ## Documentation
-All documentation for this repository will be kept in the [`README.md`](README.md) file. If you would like to create a tutorial descibing how to use this module you are most welcome to contribute a [Knot.x tutorial](https://github.com/Knotx/knotx-website#tutorials) to knotx.io(http://knotx.io/tutorials/.
+All documentation for this repository will be kept in the [`README.md`](README.md) file. If you would like to create a tutorial descibing how to use this module you are most welcome to contribute a [Knot.x tutorial](https://github.com/Knotx/knotx-website#tutorials) to [knotx.io](http://knotx.io/tutorials/).
 
 ## Changelog
 When changing or fixing some important part of Knot.x, please remember to update [Changelog](CHANGELOG.md).
