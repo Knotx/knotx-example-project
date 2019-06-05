@@ -6,11 +6,12 @@
 
 
 ## Run
+Build first Knot.X docker image
 ```
 $ docker build . -t gateway-api/knotx
 ```
 
-Run Knot.x instance and example data services (Web API and Content Repository) in a single node Docker Swarm:
+Run Knot.x instance and example Web API services (User details, Payment API) in a single node Docker Swarm:
 ```
 $ docker swarm init
 
