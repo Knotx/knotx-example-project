@@ -1,0 +1,26 @@
+{
+  "_id": "5cee7d620a281607d18cf8d5",
+  "score": 123.321,
+  "age": 22,
+  "eyeColor": "blue",
+  "name": {
+    "first": "Claudine",
+    "last": "Sellers"
+  },
+  "company": "GAZAK",
+  "email": "claudine.sellers@gazak.co.uk",
+  "phone": "+1 (844) 442-3950",
+  "address": "670 Rutland Road, Brethren, Montana, 9555",
+  "about": "Fugiat qui in eiusmod nostrud cupidatat do sit dolor. Duis in minim nulla exercitation ea commodo cillum excepteur amet. Esse non in labore enim eu excepteur do in eiusmod ipsum mollit commodo mollit adipisicing.",
+  "registered": "Sunday, February 2, 2014 2:48 AM",
+  "latitude": "-33.507469",
+  "longitude": "-115.52703",
+  "tags": [
+    "velit",
+    "aliquip",
+    "ullamco",
+    "sunt",
+    "non"
+  ],
+  "favoriteFruit": "apple"
+}

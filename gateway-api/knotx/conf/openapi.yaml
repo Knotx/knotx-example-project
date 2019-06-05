@@ -1,0 +1,38 @@
+openapi: "3.0.0"
+info:
+  version: 1.0.0
+  title: Knot.x Stack OAS
+  description: This is the server API specification.
+
+servers:
+- url: https://{domain}:{port}
+  description: The local API server
+  variables:
+    domain:
+      default: localhost
+      description: api domain
+    port:
+      enum:
+        - '8092'
+        - '443'
+      default: '8092'
+
+paths:
+  /api/v1/payments:
+    get:
+      operationId: payment-rx-operation
+      responses:
+        default:
+          description: Payments API
+  /api/v2/payments:
+    get:
+      operationId: payment-rx-operation-with-cb
+      responses:
+        default:
+          description: Payments API with fallback
+  /api/v3/payments:
+    get:
+      operationId: payment-configurable-operation
+      responses:
+        default:
+          description: Payments API with configurable task
