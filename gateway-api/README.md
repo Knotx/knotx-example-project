@@ -20,9 +20,9 @@ $ docker stack deploy -c gateway-api.yml gateway-api
 
 ## Knotx links
 
- - http://localhost:8092/api/v1/payments
- - http://localhost:8092/api/v2/payments
- - http://localhost:8092/api/v3/payments
+ - http://localhost:8092/api/v1/payments - basic api implementation.
+ - http://localhost:8092/api/v2/payments - circle breaker implementation
+ - http://localhost:8092/api/v3/payments - knot.x fragments, task and actions configurable implementation
  
 ## External Services
 
