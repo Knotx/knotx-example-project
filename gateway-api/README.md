@@ -8,6 +8,7 @@
 ## Run
 Build first Knot.X docker image
 ```
+$ ../gradlew clean build
 $ docker build . -t gateway-api/knotx
 ```
 
