@@ -1,4 +1,4 @@
-io.knotx.gateway.task.TaskContextHandlerFactory
-io.knotx.gateway.task.PayloadToBodyHandlerFactory
-io.knotx.example.api.payment.PaymentRxHandlerFactory
-io.knotx.example.api.payment.PaymentRxHandlerWithCircuitBreakerFactory
+io.knotx.example.payment.handler.fragments.TaskContextHandlerFactory
+io.knotx.example.payment.handler.fragments.PayloadToBodyHandlerFactory
+io.knotx.example.payment.handler.rx.PaymentRxHandlerFactory
+io.knotx.example.payment.handler.rx.PaymentRxHandlerWithCircuitBreakerFactory

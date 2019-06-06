@@ -1,6 +1,5 @@
-package io.knotx.gateway.task;
+package io.knotx.example.payment.handler.fragments;
 
-import io.knotx.fragment.Fragment;
 import io.knotx.server.api.context.RequestContext;
 import io.knotx.server.api.context.RequestEvent;
 import io.knotx.server.api.handler.DefaultRequestContextEngine;
@@ -12,14 +11,11 @@ import io.vertx.core.json.JsonObject;
 import io.vertx.reactivex.core.Vertx;
 import io.vertx.reactivex.ext.web.RoutingContext;
 
-public class TaskContextHandlerFactory implements RoutingHandlerFactory {
-
-  private static final String DEFAULT_TASK_KEY = "data-knotx-task";
-  private static final String NO_BODY = "";
+public class PayloadToBodyHandlerFactory implements RoutingHandlerFactory {
 
   @Override
   public String getName() {
-    return "taskContextHandler";
+    return "payloadToBodyHandler";
   }
 
   @Override
@@ -27,26 +23,21 @@ public class TaskContextHandlerFactory implements RoutingHandlerFactory {
 
     RequestContextEngine requestContextEngine = new DefaultRequestContextEngine(
         getClass().getSimpleName());
+
     return routingContext -> {
       RequestContext requestContext = routingContext.get(RequestContext.KEY);
       requestContextEngine
-          .processAndSaveResult(toHandlerResult(requestContext, config), routingContext,
+          .processAndSaveResult(toHandlerResult(requestContext), routingContext,
               requestContext);
     };
   }
 
-  private RequestEventHandlerResult toHandlerResult(RequestContext requestContext,
-      JsonObject config) {
+  private RequestEventHandlerResult toHandlerResult(RequestContext requestContext) {
     RequestEvent requestEvent = requestContext.getRequestEvent();
-    requestEvent.getFragments().add(initStubFragment(config));
+    requestEvent.getFragments()
+        .forEach(fragment -> fragment.setBody(fragment.getPayload().encodePrettily()));
+
     return RequestEventHandlerResult.success(requestEvent);
-  }
-
-  private Fragment initStubFragment(JsonObject config) {
-    String taskKey = config.getString("taskKey", DEFAULT_TASK_KEY);
-    String taskName = config.getString("taskName");
-
-    return new Fragment("stub", new JsonObject().put(taskKey, taskName), NO_BODY);
   }
 
 }

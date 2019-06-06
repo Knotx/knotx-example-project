@@ -1,6 +1,8 @@
-package io.knotx.example.api.payment;
+package io.knotx.example.payment.handler.rx;
 
-import static io.knotx.example.action.payments.ProvidersProvider.calculateProviders;
+import static io.knotx.example.payment.utils.ProvidersProvider.calculateProviders;
+
+import io.knotx.example.payment.utils.ProvidersProvider;
 
 import io.reactivex.Single;
 import io.vertx.core.Handler;

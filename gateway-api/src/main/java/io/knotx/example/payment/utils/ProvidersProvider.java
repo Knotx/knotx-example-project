@@ -1,4 +1,4 @@
-package io.knotx.example.action.payments;
+package io.knotx.example.payment.utils;
 
 import io.vertx.core.json.JsonArray;
 import io.vertx.core.json.JsonObject;
