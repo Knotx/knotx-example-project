@@ -1,1 +1,2 @@
 io.knotx.example.payment.action.PaymentsActionFactory
+io.knotx.example.payment.action.PayloadToBodyActionFactory
