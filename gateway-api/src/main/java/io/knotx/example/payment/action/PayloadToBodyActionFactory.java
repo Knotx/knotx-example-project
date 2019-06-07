@@ -1,12 +1,28 @@
+/*
+ * Copyright (C) 2019 Knot.x Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 package io.knotx.example.payment.action;
 
 import static io.vertx.core.Future.succeededFuture;
 
 import java.util.Objects;
+import java.util.Optional;
 
+import io.knotx.fragment.Fragment;
 import io.knotx.fragments.handler.api.Action;
 import io.knotx.fragments.handler.api.ActionFactory;
-import io.knotx.fragments.handler.api.domain.FragmentContext;
 import io.knotx.fragments.handler.api.domain.FragmentResult;
 import io.vertx.core.Future;
 import io.vertx.core.Vertx;
@@ -25,23 +41,30 @@ public class PayloadToBodyActionFactory implements ActionFactory {
     checkArgument(doAction != null, "Payload to body action does not support doAction");
 
     return (fragmentContext, resultHandler) -> {
-      fragmentContext.getFragment()
-          .setBody(getBodyFromPayload(config.getString(KEY), fragmentContext.getFragment().getPayload()));
+      Fragment fragment = fragmentContext.getFragment();
+      String payloadKey = config.getString(KEY);
 
-      Future<FragmentResult> resultFuture = succeededFuture(getResult(fragmentContext));
+      FragmentResult result = getBodyFromPayload(payloadKey, fragment.getPayload())
+        .map(body -> toFragmentResult(fragment, body))
+        .orElse(new FragmentResult(fragment, FragmentResult.ERROR_TRANSITION));
+
+      Future<FragmentResult> resultFuture = succeededFuture(result);
       resultFuture.setHandler(resultHandler);
     };
   }
 
-  private FragmentResult getResult(FragmentContext fragmentContext) {
-    return new FragmentResult(fragmentContext.getFragment(), FragmentResult.SUCCESS_TRANSITION);
+  private FragmentResult toFragmentResult(Fragment fragment, String body) {
+    fragment.setBody(body);
+    return new FragmentResult(fragment, FragmentResult.SUCCESS_TRANSITION);
   }
 
-  private String getBodyFromPayload(String key, JsonObject payload){
+  private Optional<String> getBodyFromPayload(String key, JsonObject payload){
     JsonObject body = Objects.isNull(key) ? payload : payload.getJsonObject(key);
-    checkState(Objects.isNull(body), String.format("Cannot find value in payload under key: %s", key));
+    if (Objects.isNull(body)){
+      return Optional.empty();
+    }
 
-    return body.encodePrettily();
+    return Optional.of(body.encodePrettily());
   }
 
   private void checkArgument(boolean condition, String message){
@@ -50,9 +73,4 @@ public class PayloadToBodyActionFactory implements ActionFactory {
     }
   }
 
-  private void checkState(boolean condition, String message){
-    if(condition){
-      throw new IllegalStateException(message);
-    }
-  }
 }
