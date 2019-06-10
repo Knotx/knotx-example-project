@@ -42,7 +42,7 @@ public class PayloadToBodyActionFactory implements ActionFactory {
 
     return (fragmentContext, resultHandler) -> {
       Fragment fragment = fragmentContext.getFragment();
-      String payloadKey = config.getString(KEY);
+      String payloadKey = Objects.nonNull(config) ? config.getString(KEY) : null;
 
       FragmentResult result = getBodyFromPayload(payloadKey, fragment.getPayload())
         .map(body -> toFragmentResult(fragment, body))
@@ -72,5 +72,4 @@ public class PayloadToBodyActionFactory implements ActionFactory {
       throw new IllegalArgumentException(message);
     }
   }
-
 }
