@@ -8,7 +8,7 @@ services:
   webapi:
     image: rodolpheche/wiremock
     volumes:
-      - "./services/webapi:/home/wiremock"
+      - "../common-services/webapi:/home/wiremock"
     ports:
       - "3000:8080"
     networks:
