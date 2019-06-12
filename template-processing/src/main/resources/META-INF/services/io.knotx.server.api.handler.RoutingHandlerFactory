@@ -1,0 +1,2 @@
+io.knotx.gateway.task.TaskContextHandlerFactory
+io.knotx.gateway.task.PayloadToBodyHandlerFactory

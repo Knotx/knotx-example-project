@@ -9,6 +9,8 @@
 
 rootProject.name = "knotx-example-project"
 include("gateway-api")
+include("template-processing")
 
 
 project(":gateway-api").projectDir = file("gateway-api")
+project(":template-processing").projectDir = file("template-processing")
