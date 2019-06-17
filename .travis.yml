@@ -1,0 +1,23 @@
+language: java
+install: true
+
+jdk:
+  - oraclejdk8
+
+script:
+  - ./gateway-api/gradlew build --info
+  - ./gateway-api/gradlew jacocoTestReport
+  - ./template-processing/gradlew build --info
+  - ./template-processing/gradlew jacocoTestReport
+
+before_cache:
+  - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
+  - rm -fr $HOME/.gradle/caches/*/plugin-resolution/
+
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
+
+cache:
+  directories:
+    - "$HOME/.gradle/caches/"
+    - "$HOME/.gradle/wrapper/"
