@@ -13,6 +13,6 @@ dependencies {
         implementation("$v-web")
         implementation("$v-web-client")
         implementation("$v-rx-java2")
-        implementation("$v-health-check")   
+        implementation("$v-health-check")
     }
 }
