@@ -1,10 +1,9 @@
 # Template processing example
 
 ## Run
-Build Docker image:
+Build first docker image
 ```
-../gradlew clean build
-docker build . -t template-processing/knotx
+$ gradlew clean build
 ```
 
 Run Knot.x instance and example data services (Web API and Content Repository) in a single node Docker Swarm:

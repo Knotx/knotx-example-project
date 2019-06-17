@@ -15,11 +15,10 @@ services:
       - knotnet
 
   knotx:
-    image: gateway-api/knotx:latest
+    image: knotx-example/gateway-api:latest
     command: ["knotx", "run-knotx"]
-    volumes:
-      - "./knotx/conf:/usr/local/knotx/conf"
     ports:
       - "8092:8092"
+      - "18092:18092"
     networks:
       - knotnet

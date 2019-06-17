@@ -6,10 +6,9 @@
 
 
 ## Run
-Build first Knot.X docker image
+Build first docker image
 ```
-$ ../gradlew clean build
-$ docker build . -t gateway-api/knotx
+$ gradlew clean build
 ```
 
 Run Knot.x instance and example Web API services (User details, Payment API) in a single node Docker Swarm:
@@ -36,11 +35,14 @@ $ docker stack deploy -c gateway-api.yml gateway-api
 - http://localhost:3000/creditcard/allowed
 
 ## Other
-Deploy into Knot.x:
+Remove stack:
 ```
-$ ./deploy.sh
+$ docker stack rm gateway-api
 ```
-
+Display Knot.X logs
+``` 
+ docker service logs -f gateway-api_knotx
+```
 Reload Wiremock after config changes:
 ```
 docker service update --force gateway-api_webapi

@@ -18,6 +18,12 @@ servers:
       default: '8092'
 
 paths:
+  /healthcheck:
+    get:
+      operationId: healthcheck-operation
+      responses:
+        default:
+          description: example vert.x healthcheck
   /content/*:
     get:
       operationId: content-get
@@ -30,9 +36,3 @@ paths:
       responses:
         default:
           description: Return assets as is from the repository
-  /not-supported/*:
-    get:
-      operationId: not-supported
-      responses:
-        default:
-          description: Not supported yet

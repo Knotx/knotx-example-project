@@ -7,10 +7,5 @@
  * in the user manual at https://docs.gradle.org/5.4.1/userguide/multi_project_builds.html
  */
 
+
 rootProject.name = "knotx-example-project"
-include("gateway-api")
-include("template-processing")
-
-
-project(":gateway-api").projectDir = file("gateway-api")
-project(":template-processing").projectDir = file("template-processing")

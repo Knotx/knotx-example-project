@@ -1,16 +1,52 @@
+/*
+ * Copyright (C) 2019 Knot.x Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
 plugins {
-    `java-library`
+    id("com.bmuschko.docker-remote-api") version "4.9.0"
+    id("java")
 }
 
+configurations {
+    register("dist")
+}
 
 dependencies {
-    implementation(platform("io.knotx:knotx-dependencies:${project.version}"))
-    implementation("io.knotx:knotx-server-http-api:${project.version}")
-    implementation("io.knotx:knotx-fragment-api:${project.version}")
-    implementation("io.knotx:knotx-fragments-handler-api:${project.version}")
-    implementation(group = "org.apache.commons", name = "commons-lang3")
-    implementation(group = "io.vertx", name = "vertx-web")
-    implementation(group = "io.vertx", name = "vertx-web-client")
-    implementation(group = "io.vertx", name = "vertx-rx-java2")
-    implementation(group = "io.vertx", name = "vertx-circuit-breaker")
+    subprojects.forEach { "dist"(project(":${it.name}")) }
 }
+
+sourceSets.named("test") {
+    java.srcDir("functional/src/test/java")
+}
+
+allprojects {
+    group = "io.knotx"
+
+    repositories {
+        jcenter()
+        mavenLocal()
+        maven { url = uri("https://plugins.gradle.org/m2/") }
+        maven { url = uri("https://oss.sonatype.org/content/groups/staging/") }
+        maven { url = uri("https://oss.sonatype.org/content/repositories/snapshots") }
+    }
+}
+
+tasks.named("build") {
+    dependsOn("runTest")
+}
+
+apply(from = "gradle/distribution.gradle.kts")
+apply(from = "gradle/javaAndUnitTests.gradle.kts")
+apply(from = "gradle/docker.gradle.kts")
+

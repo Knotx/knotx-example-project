@@ -23,13 +23,10 @@ services:
       - knotnet
 
   knotx:
-    image: template-processing/knotx:latest
+    image: knotx-example/tp:latest
     command: ["knotx", "run-knotx"]
-    volumes:
-      - "./knotx/conf:/usr/local/knotx/conf"
     ports:
       - "8092:8092"
-      # debug port
       - "18092:18092"
     networks:
       - knotnet
