@@ -30,7 +30,7 @@ buildscript {
 }
 
 val dockerImageRef = "$buildDir/.docker/buildImage-imageId.txt"
-val dockerImageName = "knotx-example/tp"
+val dockerImageName = "knotx-example/template-processing"
 
 tasks.create("removeImage", DockerRemoveImage::class) {
     group = "docker"

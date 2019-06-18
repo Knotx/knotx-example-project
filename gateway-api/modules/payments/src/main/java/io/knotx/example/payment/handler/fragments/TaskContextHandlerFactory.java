@@ -18,7 +18,7 @@ package io.knotx.example.payment.handler.fragments;
 import java.util.Collections;
 import java.util.List;
 
-import io.knotx.fragment.Fragment;
+import io.knotx.fragments.api.Fragment;
 import io.knotx.server.api.context.RequestContext;
 import io.knotx.server.api.context.RequestEvent;
 import io.knotx.server.api.handler.DefaultRequestContextEngine;
@@ -45,7 +45,8 @@ public class TaskContextHandlerFactory implements RoutingHandlerFactory {
     return routingContext -> handle(routingContext, config, getRequestContextEngine());
   }
 
-  private void handle(RoutingContext context, JsonObject config, RequestContextEngine requestContextEngine){
+  private void handle(RoutingContext context, JsonObject config,
+      RequestContextEngine requestContextEngine) {
     RequestContext requestContext = context.get(RequestContext.KEY);
     List<Fragment> fragments = Collections.singletonList(initStubFragment(config));
 

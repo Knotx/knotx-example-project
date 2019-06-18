@@ -1,4 +1,4 @@
-val knotxVersion = "2.0.0-SNAPSHOT"
+val knotxVersion = "2.0-RC3"
 
 plugins {
     `java-library`

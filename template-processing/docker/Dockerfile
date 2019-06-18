@@ -1,4 +1,4 @@
-FROM knotx/knotx:2.0.0-SNAPSHOT
+FROM knotx/knotx:2.0-RC3
 LABEL maintainer="Knot.x Project"
 
 COPY ./knotx /usr/local/knotx

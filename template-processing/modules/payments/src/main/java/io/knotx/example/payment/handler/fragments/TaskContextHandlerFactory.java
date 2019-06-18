@@ -18,7 +18,7 @@ package io.knotx.example.payment.handler.fragments;
 import java.util.Collections;
 import java.util.List;
 
-import io.knotx.fragment.Fragment;
+import io.knotx.fragments.api.Fragment;
 import io.knotx.server.api.context.RequestContext;
 import io.knotx.server.api.context.RequestEvent;
 import io.knotx.server.api.handler.DefaultRequestContextEngine;

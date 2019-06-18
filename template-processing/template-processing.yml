@@ -23,7 +23,7 @@ services:
       - knotnet
 
   knotx:
-    image: knotx-example/tp:latest
+    image: knotx-example/template-processing:latest
     command: ["knotx", "run-knotx"]
     ports:
       - "8092:8092"
