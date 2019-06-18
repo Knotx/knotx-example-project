@@ -9,10 +9,13 @@ before_script:
   - chmod +x ./gateway-api/gradlew
   - chmod +x ./template-processing/gradlew
 script:
-  - ./gateway-api/gradlew build --info
-  - ./gateway-api/gradlew jacocoTestReport
-  - ./template-processing/gradlew build --info
-  - ./template-processing/gradlew jacocoTestReport
+  - cd ./gateway-api
+  - ./gradlew build --info
+  - ./gradlew jacocoTestReport
+  - cd ..
+  - cd ./template-processing
+  - ./gradlew build --info
+  - ./gradlew jacocoTestReport
 
 before_cache:
   - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
