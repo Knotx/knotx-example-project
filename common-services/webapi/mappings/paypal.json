@@ -1,0 +1,11 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "/paypal/verify"
+  },
+  "response": {
+    "status": 200,
+    "fixedDelayMilliseconds": 3000,
+    "bodyFileName": "paypal.json"
+  }
+}

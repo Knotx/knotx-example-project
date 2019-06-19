@@ -1,0 +1,32 @@
+version: '3.7'
+
+networks:
+  knotnet:
+
+services:
+  repository:
+    image: httpd:2.4
+    volumes:
+      - "../common-services/content/public_html:/usr/local/apache2/htdocs"
+    ports:
+      - "4503:80"
+    networks:
+      - knotnet
+
+  webapi:
+    image: rodolpheche/wiremock
+    volumes:
+      - "../common-services/webapi:/home/wiremock"
+    ports:
+      - "3000:8080"
+    networks:
+      - knotnet
+
+  knotx:
+    image: knotx-example/template-processing:latest
+    command: ["knotx", "run-knotx"]
+    ports:
+      - "8092:8092"
+      - "18092:18092"
+    networks:
+      - knotnet

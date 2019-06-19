@@ -1,0 +1,11 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "/payu/active"
+  },
+  "response": {
+    "status": 200,
+    "fixedDelayMilliseconds": 200,
+    "bodyFileName": "payu.json"
+  }
+}
