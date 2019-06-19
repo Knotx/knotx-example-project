@@ -5,12 +5,16 @@
 the latest 1.5.0 version code is available
 [here](https://github.com/Knotx/knotx-example-project/tree/1.5.0).
 
-### This repository is under construction... :)
-
-# Knot.x example project
+# Knot.x Example Project
 The example project shows how you can use Knot.x and develop it in a real project.
-Each module presents different use case, please refer to `README.md` files inside the modules of
-this repository.
+Each module presents different use case.
+
+## Gateway API
+This module presents how Knot.x can be used as API Gateway. More details [here](https://github.com/Knotx/knotx-example-project/tree/master/gateway-api).
+
+## Template Processing
+This module presents how Knot.x evaluates Fragments using the map-reduce processing approach. More details [here](https://github.com/Knotx/knotx-example-project/tree/master/template-processing).
+
 
 [license]:https://github.com/Cognifide/knotx/blob/master/LICENSE
 [license img]:https://img.shields.io/badge/License-Apache%202.0-blue.svg

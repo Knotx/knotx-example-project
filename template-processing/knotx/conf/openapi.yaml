@@ -1,8 +1,8 @@
 openapi: "3.0.0"
 info:
   version: 1.0.0
-  title: Knot.x Stack OAS
-  description: This is the server API specification.
+  title: Knot.x Example - Template Processing
+  description: It
 
 servers:
 - url: https://{domain}:{port}
