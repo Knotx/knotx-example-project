@@ -20,4 +20,3 @@ include("payments")
 
 project(":healthcheck").projectDir = file("modules/healthcheck")
 project(":payments").projectDir = file("modules/payments")
-
