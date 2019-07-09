@@ -1,13 +1,11 @@
-val knotxVersion = "2.0-RC3"
-
 plugins {
     `java-library`
 }
 
 dependencies {
     "io.knotx:knotx".let { v ->
-        implementation(platform("$v-dependencies:$knotxVersion"))
-        implementation("$v-server-http-api:$knotxVersion")
+        implementation(platform("$v-dependencies:${project.property("knotx.version")}"))
+        implementation("$v-server-http-api:${project.property("knotx.version")}")
     }
     "io.vertx:vertx".let { v ->
         implementation("$v-web")
