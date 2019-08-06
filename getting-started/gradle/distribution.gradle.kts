@@ -18,28 +18,26 @@ val downloadDir = file("${buildDir}/download")
 val distributionDir = file("${buildDir}/out")
 val stackName = "knotx"
 val stackDistribution = "knotx-stack-${version}.zip"
+val knotxVersion = project.property("knotx.version")
 
 configurations {
     register("dist")
+    register("zipped")
 }
 
 dependencies {
-    "dist"("io.knotx:knotx-launcher:${project.version}")
-    "dist"("io.knotx:knotx-server-http-core:${project.version}")
-    "dist"("io.knotx:knotx-repository-connector-fs:${project.version}")
-    "dist"("io.knotx:knotx-repository-connector-http:${project.version}")
-    "dist"("io.knotx:knotx-fragments-supplier-html-splitter:${project.version}")
-    "dist"("io.knotx:knotx-fragments-supplier-single-fragment:${project.version}")
-    "dist"("io.knotx:knotx-fragments-assembler:${project.version}")
-    "dist"("io.knotx:knotx-fragments-handler-core:${project.version}")
-    "dist"("io.knotx:knotx-action-http:${project.version}")
-    "dist"("io.knotx:knotx-template-engine-core:${project.version}")
-    "dist"("io.knotx:knotx-template-engine-handlebars:${project.version}")
-    "dist"("io.netty:netty-tcnative-boringssl-static:2.0.17.Final")
+    "zipped"(group = "io.knotx", name = "knotx-stack", version = "${knotxVersion}", ext = "zip")
 }
 
 val cleanDistribution = tasks.register<Delete>("cleanDistribution") {
-    delete(listOf(distributionDir))
+    delete(listOf(distributionDir, downloadDir))
+}
+
+val unzipStack = tasks.register<Copy>("unzipStack") {
+    val zipPath = "${buildDir}/download/knotx-stack-${knotxVersion}.zip"
+
+    from(zipTree(zipPath))
+    into("${distributionDir}")
 }
 
 val copyConfigs = tasks.register<Copy>("copyConfigs") {
@@ -52,6 +50,13 @@ val downloadDeps = tasks.register<Copy>("downloadDeps") {
     into("${distributionDir}/${stackName}/lib")
 }
 
+
+val downloadStack = tasks.register<Copy>("downloadStack") {
+    from(configurations.named("zipped"))
+    into("${downloadDir}")
+}
+
+
 val assembleDistribution = tasks.register<Zip>("assembleDistribution") {
     archiveName = stackDistribution
     from(distributionDir)
@@ -60,6 +65,8 @@ val assembleDistribution = tasks.register<Zip>("assembleDistribution") {
 assembleDistribution {
     dependsOn(copyConfigs, downloadDeps)
 }
+
+copyConfigs { dependsOn(downloadStack, unzipStack) }
 
 tasks.named("build") { finalizedBy(assembleDistribution) }
 tasks.named("clean") { dependsOn(cleanDistribution) }
