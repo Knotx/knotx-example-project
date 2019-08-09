@@ -8,6 +8,7 @@ jdk:
 script:
   - ./gateway-api/gradlew -p ./gateway-api build --info
   - ./template-processing/gradlew -p ./template-processing build --info
+  - ./getting-started/gradlew -p ./getting-started --info
 
 before_cache:
   - rm -f  $HOME/.gradle/caches/modules-2/modules-2.lock
