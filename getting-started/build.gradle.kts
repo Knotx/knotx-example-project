@@ -20,6 +20,7 @@ plugins {
     id("io.knotx.unit-test") version "0.1.1"
     id("org.nosphere.apache.rat") version "0.4.0"
     id("idea")
+    id("io.knotx.distribution") version "0.1.2"
 }
 
 project.group = "io.knotx"
@@ -33,7 +34,7 @@ repositories {
     maven { url = uri("https://oss.sonatype.org/content/repositories/snapshots") }
 }
 
-apply(from = "gradle/distribution.gradle.kts")
+//apply(from = "gradle/distribution.gradle.kts")
 
 // -----------------------------------------------------------------------------
 // License headers validation
