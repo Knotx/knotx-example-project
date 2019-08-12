@@ -34,8 +34,6 @@ repositories {
     maven { url = uri("https://oss.sonatype.org/content/repositories/snapshots") }
 }
 
-//apply(from = "gradle/distribution.gradle.kts")
-
 // -----------------------------------------------------------------------------
 // License headers validation
 // -----------------------------------------------------------------------------
@@ -45,3 +43,7 @@ tasks {
     }
     getByName("build").dependsOn("rat")
 }
+
+tasks.named("build") { finalizedBy("assembleCustomDistribution") }
+tasks.named("clean") { dependsOn("cleanDistribution") }
+
