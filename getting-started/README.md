@@ -1,6 +1,6 @@
 # Getting started
 
-Complete project implementation from tutorial [Getting Started with Knot.x Stack](http://knotx.io/tutorials/getting-started-with-knotx-stack/)
+Complete project implementation from tutorial [Getting Started with Knot.x Stack](http://knotx.io/tutorials/getting-started-with-knotx-stack/). Gralde `build` task downloads Knot.x Stack for you and override the configuration files with content from this repository.
 
 ## Run
 Build first
