@@ -2,7 +2,7 @@
 [![][gitter img]][gitter]
 
 
-# Gateway-API
+# API Gateway
 
 
 ## Run
@@ -15,7 +15,7 @@ Run Knot.x instance and example Web API services (User details, Payment API) in 
 ```
 $ docker swarm init
 
-$ docker stack deploy -c gateway-api.yml gateway-api
+$ docker stack deploy -c api-gateway.yml api-gateway
 ```
 
 ## Knotx links
@@ -37,15 +37,15 @@ $ docker stack deploy -c gateway-api.yml gateway-api
 ## Other
 Remove stack:
 ```
-$ docker stack rm gateway-api
+$ docker stack rm api-gateway
 ```
 Display Knot.X logs
 ``` 
- docker service logs -f gateway-api_knotx
+ docker service logs -f api-gateway_knotx
 ```
 Reload Wiremock after config changes:
 ```
-docker service update --force gateway-api_webapi
+docker service update --force api-gateway_webapi
 ```
 
 

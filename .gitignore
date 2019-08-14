@@ -76,8 +76,9 @@ settings.json
 .gradle
 build
 !gradle/wrapper/gradle-wrapper.jar
-!gateway-api/gradle/wrapper/gradle-wrapper.jar
+!api-gateway/gradle/wrapper/gradle-wrapper.jar
 !template-processing/gradle/wrapper/gradle-wrapper.jar
+!getting-started/gradle/wrapper/gradle-wrapper.jar
 
 target
 atlassian-ide-plugin.xml
