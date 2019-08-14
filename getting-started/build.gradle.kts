@@ -16,8 +16,9 @@
 import org.nosphere.apache.rat.RatTask
 
 plugins {
-    id("io.knotx.java-library") version "0.1.1"
-    id("io.knotx.unit-test") version "0.1.1"
+    id("io.knotx.java-library") version "0.1.2"
+    id("io.knotx.unit-test") version "0.1.2"
+    id("io.knotx.distribution") version "0.1.2"
     id("org.nosphere.apache.rat") version "0.4.0"
     id("idea")
 }
@@ -33,8 +34,6 @@ repositories {
     maven { url = uri("https://oss.sonatype.org/content/repositories/snapshots") }
 }
 
-apply(from = "gradle/distribution.gradle.kts")
-
 // -----------------------------------------------------------------------------
 // License headers validation
 // -----------------------------------------------------------------------------
@@ -44,3 +43,7 @@ tasks {
     }
     getByName("build").dependsOn("rat")
 }
+
+tasks.named("build") { finalizedBy("assembleCustomDistribution") }
+tasks.named("clean") { dependsOn("cleanDistribution") }
+
