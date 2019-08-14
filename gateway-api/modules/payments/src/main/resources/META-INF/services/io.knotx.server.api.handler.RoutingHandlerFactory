@@ -1,3 +1,2 @@
-io.knotx.example.payment.handler.fragments.TaskContextHandlerFactory
 io.knotx.example.payment.handler.rx.PaymentRxHandlerFactory
 io.knotx.example.payment.handler.rx.PaymentRxHandlerWithCircuitBreakerFactory
