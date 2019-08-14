@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-rootProject.name = "gateway-api"
+rootProject.name = "api-gateway"
 
 include("healthcheck")
 include("payments")
