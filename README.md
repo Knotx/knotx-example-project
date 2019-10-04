@@ -10,7 +10,7 @@ builds Docker image. Please note that using Docker is not mandatory.
 
 ## Use case:
 
-### Gateway API
+### API Gateway
 This module presents how Knot.x can be used as API Gateway. More details [here](https://github.com/Knotx/knotx-example-project/tree/master/gateway-api).
 
 ### Template Processing
