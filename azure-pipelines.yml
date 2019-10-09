@@ -6,11 +6,12 @@ pool:
 
 steps:
 - script: |
-    ./getting-started/gradlew -p ./getting-started --info
-  displayName: 'Build Getting Started with Stack Example'
+    ./distribution/stack/gradlew -p ./distribution/stack build --info
+  displayName: 'Build: Distribution -> Stack'
 - script: |
-    ./api-gateway/gradlew -p ./api-gateway build --info
-  displayName: 'Build API Gateway Example'
+    ./api-gateway/composing-many-apis/gradlew -p ./api-gateway/composing-many-apis build --info
+  displayName: 'Build: API gateway -> Composing many APIs'
 - script: |
-    ./template-processing/gradlew -p ./template-processing build --info
-  displayName: 'Build Template Processing Example'
+    ./template-processing/handlebars/gradlew -p ./template-processing/handlebars build --info
+  displayName: 'Build: Template processing -> Handlebars'
+
