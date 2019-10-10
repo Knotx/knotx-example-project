@@ -23,18 +23,6 @@ paths:
       responses:
         default:
           description: Example API implemented in this tutorial
-  /api/v1/example:
-    get:
-      operationId: example-api-with-handlers-operation
-      responses:
-        default:
-          description: Example API response
-  /api/v2/example:
-    get:
-      operationId: example-api-with-fragments-operation
-      responses:
-        default:
-          description: Example API response
   /healthcheck:
     get:
       operationId: healthcheck-operation

@@ -16,11 +16,7 @@
 rootProject.name = "distribution-docker"
 
 include("hellohandler")
-include("example-api")
 include("health-check")
-include("example-action")
 
 project(":hellohandler").projectDir = file("modules/hellohandler")
-project(":example-api").projectDir = file("modules/example-api")
 project(":health-check").projectDir = file("modules/health-check")
-project(":example-action").projectDir = file("modules/example-action")

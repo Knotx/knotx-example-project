@@ -22,22 +22,11 @@ public class HealthcheckHandlerFactory implements RoutingHandlerFactory {
     HealthChecks checks = HealthChecks.create(vertx);
     checks.register("API check", 200, future -> {
       WebClient webClient = WebClient.create(vertx);
-      webClient.get(8092, "localhost", "/api/v1/example")
+      webClient.get(8092, "localhost", "/api/hello")
           .rxSend()
           .subscribe(onSuccess -> {
             JsonObject jsonResponse = onSuccess.bodyAsJsonObject();
-            future.complete("success".equals(jsonResponse.getString("status")) ? Status.OK() :
-                Status.KO());
-          }, onError -> future
-              .complete(Status.KO(new JsonObject().put("error", onError.getMessage()))));
-    });
-    checks.register("API check", 200, future -> {
-      WebClient webClient = WebClient.create(vertx);
-      webClient.get(8092, "localhost", "/api/v2/example")
-          .rxSend()
-          .subscribe(onSuccess -> {
-            JsonObject jsonResponse = onSuccess.bodyAsJsonObject();
-            future.complete("success".equals(jsonResponse.getString("status")) ? Status.OK() :
+            future.complete("Hello World From Knot.x!".equals(jsonResponse.getString("message")) ? Status.OK() :
                 Status.KO());
           }, onError -> future
               .complete(Status.KO(new JsonObject().put("error", onError.getMessage()))));

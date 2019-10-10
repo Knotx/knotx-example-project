@@ -9,27 +9,13 @@ import org.junit.jupiter.api.Test;
 class ExampleApiITCase {
 
   @Test
-  @DisplayName("Expect 200 status code from handlers api.")
+  @DisplayName("Expect 200 status code from hello api.")
   void callHandlersApiEndpointAndExpectOK() {
     // @formatter:off
     given().
         port(8092).
       when().
-        get("/api/v1/example").
-      then()
-        .assertThat().
-        statusCode(200);
-    // @formatter:on
-  }
-
-  @Test
-  @DisplayName("Expect 200 status code from fragments api.")
-  void callFragmentsApiEndpointAndExpectOK() {
-    // @formatter:off
-    given().
-        port(8092).
-      when().
-        get("/api/v2/example").
+        get("/api/hello").
       then()
         .assertThat().
         statusCode(200);
