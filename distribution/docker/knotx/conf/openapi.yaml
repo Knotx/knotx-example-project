@@ -1,8 +1,8 @@
 openapi: "3.0.0"
 info:
   version: 1.0.0
-  title: Knot.x Starter Kit
-  description: Knotx Starter Kit
+  title: Knot.x Starter Kit Docker example
+  description: Knotx Starter Kit Docker example
 
 servers:
   - url: https://{domain}:{port}
