@@ -6,7 +6,7 @@ import static io.restassured.RestAssured.given;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-class ExampleApiITCase {
+class HelloApiITCase {
 
   @Test
   @DisplayName("Expect 200 status code from hello api.")

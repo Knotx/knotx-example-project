@@ -1,4 +1,4 @@
-FROM knotx/knotx:latest
+FROM knotx/knotx:$knotx_version
 LABEL maintainer="Knot.x Project"
 
 COPY ./out/knotx /usr/local/knotx
