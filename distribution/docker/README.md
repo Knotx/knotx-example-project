@@ -10,14 +10,14 @@ This example is built using the [Starter Kit](https://github.com/Knotx/knotx-sta
 $> ./gradlew build-docker
 ```
 
-The [build-docker](https://github.com/Knotx/knotx-starter-kit#build--validate-docker-image) task comes from Starter Kit.
+The [build-docker](https://github.com/Knotx/knotx-starter-kit#build--validate-docker-image) builds and validates the custom project Docker image.
 
 Then, start Docker container:
 ```
 docker run -p8092:8092 knotx/knotx-docker-tutorial
 ```
 
-and validate urls:
+and validate url:
 - [localhost:8092/api/hello](http://localhost:8092/api/hello)
 
 ## What is the delta between [Starter Kit](https://github.com/Knotx/knotx-starter-kit)?
@@ -25,4 +25,4 @@ and validate urls:
 - `hellohandler` module that handles our requests under `/api/hello` and prints a Hello World message
 - `health-check` module is modified to rely on `/api/hello`
 - `functional` tests also rely on `/api/hello` 
-- Example APIs have been removed to simplify the code (**not covered in tutorial**)
+- this code was cleaned from unnecessary example modules and configurations (**not covered in tutorial**)
