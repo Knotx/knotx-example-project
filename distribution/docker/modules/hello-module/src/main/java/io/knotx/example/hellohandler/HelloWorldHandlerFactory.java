@@ -15,8 +15,9 @@ public class HelloWorldHandlerFactory implements RoutingHandlerFactory {
 
   @Override
   public Handler<RoutingContext> create(Vertx vertx, JsonObject config) {
+    String message = config.getString("message", "Some default message");
     JsonObject jsonObject = new JsonObject()
-        .put("message", "Hello World From Knot.x!");
+        .put("message", message);
     return event -> event.response().end(jsonObject.toString());
   }
 }

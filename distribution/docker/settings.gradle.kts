@@ -15,8 +15,8 @@
  */
 rootProject.name = "distribution-docker"
 
-include("hellohandler")
+include("hello-module")
 include("health-check")
 
-project(":hellohandler").projectDir = file("modules/hellohandler")
+project(":hello-module").projectDir = file("modules/hello-module")
 project(":health-check").projectDir = file("modules/health-check")

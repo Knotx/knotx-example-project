@@ -1,8 +1,11 @@
-openapi: "3.0.0"
+openapi: 3.0.0
 info:
   version: 1.0.0
   title: Knot.x Starter Kit Docker example
   description: Knotx Starter Kit Docker example
+  contact:
+    name: "Knot.x Community"
+    url: "http://knotx.io/community/"
 
 servers:
   - url: https://{domain}:{port}
@@ -33,6 +36,6 @@ paths:
         '204':
           description: No procedure are registered.
         '501':
-          description: At least one procedure has reported a non-healthy stat
+          description: At least one procedure has reported a non-healthy status
         '500':
           description: One procedure has thrown an error or has not reported a status in time
