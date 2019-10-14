@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-rootProject.name = "distribution-docker"
+rootProject.name = "distribution-getting-started"
 
 include("hello-module")
 include("health-check")

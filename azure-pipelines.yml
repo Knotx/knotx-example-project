@@ -6,11 +6,8 @@ pool:
 
 steps:
 - script: |
-    ./distribution/stack/gradlew -p ./distribution/stack build --info
-  displayName: 'Build: Distribution -> Stack'
-- script: |
-    ./distribution/docker/gradlew -p ./distribution/docker build-docker --info
-  displayName: 'Build: Distribution -> Docker'
+    ./distribution/getting-started/gradlew -p ./distribution/getting-started build-docker --info
+  displayName: 'Build: Distribution -> Getting Started'
 - script: |
     ./api-gateway/composing-many-apis/gradlew -p ./api-gateway/composing-many-apis build --info
   displayName: 'Build: API gateway -> Composing many APIs'
