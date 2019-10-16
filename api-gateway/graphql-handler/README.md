@@ -20,12 +20,6 @@ $ docker swarm init
 $ docker stack deploy -c graphql-handler.yml graphql-handler
 ```
 
-## Knotx links
-
- - http://localhost:8092/api/v1/payments - basic api implementation.
- - http://localhost:8092/api/v2/payments - circle breaker implementation
- - http://localhost:8092/api/v3/payments - knot.x fragments, task and actions configurable implementation
- 
 ## Queries
 
 GraphQL schema can be found [here](modules/books/src/main/resources/books.graphqls). Example query asking for everything:
