@@ -1,0 +1,32 @@
+openapi: "3.0.0"
+info:
+  version: 1.0.0
+  title: Knot.x Gateway API Example
+  description: Knot.x Gateway API Example
+
+servers:
+  - url: https://{domain}:{port}
+    description: The local API server
+    variables:
+      domain:
+        default: localhost
+        description: api domain
+      port:
+        enum:
+          - '8092'
+        default: '8092'
+
+paths:
+  /healthcheck:
+    get:
+      operationId: healthcheck-operation
+      responses:
+        default:
+          description: example vert.x healthcheck
+
+  /product/id:
+    get:
+      operationId: example-cacheable-api-operation
+      responses:
+        default:
+          description: Example product with cache operation
