@@ -1,0 +1,15 @@
+version: '3.7'
+
+networks:
+  knotnet:
+
+services:
+
+  knotx:
+    image: knotx-example/graphql-handler:latest
+    command: ["knotx", "run-knotx"]
+    ports:
+      - "8092:8092"
+      - "18092:18092"
+    networks:
+      - knotnet
