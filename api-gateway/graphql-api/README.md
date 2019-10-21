@@ -17,7 +17,7 @@ Run Knot.x instance and example Web API services (User details, Payment API) in 
 ```
 $ docker swarm init
 
-$ docker stack deploy -c graphql-handler.yml graphql-handler
+$ docker stack deploy -c graphql-api.yml graphql-api
 ```
 
 ## Queries

@@ -6,7 +6,7 @@ networks:
 services:
 
   knotx:
-    image: knotx-example/graphql-handler:latest
+    image: knotx-example/graphql-api:latest
     command: ["knotx", "run-knotx"]
     ports:
       - "8092:8092"

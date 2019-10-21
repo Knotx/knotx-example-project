@@ -33,7 +33,7 @@ or [Amazon API Gateway](https://aws.amazon.com/api-gateway/).
 |-----|-----------|-----------------|--------|-----------|
 |Securing your API |Simple usage of popular authentication technologies to secure your API.|Docker, OAuth 2.0, OpenId Connect, JWT|*coming soon*|*coming soon*| 
 |Composing many APIs|Presents how to combine data from many API (even dependent on each other) using [Configurable Integrations](http://knotx.io/blog/configurable-integrations/).|[Fragments](https://github.com/Knotx/knotx-fragments/tree/master/handler), [WireMock](http://wiremock.org/), Docker|[Configurable API gateway](http://knotx.io/tutorials/configurable-api-gateway/2_0/)|`./api-gateway/composing-many-apis`|
-|GraphQL API|Expose GraphQL API using Configurable Integrations.|GraphQL, OpenAPI, Configurable Integrations|*coming soon*|`./api-gateway/graphql-handler` 
+|GraphQL API|Expose GraphQL API using Configurable Integrations.|GraphQL, OpenAPI, Configurable Integrations|[Using GraphQL with Knot.x](http://knotx.io/tutorials/graphql-usage/2_0.html)|`./api-gateway/graphql-api` 
 
 ### Template Processing
 This module presents the aspects of template processing.

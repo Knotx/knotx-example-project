@@ -62,9 +62,6 @@ public class GraphQLHandlerFactory implements RoutingHandlerFactory {
         .type("QueryType", builder -> builder
             .dataFetcher("books", new TaskArrayDataFetcher<>("get-books", Book.class, vertx, config, routingContext, json -> json.getJsonArray("items")))
             .dataFetcher("book", new TaskSingleDataFetcher<>("get-book", Book.class, vertx, config, routingContext))
-//            .dataFetcher("javaBooks", new TaskArrayDataFetcher<>("get-java-books", Book.class, vertx, config, routingContext, json -> json.getJsonArray("items")))
-//            .dataFetcher("cSharpBooks", new TaskArrayDataFetcher<>("get-csharp-books", Book.class, vertx, config, routingContext, json -> json.getJsonArray("items")))
-//            .dataFetcher("javaBasicsBook", new TaskSingleDataFetcher<>("get-java-basics-book", Book.class, vertx, config, routingContext))
         )
         .build();
     SchemaGenerator schemaGenerator = new SchemaGenerator();
