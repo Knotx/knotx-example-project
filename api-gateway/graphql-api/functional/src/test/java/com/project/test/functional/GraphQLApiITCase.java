@@ -8,7 +8,6 @@ import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.CoreMatchers.is;
 import static org.hamcrest.MatcherAssert.assertThat;
 
-import graphql.ExecutionInput;
 import io.restassured.config.RestAssuredConfig;
 import io.restassured.http.ContentType;
 import io.vertx.core.json.JsonArray;

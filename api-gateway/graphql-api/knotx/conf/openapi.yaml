@@ -26,7 +26,7 @@ paths:
 
   /api/graphql:
     post:
-      operationId: get-books-gql
+      operationId: books-gql-operation
       responses:
         default:
           description: Books Graphql API

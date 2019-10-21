@@ -52,7 +52,7 @@ public class GraphQLHandlerFactory implements RoutingHandlerFactory {
     };
   }
 
-  private static GraphQL setupGraphQL(Vertx vertx, JsonObject config, RoutingContext routingContext) {
+  private GraphQL setupGraphQL(Vertx vertx, JsonObject config, RoutingContext routingContext) {
     Reader schema = loadResource(config.getString("schema"));
 
     SchemaParser schemaParser = new SchemaParser();
@@ -71,7 +71,7 @@ public class GraphQLHandlerFactory implements RoutingHandlerFactory {
     return GraphQL.newGraphQL(graphQLSchema).build();
   }
 
-  private static Reader loadResource(String path) {
+  private Reader loadResource(String path) {
     return new InputStreamReader(GraphQLHandlerFactory.class.getResourceAsStream("/" + path));
   }
 

@@ -23,7 +23,7 @@ public class HealthCheckHandlerFactory implements RoutingHandlerFactory {
       // do check here
 
       future.complete(Status.OK());
-      });
+    });
     return HealthCheckHandler.createWithHealthChecks(checks);
   }
 }

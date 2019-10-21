@@ -8,6 +8,10 @@ import io.vertx.reactivex.ext.web.RoutingContext;
 import java.lang.reflect.Array;
 import java.util.function.Function;
 
+/**
+ * {@link TaskDataFetcher} that returns an array of {@link GraphQLDataObject} to {@link graphql.GraphQL}
+ * @param <T> model object that fetcher will create array of
+ */
 public class TaskArrayDataFetcher<T extends GraphQLDataObject> extends TaskDataFetcher<T[]> {
 
   private Class<T> clazz;

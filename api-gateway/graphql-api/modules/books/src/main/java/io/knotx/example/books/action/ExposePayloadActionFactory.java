@@ -4,10 +4,22 @@ import io.knotx.fragments.handler.api.Action;
 import io.knotx.fragments.handler.api.ActionFactory;
 import io.knotx.fragments.handler.api.domain.FragmentResult;
 import io.reactivex.Single;
+import io.vertx.core.AsyncResult;
 import io.vertx.core.Future;
+import io.vertx.core.Handler;
 import io.vertx.core.Vertx;
 import io.vertx.core.json.JsonObject;
 
+/**
+ * Reads data from payload under "key" key and puts it under "exposeAs" key.
+ * Key names can be defined in configuration like:
+ * <pre>
+ *   config {
+ *      key = key1
+*       exposeAs = key2
+*    }
+ * </pre>
+ */
 public class ExposePayloadActionFactory implements ActionFactory {
 
   @Override
@@ -27,12 +39,13 @@ public class ExposePayloadActionFactory implements ActionFactory {
             fragment.appendPayload(exposeAs, exposedData);
             return new FragmentResult(fragment, FragmentResult.SUCCESS_TRANSITION);
           })
-        .subscribe(onSuccess -> {
-          Future<FragmentResult> resultFuture = Future.succeededFuture(onSuccess);
-          resultFuture.setHandler(resultHandler);
-        }, onError -> {
-          Future<FragmentResult> resultFuture = Future.failedFuture(onError);
-          resultFuture.setHandler(resultHandler);
-        });
+        .subscribe(
+            onSuccess -> complete(resultHandler, Future.succeededFuture(onSuccess)),
+            onError -> complete(resultHandler, Future.failedFuture(onError))
+        );
+  }
+
+  private void complete(Handler<AsyncResult<FragmentResult>> resultHandler, Future<FragmentResult> fragmentResultFuture) {
+    fragmentResultFuture.setHandler(resultHandler);
   }
 }
