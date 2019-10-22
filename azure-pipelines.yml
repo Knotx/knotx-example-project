@@ -6,11 +6,17 @@ pool:
 
 steps:
 - script: |
+    ./distribution/getting-started/gradlew -p ./distribution/getting-started build --info
+  displayName: 'Build: Distribution -> Getting Started with Stack'
+- script: |
     ./distribution/getting-started/gradlew -p ./distribution/getting-started build-docker --info
-  displayName: 'Build: Distribution -> Getting Started'
+  displayName: 'Build: Distribution -> Getting Started with Docker'
 - script: |
     ./api-gateway/composing-many-apis/gradlew -p ./api-gateway/composing-many-apis build --info
   displayName: 'Build: API gateway -> Composing many APIs'
+- script: |
+    ./api-gateway/composing-many-apis/gradlew -p ./api-gateway/graphql-api build --info
+  displayName: 'Build: API gateway -> GraphQL API'
 - script: |
     ./template-processing/handlebars/gradlew -p ./template-processing/handlebars build --info
   displayName: 'Build: Template processing -> Handlebars'
