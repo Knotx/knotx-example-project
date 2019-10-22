@@ -5,6 +5,10 @@ import io.vertx.core.json.JsonObject;
 import io.vertx.reactivex.core.Vertx;
 import io.vertx.reactivex.ext.web.RoutingContext;
 
+/**
+ * {@link TaskDataFetcher} that returns a single instance of {@link GraphQLDataObject} to {@link graphql.GraphQL}
+ * @param <T> model object that fetcher will create instance of
+ */
 public class TaskSingleDataFetcher<T extends GraphQLDataObject> extends TaskDataFetcher<T> {
 
   private final Class<T> clazz;

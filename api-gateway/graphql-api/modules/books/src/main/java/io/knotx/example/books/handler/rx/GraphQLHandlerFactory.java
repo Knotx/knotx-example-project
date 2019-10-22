@@ -35,6 +35,10 @@ import io.vertx.reactivex.ext.web.handler.graphql.GraphQLHandler;
 import java.io.InputStreamReader;
 import java.io.Reader;
 
+/**
+ * {@link RoutingHandlerFactory} implementation allowing to integrate GraphQL with Knot.x HTTP Server.
+ * The 'graphqlHandler' Handler is configured in the 'knotx/conf/routes/operations.conf' file.
+ */
 public class GraphQLHandlerFactory implements RoutingHandlerFactory {
 
   @Override
