@@ -1,0 +1,14 @@
+schema {
+  query: QueryType
+}
+
+type QueryType {
+  books(match: String): [Book]
+  book(id: String): Book
+}
+
+type Book {
+  title: String!
+  publisher: String!
+  authors: [String]
+}
