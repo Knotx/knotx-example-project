@@ -1,0 +1,2 @@
+io.knotx.examples.security.auth.BasicAuthHandlerFactory
+io.knotx.examples.security.auth.JwtAuthHandlerFactory
