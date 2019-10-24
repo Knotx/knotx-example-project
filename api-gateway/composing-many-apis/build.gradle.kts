@@ -40,7 +40,7 @@ allprojects {
 }
 
 tasks.named("build") {
-    dependsOn("runFunctionalTest")
+    dependsOn("runTest")
 }
 
 apply(from = "https://raw.githubusercontent.com/Knotx/knotx-starter-kit/master/gradle/docker.gradle.kts")
