@@ -43,5 +43,5 @@ tasks.named("build") {
     dependsOn("runFunctionalTest")
 }
 
-apply(from = "https://raw.githubusercontent.com/Knotx/knotx-starter-kit/master/gradle/docker.gradle.kts")
-apply(from = "https://raw.githubusercontent.com/Knotx/knotx-starter-kit/master/gradle/javaAndUnitTests.gradle.kts")
+apply(from = "https://raw.githubusercontent.com/Knotx/knotx-starter-kit/2.0.0/gradle/docker.gradle.kts/docker.gradle.kts")
+apply(from = "https://raw.githubusercontent.com/Knotx/knotx-starter-kit/2.0.0/gradle/docker.gradle.kts/docker.gradle.kts")
