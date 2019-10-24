@@ -1,8 +1,8 @@
 openapi: "3.0.0"
 info:
   version: 1.0.0
-  title: Knot.x Gateway API Example
-  description: Knot.x Gateway API Example
+  title: API gateway caching example
+  description: API gateway caching example
 
 servers:
   - url: https://{domain}:{port}
@@ -26,7 +26,7 @@ paths:
 
   /product/id:
     get:
-      operationId: example-cacheable-api-operation
+      operationId: product-api-caching-proxy-operation
       responses:
         default:
-          description: Example product with cache operation
+          description: Target API (Product API) caching proxy.
