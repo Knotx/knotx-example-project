@@ -16,9 +16,5 @@
 rootProject.name = "api-cache"
 
 include("health-check")
-include("example-api")
-include("example-action")
 
 project(":health-check").projectDir = file("modules/health-check")
-project(":example-api").projectDir = file("modules/example-api")
-project(":example-action").projectDir = file("modules/example-action")
