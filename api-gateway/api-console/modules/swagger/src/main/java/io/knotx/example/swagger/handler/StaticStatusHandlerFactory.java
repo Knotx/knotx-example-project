@@ -13,7 +13,7 @@ import io.vertx.reactivex.ext.web.RoutingContext;
  *   config.code = 200
  * </code>
  */
-public class StaticStatusFactory implements RoutingHandlerFactory {
+public class StaticStatusHandlerFactory implements RoutingHandlerFactory {
 
   @Override
   public String getName() {
