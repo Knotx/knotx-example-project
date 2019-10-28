@@ -11,7 +11,6 @@ import io.vertx.reactivex.ext.web.RoutingContext;
 import io.vertx.reactivex.ext.web.client.HttpRequest;
 import io.vertx.reactivex.ext.web.client.HttpResponse;
 import io.vertx.reactivex.ext.web.client.WebClient;
-import io.vertx.reactivex.redis.client.Response;
 import org.apache.commons.lang3.StringUtils;
 
 public class OAuth2HelloHandler implements Handler<RoutingContext> {
