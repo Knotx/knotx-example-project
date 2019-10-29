@@ -24,6 +24,8 @@ $ docker ps
 ## Target (external) APIs (Wiremock)
 - [http://localhost:3000/product/id](http://localhost:3000/product/id)
 
+The responses contain data that is unique for each and every request to WireMock. By using Knot.x and it's caching mechanisms, we can observe how responses are cached when invoking Knot.x instead of WireMock.
+
 ## Other
 Remove stack:
 ```

@@ -19,8 +19,13 @@ plugins {
     id("java")
 }
 
+configurations {
+    register("wiremockExtensions")
+}
+
 dependencies {
     subprojects.forEach { "dist"(project(":${it.name}")) }
+    "wiremockExtensions"("com.opentable:wiremock-body-transformer:1.1.3") { isTransitive = false }
 }
 
 sourceSets.named("test") {
@@ -39,8 +44,13 @@ allprojects {
     }
 }
 
+val downloadWireMockExtensions = tasks.register<Copy>("downloadWiremockExtensions") {
+    from(configurations.named("wiremockExtensions"))
+    into("../../common-services/webapi/extensions")
+}
+
 tasks.named("build") {
-    dependsOn("runFunctionalTest")
+    dependsOn(downloadWireMockExtensions, "runFunctionalTest")
 }
 
 apply(from = "https://raw.githubusercontent.com/Knotx/knotx-starter-kit/master/gradle/docker.gradle.kts")
