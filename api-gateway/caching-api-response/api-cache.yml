@@ -9,7 +9,6 @@ services:
     image: rodolpheche/wiremock
     volumes:
       - "../../common-services/webapi:/home/wiremock"
-      # Remember to put https://repo1.maven.org/maven2/com/opentable/wiremock-body-transformer/1.1.3/wiremock-body-transformer-1.1.3.jar in ../../common-services/webapi/extensions directory!
       - "../../common-services/webapi/extensions:/var/wiremock/extensions"
     ports:
       - "3000:8080"
