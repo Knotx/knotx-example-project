@@ -1,0 +1,24 @@
+version: '3.7'
+
+networks:
+  knotnet:
+
+services:
+
+  webapi:
+    image: rodolpheche/wiremock
+    volumes:
+      - "../../common-services/webapi:/home/wiremock"
+    ports:
+      - "3000:8080"
+    networks:
+      - knotnet
+
+  knotx:
+    image: knotx-example/api-cache:latest
+    command: ["knotx", "run-knotx"]
+    ports:
+      - "8092:8092"
+      - "18092:18092"
+    networks:
+      - knotnet

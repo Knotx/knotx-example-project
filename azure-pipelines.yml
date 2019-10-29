@@ -20,4 +20,6 @@ steps:
 - script: |
     ./template-processing/handlebars/gradlew -p ./template-processing/handlebars build --info
   displayName: 'Build: Template processing -> Handlebars'
-
+- script: |
+    ./api-gateway/caching-api-response/gradlew -p ./api-gateway/caching-api-response build --info
+  displayName: 'Build: API gateway -> Caching API response'
