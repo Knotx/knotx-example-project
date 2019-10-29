@@ -15,11 +15,11 @@ steps:
     ./api-gateway/composing-many-apis/gradlew -p ./api-gateway/composing-many-apis build --info
   displayName: 'Build: API gateway -> Composing many APIs'
 - script: |
+    ./api-gateway/caching-api-response/gradlew -p ./api-gateway/caching-api-response build --info
+  displayName: 'Build: API gateway -> Caching API response'
+- script: |
     ./api-gateway/composing-many-apis/gradlew -p ./api-gateway/graphql-api build --info
   displayName: 'Build: API gateway -> GraphQL API'
 - script: |
     ./template-processing/handlebars/gradlew -p ./template-processing/handlebars build --info
   displayName: 'Build: Template processing -> Handlebars'
-- script: |
-    ./api-gateway/caching-api-response/gradlew -p ./api-gateway/caching-api-response build --info
-  displayName: 'Build: API gateway -> Caching API response'
