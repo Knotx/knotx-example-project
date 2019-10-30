@@ -15,7 +15,7 @@ services:
       - knotnet
 
   knotx:
-    image: knotx-example/api-gateway:latest
+    image: knotx-example/composing-many-apis:latest
     command: ["knotx", "run-knotx"]
     ports:
       - "8092:8092"

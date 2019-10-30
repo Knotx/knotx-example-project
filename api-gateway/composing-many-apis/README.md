@@ -1,35 +1,47 @@
-[![][license img]][license]
-[![][gitter img]][gitter]
+# API gateway: composing many APIs
+Knot.x API Proxy pattern that lets you combine results from multiple APIs into a single response.
 
+![APIs integration scenario](./assets/img/composing-many-apis.png)
 
-# API Gateway
-
+The above diagram presents the APIs composition logic. First, we need to get some user details. Then 
+we use this data during payments APIs invocations. When all payment APIs respond, we do some 
+postprocessing logic and return composed JSON data.
 
 ## Run
-Build first docker image
+Build first a Docker image:
 ```
 $ gradlew clean build
 ```
 
-Run Knot.x instance and example Web API services (User details, Payment API) in a single node Docker Swarm:
+Deploy an **API gateway** (Knot.x HTTP Server) and **User & Payments APIs** (serving JSON data 
+over a RESTful HTTP API) with Docker Swarm:
 ```
 $ docker swarm init
-
-$ docker stack deploy -c api-gateway.yml api-gateway
+$ docker stack deploy -c composing-many-apis.yml composing-many-apis
 ```
 
-## Knotx links
+Check if all containers are up and running:
+```
+$ docker ps
+```
 
- - http://localhost:8092/api/v1/payments - basic api implementation.
- - http://localhost:8092/api/v2/payments - circle breaker implementation
- - http://localhost:8092/api/v3/payments - knot.x fragments, task and actions configurable implementation
+## API gateway
+ - [http://localhost:8092/api/v1/payments](http://localhost:8092/api/v1/payments) - a routing handler 
+ implementation using Vert.x Web Client to fetch JSON data from RESTful HTTP APIs and RxJava to manage 
+ asynchronous programming challenges
+ - [http://localhost:8092/api/v2/payments](http://localhost:8092/api/v2/payments) - a similar 
+ approach like in the `v1` API version, a circuit breaker pattern implemented
+ - [http://localhost:8092/api/v3/payments](http://localhost:8092/api/v3/payments) - a solution 
+ utilizing [Configurable Integration](https://knotx.io/blog/configurable-integrations/) features,
+ defines a API composition logic in a form of manageable graph
  
-## External Services
+ 
+## Target (external) APIs
 
-**User details**
+**User API**
 - http://localhost:3000/user
 
-**Payment APIs**
+**Payments APIs**
 - http://localhost:3000/paypal/verify
 - http://localhost:3000/payu/active
 - http://localhost:3000/creditcard/allowed
@@ -37,23 +49,13 @@ $ docker stack deploy -c api-gateway.yml api-gateway
 ## Other
 Remove stack:
 ```
-$ docker stack rm api-gateway
+$ docker stack rm composing-many-apis
 ```
 Display Knot.X logs
 ``` 
- docker service logs -f api-gateway_knotx
+$ docker service logs -f composing-many-apis_knotx
 ```
 Reload Wiremock after config changes:
 ```
-docker service update --force api-gateway_webapi
+$ docker service update --force composing-many-apis
 ```
-
-
-
-[license]:https://github.com/Cognifide/knotx/blob/master/LICENSE
-[license img]:https://img.shields.io/badge/License-Apache%202.0-blue.svg
-
-[gitter]:https://gitter.im/Knotx/Lobby
-[gitter img]:https://badges.gitter.im/Knotx/knotx-extensions.svg
-
-
