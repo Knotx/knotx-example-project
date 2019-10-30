@@ -1,10 +1,6 @@
-[![][license img]][license]
-[![][gitter img]][gitter]
-
 # Developer API Console
 
-This project provides an example for a more advanced uses of the OpenAPI standard.
-// TODO provide link to the tutorial
+This project provides an example for a more advanced uses of the OpenAPI standard. In depth description can be found in [this tutorial](https://knotx.io/tutorials/openapi-and-swagger-ui/2_0).
 
 It was created with [Knot.x Starter Kit](https://github.com/Knotx/knotx-starter-kit).
 
@@ -25,10 +21,5 @@ Endpoints include:
 - `/swagger/ui` - the swagger-ui app
 - multiple mocked endpoints, for presentation purposes only
 
-[license]:https://github.com/Cognifide/knotx/blob/master/LICENSE
-[license img]:https://img.shields.io/badge/License-Apache%202.0-blue.svg
-
-[gitter]:https://gitter.im/Knotx/Lobby
-[gitter img]:https://badges.gitter.im/Knotx/knotx-extensions.svg
 
 

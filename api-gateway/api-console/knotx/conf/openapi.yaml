@@ -147,7 +147,7 @@ paths:
 
   # example of an endpoint with path parameters
   # it'll match all requests on "/api/user/.../send/..." endpoint
-  /api/user/{id}/send/{message}:
+  /api/users/{id}/send/{message}:
     post:
       operationId: sendmsg-operation
       summary: Send a message to a specific user
@@ -184,6 +184,19 @@ paths:
         # endpoint will respond with 501
         501:
           description: Not implemeneted
+
+  # example of an endpoint returning an invalid response
+  /api/invalid-user:
+    get:
+      operationId: invalid-user-operation
+      summary: Responds with data that doesn't match the schema
+      responses:
+        200:
+          description: Returns invalid user
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BasicUser'
 
 # reusable schema types are defined here
 components:
