@@ -26,7 +26,7 @@ paths:
         default:
           description: example vert.x healthcheck
 
-  # this very file needs to be served via HTTP so that swagger-ui app can consume it
+  # serves openapi specification content via HTTP so that swagger-ui app can consume it
   /swagger/spec:
     get:
       operationId: openapi-operation
@@ -34,7 +34,7 @@ paths:
         default:
           description: exposes openapi spec file to be consumed by swagger ui
 
-  # this endpoint serves the swagger-ui app
+  # serves the swagger-ui app
   /swagger/ui:
     get:
       operationId: swaggerui-operation
@@ -45,7 +45,7 @@ paths:
   /api/user:
     get:
       operationId: userinfo-operation
-      summary: Returns basic info about a logged in user
+      summary: Returns basic info about a logged-in user
       responses:
         200:
           description: OK
@@ -58,7 +58,7 @@ paths:
     post:
       operationId: deprecated-userinfo-operation
       deprecated: true
-      summary: Returns basic info about a logged in user
+      summary: Returns basic info about a logged-in user
       responses:
         200:
           description: OK
@@ -86,7 +86,7 @@ paths:
   /api/user/avatar:
     put:
       operationId: uploadavatar-operation
-      summary: Uploads a new avatar for the logged in user
+      summary: Uploads a new avatar for the logged-in user
       requestBody:
         content:
           image/png:
@@ -101,7 +101,7 @@ paths:
           description: bad request
     get:
       operationId: getavatar-operation
-      summary: Gets a link to the user's avatar
+      summary: Gets a link to the logged-in user's avatar
       responses:
         200:
           description: OK

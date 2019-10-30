@@ -1,4 +1,4 @@
-# Developer API Console
+# API Gateway: Developer API Console
 
 This project provides an example for a more advanced uses of the OpenAPI standard. In depth description can be found in [this tutorial](https://knotx.io/tutorials/openapi-and-swagger-ui/2_0).
 
