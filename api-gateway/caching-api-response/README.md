@@ -1,7 +1,7 @@
 # API Gateway: caching
 
 ## Run
-Build first docker image
+Build first a Docker image:
 ```
 $ gradlew clean build
 ```
