@@ -1,9 +1,9 @@
 [![][license img]][license]
 [![][gitter img]][gitter]
 
-# Developer API Console
+# API Gateway: Developer API Console
 
-This project provides an example for a more advanced uses of the OpenAPI standard.
+This project provides an example for more advanced usages of the OpenAPI standard.
 // TODO provide link to the tutorial
 
 It was created with [Knot.x Starter Kit](https://github.com/Knotx/knotx-starter-kit).
