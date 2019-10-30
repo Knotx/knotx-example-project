@@ -1,0 +1,11 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "/product/id"
+  },
+  "response": {
+    "status": 200,
+    "fixedDelayMilliseconds": 100,
+    "bodyFileName": "product.json"
+  }
+}

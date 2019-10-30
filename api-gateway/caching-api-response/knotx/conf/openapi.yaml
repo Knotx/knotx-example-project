@@ -1,0 +1,32 @@
+openapi: "3.0.0"
+info:
+  version: 1.0.0
+  title: API gateway caching example
+  description: API gateway caching example
+
+servers:
+  - url: https://{domain}:{port}
+    description: The local API server
+    variables:
+      domain:
+        default: localhost
+        description: api domain
+      port:
+        enum:
+          - '8092'
+        default: '8092'
+
+paths:
+  /healthcheck:
+    get:
+      operationId: healthcheck-operation
+      responses:
+        default:
+          description: example vert.x healthcheck
+
+  /product/id:
+    get:
+      operationId: product-api-caching-proxy-operation
+      responses:
+        default:
+          description: Target API (Product API) caching proxy.
