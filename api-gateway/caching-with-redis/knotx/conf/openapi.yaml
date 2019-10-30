@@ -1,0 +1,31 @@
+openapi: "3.0.0"
+info:
+  version: 1.0.0
+  title: Redis Cache Example
+
+servers:
+  - url: http://{domain}:{port}
+    description: The local API server
+    variables:
+      domain:
+        default: localhost
+        description: api domain
+      port:
+        enum:
+          - '8092'
+        default: '8092'
+
+paths:
+  /healthcheck:
+    get:
+      operationId: healthcheck-operation
+      responses:
+        default:
+          description: example vert.x healthcheck
+
+  /book:
+    get:
+      operationId: get-book-operation
+      responses:
+        default:
+          description: example cachable endpoint

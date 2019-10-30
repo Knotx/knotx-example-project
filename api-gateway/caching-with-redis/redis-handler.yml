@@ -1,0 +1,18 @@
+version: '3.7'
+
+networks:
+  knotnet:
+
+services:
+  redis:
+    image: redis
+    networks:
+      - knotnet
+  knotx:
+    image: knotx-example/redis:latest
+    command: ["knotx", "run-knotx"]
+    ports:
+      - "8092:8092"
+      - "18092:18092"
+    networks:
+      - knotnet
