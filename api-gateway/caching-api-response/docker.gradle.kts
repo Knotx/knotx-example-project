@@ -115,7 +115,6 @@ tasks.register("runTest", Test::class) {
 
 tasks.register("runFunctionalTest", Test::class) {
     group = "docker-functional-tests"
-//    options { systemProperties["test.internal.domain"] = "host.docker.internal" }
     dependsOn(tasks.named("waitContainer"))
     finalizedBy(tasks.named("stopContainer"))
     include("**/*ITCase*")
