@@ -22,7 +22,7 @@ builds Docker image, using Docker is not mandatory.
 |Docker|This module covers the same topics as above. However, it uses Docker and embeds Knot.x Stack within a Docker image.|[Stack](https://github.com/Knotx/knotx-stack), [Docker](https://github.com/Knotx/knotx-docker), [Starter Kit](https://github.com/Knotx/knotx-starter-kit) template project |[Getting Started with Docker](http://knotx.io/tutorials/getting-started-with-docker/2_0/)| | 
 
 
-### API gateway
+### API Gateway & Web API
 
 Knot.x is an integration framework that can be used as a simple API gateway. It can be also combined 
 with Cloud solutions like [Apigee Edge](https://docs.apigee.com/api-platform/get-started/what-apigee-edge) 
@@ -31,10 +31,10 @@ or [Amazon API Gateway](https://aws.amazon.com/api-gateway/).
 
 |Topic|Description|Used technologies|Tutorial|Source code|
 |-----|-----------|-----------------|--------|-----------|
-|Securing your API |Simple usage of popular authentication technologies to secure your API.|Docker, OAuth 2.0, OpenId Connect, JWT|*coming soon*|*coming soon*|
-|Caching APIs|Knot.x proxies all requests to target API providing such features as cache or circuit breaker.|In-memory cache, [Fragments](https://github.com/Knotx/knotx-fragments/tree/master/handler), [WireMock](http://wiremock.org/), Docker|*coming soon*|`.api-gateway/caching-api-response`|
-|Composing many APIs|Presents how to combine data from many API (even dependent on each other) using [Configurable Integrations](http://knotx.io/blog/configurable-integrations/).|[Fragments](https://github.com/Knotx/knotx-fragments/tree/master/handler), [WireMock](http://wiremock.org/), Docker|[Configurable API gateway](http://knotx.io/tutorials/configurable-api-gateway/2_0/)|`./api-gateway/composing-many-apis`|
-|API Console with Swagger|More advanced example of OpenAPI specification usage|[OpenAPI](https://swagger.io/docs/specification/about/), [SwaggerUI](https://swagger.io/tools/swagger-ui/)|*coming soon*|`./api-gateway/api-console`
+|OpenAPI and API Console with Swagger|More advanced example of OpenAPI specification usage|[OpenAPI](https://swagger.io/docs/specification/about/), [SwaggerUI](https://swagger.io/tools/swagger-ui/)|[OpenAPI specification & interactive API Console](http://localhost:3010/tutorials/openapi-and-swagger-ui/2_0/)|`./api-gateway/api-console`|
+|Securing your API|Simple usage of popular authentication technologies to secure your API.|Docker, OAuth 2.0, OpenId Connect, JWT|*coming soon*|*coming soon*|
+|Caching|Knot.x proxies requests to target API, providing a caching capability.|In-memory cache, [Fragments](https://github.com/Knotx/knotx-fragments/tree/master/handler), [WireMock](http://wiremock.org/), Docker|[Caching API responses](http://knotx.io/tutorials/api-gateway-api-composition/2_0/)|`.api-gateway/caching`|
+|API composition|Presents how to compose data from many services / APIs using [Configurable Integrations](http://knotx.io/blog/configurable-integrations/).|[Fragments](https://github.com/Knotx/knotx-fragments/tree/master/handler), [WireMock](http://wiremock.org/), Docker|[Compose multiple services into a single round-trip.](http://knotx.io/tutorials/api-gateway-api-composition/2_0/)|`./api-gateway/api-composition`|
 |GraphQL API|Expose GraphQL API using Configurable Integrations.|GraphQL, OpenAPI, Configurable Integrations|[Using GraphQL with Knot.x](http://knotx.io/tutorials/graphql-usage/2_0.html)|`./api-gateway/graphql-api` 
 
 ### Template Processing
