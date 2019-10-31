@@ -35,7 +35,7 @@ or [Amazon API Gateway](https://aws.amazon.com/api-gateway/).
 |Securing your API|Simple usage of popular authentication technologies to secure your API.|Docker, OAuth 2.0, OpenId Connect, JWT|*coming soon*|*coming soon*|
 |Caching|Knot.x proxies requests to target API, providing a caching capability.|In-memory cache, [Fragments](https://github.com/Knotx/knotx-fragments/tree/master/handler), [WireMock](http://wiremock.org/), Docker|[Caching API responses](http://knotx.io/tutorials/api-gateway-caching/2_0/)|`.api-gateway/caching`|
 |API composition|Presents how to compose data from many services / APIs using [Configurable Integrations](https://knotx.io/blog/configurable-integrations/).|[Fragments](https://github.com/Knotx/knotx-fragments/tree/master/handler), [WireMock](http://wiremock.org/), Docker|[Compose multiple services into a single round-trip.](https://knotx.io/tutorials/api-gateway-api-composition/2_0/)|`./api-gateway/api-composition`|
-|GraphQL API|Expose GraphQL API using Configurable Integrations.|GraphQL, OpenAPI, Configurable Integrations|[Using GraphQL with Knot.x](https://knotx.io/tutorials/graphql-usage/2_0/)|`./api-gateway/graphql-api` 
+|GraphQL API|Expose GraphQL API using Configurable Integrations.|GraphQL, OpenAPI, Configurable Integrations|[Using GraphQL with Knot.x](https://knotx.io/tutorials/graphql-with-knotx/2_0/)|`./api-gateway/graphql-api` 
 
 ### Template Processing
 This module presents the aspects of template processing.
