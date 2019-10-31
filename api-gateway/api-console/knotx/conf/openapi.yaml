@@ -1,0 +1,226 @@
+openapi: "3.0.0"
+info:
+  version: 1.0.0
+  title: Developer API Console Example
+  description: >
+    Demonstrates more advanced uses of the _OpenAPI_ standard, like this markdown description,
+    and consuming of the `openapi.yaml` file (that _Knot.x_ needs anyway) by _Swagger UI_.
+
+servers:
+  - url: http://{domain}:{port}
+    description: The local API server
+    variables:
+      domain:
+        default: localhost
+        description: api domain
+      port:
+        enum:
+          - '8092'
+        default: '8092'
+
+paths:
+  /healthcheck:
+    get:
+      operationId: healthcheck-operation
+      responses:
+        default:
+          description: example vert.x healthcheck
+
+  # serves openapi specification content via HTTP so that swagger-ui app can consume it
+  /swagger/spec:
+    get:
+      operationId: openapi-operation
+      responses:
+        default:
+          description: exposes openapi spec file to be consumed by swagger ui
+
+  # serves the swagger-ui app
+  /swagger/ui:
+    get:
+      operationId: swaggerui-operation
+      responses:
+        default:
+          description: swagger-ui web app
+
+  /api/user:
+    get:
+      operationId: userinfo-operation
+      summary: Returns basic info about a logged-in user
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              # referencing a reusable schema
+              schema:
+                $ref: '#/components/schemas/BasicUser'
+    # example of a deprecated method
+    post:
+      operationId: deprecated-userinfo-operation
+      deprecated: true
+      summary: Returns basic info about a logged-in user
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BasicUser'
+
+  /api/users:
+    get:
+      operationId: userlist-operation
+      summary: Returns a list of users with basic info about each
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              # an array of reusable schema types
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/BasicUser'
+
+  # example of specifying a request body, a file in this case
+  /api/user/avatar:
+    put:
+      operationId: uploadavatar-operation
+      summary: Uploads a new avatar for the logged-in user
+      requestBody:
+        content:
+          image/png:
+            schema:
+              type: string
+              format: binary
+      # multiple responses can be defined
+      responses:
+        200:
+          description: uploaded
+        400:
+          description: bad request
+    get:
+      operationId: getavatar-operation
+      summary: Gets a link to the logged-in user's avatar
+      responses:
+        200:
+          description: OK
+          content:
+            application/json:
+              # a custom schema
+              schema:
+                type: object
+                properties:
+                  avatarUrl:
+                    type: string
+
+  /api/user/isadmin:
+    get:
+      operationId: admininfo-operation
+      summary: Returns detailed information about user's account
+      # defining a required query parameter that can only be either "json" or "xml"
+      parameters:
+        - in: query
+          name: datatype
+          description: mime-type that client want to be returned
+          schema:
+            type: string
+            enum:
+              - json
+              - xml
+          required: true
+      responses:
+        200:
+          description: OK
+          content:
+            # different content types can be returned. Both are using the same schema
+            # because schema types are abstract from any specific format
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IsAdmin'
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/IsAdmin'
+        # request will fallback to this response if above query parameter is not specified
+        400:
+          description: Bad request
+
+  # example of an endpoint with path parameters
+  # it'll match all requests on "/api/user/.../send/..." endpoint
+  /api/users/{id}/send/{message}:
+    post:
+      operationId: sendmsg-operation
+      summary: Send a message to a specific user
+      # specifying two path parameters
+      parameters:
+        - in: path
+          name: id # exactly the same as in the path
+          description: ID of a user to send the message to
+          required: true # path parameters need to be required
+          # reuse existing schema type
+          schema:
+            $ref: '#/components/schemas/UserId'
+        - in: path
+          name: message
+          description: message to be sent to the user
+          required: true
+          # custom schema with regular expression
+          schema:
+            type: string
+            pattern: '^[a-zA-Z0-9_]*$'
+      responses:
+        200:
+          description: OK
+        # fallbacks to bad-request if parameters don't match their constraints (e.g. ID is less than 1)
+        400:
+          description: Bad request
+
+  # example of an endpoint with undefined operation (no corresponding operationId in routes/operations.conf)
+  /api/future-feature:
+    get:
+      operationId: future-feature-operation # this operation doesn't exist
+      summary: This will be implemented in the future
+      responses:
+        # endpoint will respond with 501
+        501:
+          description: Not implemeneted
+
+  # example of an endpoint returning an invalid response
+  /api/invalid-user:
+    get:
+      operationId: invalid-user-operation
+      summary: Responds with data that doesn't match the schema
+      responses:
+        200:
+          description: Returns invalid user
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BasicUser'
+
+# reusable schema types are defined here
+components:
+  schemas:
+    # UserId is an integer greater than or equal to 1
+    UserId:
+      type: integer
+      minimum: 1
+    # BasicUser is an object that has a username, email, avatar and UserId (defined above and reused here)
+    BasicUser:
+      type: object
+      properties:
+        id:
+          $ref: '#/components/schemas/UserId'
+        username:
+          type: string
+        email:
+          type: string
+          example: test@test.test # example value can be provided
+        avatar:
+          type: string
+    # IsAdmin is an object that has a boolean property "admin"
+    IsAdmin:
+      type: object
+      properties:
+        admin:
+          type: boolean

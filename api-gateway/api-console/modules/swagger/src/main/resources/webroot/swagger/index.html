@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Swagger UI</title>
+
+  <!-- for simplicity, swagger-ui is used in its standalone version that doesn't require frontend build tools -->
+  <!-- it's hosted at unpkg.com -->
+  <link rel="stylesheet" type="text/css" href="https://unpkg.com/swagger-ui-dist@3.24.0/swagger-ui.css">
+
+  <script src="https://unpkg.com/swagger-ui-dist@3.24.0/swagger-ui-standalone-preset.js"></script>
+  <script src="https://unpkg.com/swagger-ui-dist@3.24.0/swagger-ui-bundle.js"></script>
+</head>
+<body>
+  <div id="swagger-ui" />
+  <script>
+    // initialize SwaggerUI on window load
+    window.onload = () => {
+      window.ui = SwaggerUIBundle({
+        url: "/swagger/spec", //path to the openapi.yaml file, it's served at /swagger/spec
+        dom_id: '#swagger-ui',
+        deepLinking: true,
+        presets: [
+          SwaggerUIBundle.presets.apis,
+          SwaggerUIBundle.SwaggerUIStandalonePreset
+        ],
+        plugins: [
+          SwaggerUIBundle.plugins.DownloadUrl
+        ]
+      })
+    }
+  </script>
+</body>
+</html>

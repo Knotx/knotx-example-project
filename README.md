@@ -34,6 +34,7 @@ or [Amazon API Gateway](https://aws.amazon.com/api-gateway/).
 |Securing your API |Simple usage of popular authentication technologies to secure your API.|Docker, OAuth 2.0, OpenId Connect, JWT|*coming soon*|*coming soon*|
 |Caching APIs|Knot.x proxies all requests to target API providing such features as cache or circuit breaker.|In-memory cache, [Fragments](https://github.com/Knotx/knotx-fragments/tree/master/handler), [WireMock](http://wiremock.org/), Docker|*coming soon*|`.api-gateway/caching-api-response`|
 |Composing many APIs|Presents how to combine data from many API (even dependent on each other) using [Configurable Integrations](http://knotx.io/blog/configurable-integrations/).|[Fragments](https://github.com/Knotx/knotx-fragments/tree/master/handler), [WireMock](http://wiremock.org/), Docker|[Configurable API gateway](http://knotx.io/tutorials/configurable-api-gateway/2_0/)|`./api-gateway/composing-many-apis`|
+|API Console with Swagger|More advanced example of OpenAPI specification usage|[OpenAPI](https://swagger.io/docs/specification/about/), [SwaggerUI](https://swagger.io/tools/swagger-ui/)|*coming soon*|`./api-gateway/api-console`
 |GraphQL API|Expose GraphQL API using Configurable Integrations.|GraphQL, OpenAPI, Configurable Integrations|[Using GraphQL with Knot.x](http://knotx.io/tutorials/graphql-usage/2_0.html)|`./api-gateway/graphql-api` 
 
 ### Template Processing
