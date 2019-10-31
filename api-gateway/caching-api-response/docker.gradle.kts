@@ -19,6 +19,7 @@ import com.bmuschko.gradle.docker.tasks.container.DockerStopContainer
 import com.bmuschko.gradle.docker.tasks.container.extras.DockerWaitHealthyContainer
 import com.bmuschko.gradle.docker.tasks.image.DockerBuildImage
 import com.bmuschko.gradle.docker.tasks.image.DockerRemoveImage
+import org.gradle.internal.impldep.org.sonatype.maven.polyglot.groovy.builder.factory.ObjectFactory
 
 val dockerImageRef = "$buildDir/.docker/buildImage-imageId.txt"
 
@@ -60,9 +61,10 @@ tasks.register<DockerCreateContainer>("createContainer") {
     group = "docker-functional-tests"
     dependsOn(buildImage)
     targetImageId(buildImage.get().imageId)
-    portBindings.set(listOf("8092:8092"))
-    exposePorts("tcp", listOf(8092))
-    withEnvVar("EXTERNAL_API_DOMAIN", "host.docker.internal") // add environment variable to test container
+    portBindings.set(listOf("8092:8092", "18092:18092"))
+    exposePorts("tcp", listOf(8092,18092))
+    network.set("host")
+    withEnvVar("EXTERNAL_API_DOMAIN", "localhost") // add environment variable to test container
     autoRemove.set(true)
 }
 val createContainer = tasks.named<DockerCreateContainer>("createContainer")
