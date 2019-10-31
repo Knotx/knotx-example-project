@@ -13,13 +13,15 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+import com.bmuschko.gradle.docker.shaded.io.netty.util.internal.PlatformDependent.isWindows
 import com.bmuschko.gradle.docker.tasks.container.DockerCreateContainer
 import com.bmuschko.gradle.docker.tasks.container.DockerStartContainer
 import com.bmuschko.gradle.docker.tasks.container.DockerStopContainer
 import com.bmuschko.gradle.docker.tasks.container.extras.DockerWaitHealthyContainer
 import com.bmuschko.gradle.docker.tasks.image.DockerBuildImage
 import com.bmuschko.gradle.docker.tasks.image.DockerRemoveImage
-import org.gradle.internal.impldep.org.sonatype.maven.polyglot.groovy.builder.factory.ObjectFactory
+import org.apache.tools.ant.taskdefs.condition.Os.FAMILY_UNIX
+import org.apache.tools.ant.taskdefs.condition.Os.isFamily
 
 val dockerImageRef = "$buildDir/.docker/buildImage-imageId.txt"
 
@@ -63,8 +65,14 @@ tasks.register<DockerCreateContainer>("createContainer") {
     targetImageId(buildImage.get().imageId)
     portBindings.set(listOf("8092:8092", "18092:18092"))
     exposePorts("tcp", listOf(8092,18092))
-    network.set("host")
-    withEnvVar("EXTERNAL_API_DOMAIN", "localhost") // add environment variable to test container
+    // allow container to access host's network
+    if (isFamily(FAMILY_UNIX)) {
+        network.set("host")
+        withEnvVar("EXTERNAL_API_DOMAIN", "localhost")
+    } else {
+        // --network=host does not work for non-linux host OS
+        withEnvVar("EXTERNAL_API_DOMAIN", "host.docker.internal")
+    }
     autoRemove.set(true)
 }
 val createContainer = tasks.named<DockerCreateContainer>("createContainer")

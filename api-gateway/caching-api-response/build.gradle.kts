@@ -31,7 +31,6 @@ dependencies {
 
 sourceSets.named("test") {
     java.srcDir("functional/src/test/java")
-//    resources.srcDir("../../common-services/webapi")
 }
 
 allprojects {
