@@ -18,8 +18,8 @@ builds Docker image, using Docker is not mandatory.
 
 |Topic|Description|Used technologies|Tutorial|Source code|
 |-----|-----------|-----------------|--------|-----------|
-|Stack|Basic usage of [fragmentsHandler](https://github.com/Knotx/knotx-fragments/tree/master/handler) with a simple graph that uses data from external API and combines them with a static HTML provided by [fsRepoConnectionHandler](https://github.com/Knotx/knotx-repository-connector/tree/master/fs). |[Stack](https://github.com/Knotx/knotx-stack)|[Getting Started with Knot.x Stack](http://knotx.io/tutorials/getting-started-with-knotx-stack/2_0/)| `./distribution/knotx-stack`| 
-|Docker|This module covers the same topics as above. However, it uses Docker and embeds Knot.x Stack within a Docker image.|[Stack](https://github.com/Knotx/knotx-stack), [Docker](https://github.com/Knotx/knotx-docker), [Starter Kit](https://github.com/Knotx/knotx-starter-kit) template project |[Getting Started with Docker](http://knotx.io/tutorials/getting-started-with-docker/2_0/)| | 
+|Stack|Basic usage of [fragmentsHandler](https://github.com/Knotx/knotx-fragments/tree/master/handler) with a simple graph that uses data from external API and combines them with a static HTML provided by [fsRepoConnectionHandler](https://github.com/Knotx/knotx-repository-connector/tree/master/fs). |[Stack](https://github.com/Knotx/knotx-stack)|[Getting Started with Knot.x Stack](http://knotx.io/tutorials/getting-started-with-knotx-stack/2_0/)| `./distribution/getting-started`| 
+|Docker|This module covers the same topics as above. However, it uses Docker and embeds Knot.x Stack within a Docker image.|[Stack](https://github.com/Knotx/knotx-stack), [Docker](https://github.com/Knotx/knotx-docker), [Starter Kit](https://github.com/Knotx/knotx-starter-kit) template project |[Getting Started with Docker](http://knotx.io/tutorials/getting-started-with-docker/2_0/)| `./distribution/getting-started` | 
 
 
 ### API Gateway & Web API
