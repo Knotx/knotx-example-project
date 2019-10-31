@@ -64,17 +64,31 @@ tasks.register<DockerCreateContainer>("createContainer") {
     dependsOn(buildImage)
     targetImageId(buildImage.get().imageId)
     portBindings.set(listOf("8092:8092", "18092:18092"))
-    exposePorts("tcp", listOf(8092,18092))
-    // allow container to access host's network
-    if (isFamily(FAMILY_UNIX)) {
-        network.set("host")
-        withEnvVar("EXTERNAL_API_DOMAIN", "localhost")
-    } else {
-        // --network=host does not work for non-linux host OS
-        withEnvVar("EXTERNAL_API_DOMAIN", "host.docker.internal")
-    }
+    exposePorts("tcp", listOf(8092, 18092))
     autoRemove.set(true)
+    // allow container to access host's network
+    dependsOn("configureUnix", "configureNonUnix")
 }
+
+tasks.register("configureUnix"){
+    doLast {
+        createContainer {
+            network.set("host")
+            withEnvVar("EXTERNAL_API_DOMAIN", "localhost")
+        }
+    }
+    onlyIf { isFamily(FAMILY_UNIX) }
+}
+
+tasks.register("configureNonUnix"){
+    doLast {
+        createContainer {
+            withEnvVar("EXTERNAL_API_DOMAIN", "host.docker.internal")
+        }
+    }
+    onlyIf { !isFamily(FAMILY_UNIX) }
+}
+
 val createContainer = tasks.named<DockerCreateContainer>("createContainer")
 
 tasks.register<DockerStartContainer>("startContainer") {
