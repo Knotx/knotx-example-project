@@ -17,8 +17,6 @@ rootProject.name = "api-gateway-security"
 
 include("hello-module")
 include("security-module")
-include("health-check")
 
 project(":hello-module").projectDir = file("modules/hello-module")
 project(":security-module").projectDir = file("modules/security-module")
-project(":health-check").projectDir = file("modules/health-check")

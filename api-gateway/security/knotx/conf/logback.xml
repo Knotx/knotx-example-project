@@ -28,7 +28,7 @@
 
   <logger name="io.knotx" level="DEBUG"/>
   <logger name="io.vertx" level="DEBUG"/>
-  <logger name="com.project.example" level="DEBUG"/>
+  <logger name="io.knotx.examples.security" level="DEBUG"/>
 
   <root level="DEBUG">
     <appender-ref ref="CONSOLE"/>
