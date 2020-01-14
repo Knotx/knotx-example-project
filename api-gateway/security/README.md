@@ -22,12 +22,8 @@ Then, start Docker container:
 $ docker run -p8092:8092 knotx/secure-api-gateway
 ```
 
-and validate url:
-- [`localhost:8092/api/public`](http://localhost:8092/api/public)
-
 ## Endpoints:
 
-- [`localhost:8092/api/public`](http://localhost:8092/api/public) public endpoint without security
 - [`localhost:8092/api/secure/basic`](http://localhost:8092/api/security/basic) endpoint protected with [Basic Auth](https://en.wikipedia.org/wiki/Basic_access_authentication)
   - Available credentials: user `john` password `s3cr3t`
 - [`localhost:8092/api/secure/jwt`](http://localhost:8092/api/security/jwt) endpoint protected with [JWT](https://jwt.io/)
