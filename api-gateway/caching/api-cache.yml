@@ -9,13 +9,15 @@ services:
     image: rodolpheche/wiremock
     volumes:
       - "../../common-services/webapi:/home/wiremock"
+      - "../../common-services/webapi/extensions:/var/wiremock/extensions"
     ports:
       - "3000:8080"
     networks:
       - knotnet
+    command: ["--global-response-templating", "--extensions", "com.opentable.extension.BodyTransformer"]
 
   knotx:
-    image: knotx-example/api-gateway:latest
+    image: knotx-example/api-cache:latest
     command: ["knotx", "run-knotx"]
     ports:
       - "8092:8092"

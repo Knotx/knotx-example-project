@@ -1,0 +1,4 @@
+io.knotx.example.swagger.handler.StaticJsonHandlerFactory
+io.knotx.example.swagger.handler.StaticStatusHandlerFactory
+io.knotx.example.swagger.handler.AdminInfoHandlerFactory
+io.knotx.example.swagger.handler.StaticHandlerFactory

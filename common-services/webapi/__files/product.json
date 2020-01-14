@@ -1,0 +1,7 @@
+{
+  "id": 21762532,
+  "url": "http://knotx.io",
+  "label": "Product",
+  "currentTime": "{{now format='yyyy-MM-dd HH:mm:ss'}}",
+  "promoCode": "{{randomValue length=6 type='ALPHANUMERIC'}}"
+}
