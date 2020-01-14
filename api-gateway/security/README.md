@@ -26,8 +26,16 @@ $ docker run -p8092:8092 knotx/secure-api-gateway
 
 - [`localhost:8092/api/secure/basic`](http://localhost:8092/api/security/basic) endpoint protected with [Basic Auth](https://en.wikipedia.org/wiki/Basic_access_authentication)
   - Available credentials: user `john` password `s3cr3t`
+  - Sample call:
+  ```shell script
+      curl -X GET http://localhost:8092/api/secure/basic -H 'Authorization: Basic am9objpzM2NyM3Q='
+  ```
 - [`localhost:8092/api/secure/jwt`](http://localhost:8092/api/security/jwt) endpoint protected with [JWT](https://jwt.io/)
   - Symmetric key using `HS256`: `M0NTY3ODkwIiwibmFtZSI6`
+  - Sample call:
+  ```shell script
+      curl -X GET http://localhost:8092/api/secure/jwt -H 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIn0.vPWK59pl5GWimz8UVbL3CmrceSfmNvvCgyzwLVV9jT8'
+  ```
 - [`localhost:8092/api/secure/login`](http://localhost:8092/api/security/jwt) endpoint implementing *Authorization Code* flow of [OAuth2](https://oauth.net/2/)
   - It redirects to Google Account consent page
 - [`localhost:8092/api/secure/oauth2`](http://localhost:8092/api/security/oauth2) endpoint expecting a redirect from Google Account consent page as part of [OAuth2](https://oauth.net/2/)
