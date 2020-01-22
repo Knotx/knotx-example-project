@@ -13,7 +13,6 @@ dependencies {
         implementation("$v-health-check")
         implementation("$v-auth-shiro")
         implementation("$v-auth-jwt")
-        implementation("$v-auth-oauth2")
     }
     "org.apache".let { v ->
         compile("$v.httpcomponents:httpclient:4.5.3")

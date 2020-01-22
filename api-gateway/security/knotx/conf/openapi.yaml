@@ -40,20 +40,6 @@ paths:
           description: Hello World API protected with JWT
         '401':
           description: Anauthorized access
-  /api/secure/login:
-    get:
-      operationId: oauth2-redirect-operation
-      responses:
-        '303':
-          description: Google Account login redirect
-  /api/secure/oauth2:
-    get:
-      operationId: hello-world-operation-oauth2
-      responses:
-        '200':
-          description: Hello World API protected with JWT
-        '401':
-          description: Anauthorized access
 
 components:
   securitySchemes:
