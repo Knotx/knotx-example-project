@@ -24,5 +24,8 @@ steps:
     ./api-gateway/graphql-api/gradlew -p ./api-gateway/graphql-api build --info
   displayName: 'Build: API gateway -> GraphQL API'
 - script: |
+    ./api-gateway/security/gradlew -p ./api-gateway/security build-docker --info
+  displayName: 'Build: API gateway -> Secure API'
+- script: |
     ./template-processing/handlebars/gradlew -p ./template-processing/handlebars build --info
   displayName: 'Build: Template processing -> Handlebars'
