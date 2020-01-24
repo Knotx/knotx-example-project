@@ -20,6 +20,19 @@ servers:
         default: '8092'
 
 paths:
+  /healthcheck:
+    get:
+      operationId: healthcheck-operation
+      # https://vertx.io/docs/vertx-health-check/java/
+      responses:
+        '200':
+          description: Everything is fine
+        '204':
+          description: No procedure are registered.
+        '501':
+          description: At least one procedure has reported a non-healthy status
+        '500':
+          description: One procedure has thrown an error or has not reported a status in time
   /api/secure/basic:
     get:
       operationId: hello-world-operation-basic
