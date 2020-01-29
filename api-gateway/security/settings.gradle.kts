@@ -15,8 +15,10 @@
  */
 rootProject.name = "api-gateway-security"
 
+include("health-check")
 include("hello-module")
 include("security-module")
 
+project(":health-check").projectDir = file("modules/health-check")
 project(":hello-module").projectDir = file("modules/hello-module")
 project(":security-module").projectDir = file("modules/security-module")
