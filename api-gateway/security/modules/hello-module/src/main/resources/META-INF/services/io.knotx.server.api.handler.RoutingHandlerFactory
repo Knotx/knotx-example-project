@@ -1,1 +1,2 @@
 io.knotx.example.hellohandler.HelloWorldHandlerFactory
+io.knotx.example.hellohandler.HelloWorldOpenIDHandlerFactory
