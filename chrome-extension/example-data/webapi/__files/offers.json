@@ -1,0 +1,21 @@
+[{
+  "id": 1,
+  "method": "Ardmore Shipping Corporation",
+  "price": "$9.01"
+}, {
+  "id": 2,
+  "method": "Alexander & Baldwin Holdings, Inc.",
+  "price": "$6.09"
+}, {
+  "id": 3,
+  "method": "Chesapeake Lodging Trust",
+  "price": "$7.63"
+}, {
+  "id": 4,
+  "method": "Beneficial Bancorp, Inc.",
+  "price": "$7.60"
+}, {
+  "id": 5,
+  "method": "First Horizon National Corporation",
+  "price": "$5.62"
+}]

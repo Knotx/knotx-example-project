@@ -1,0 +1,17 @@
+[
+  {
+    "verified": true,
+    "paymentUrl": "https://paypal-example.com/payment?id=1983247919hv9sa398f",
+    "name": "PayPal premium"
+  },
+  {
+    "verified": true,
+    "paymentUrl": "https://payu-example.com/tr?id=afj08aw398gha0we9ge",
+    "name": "PayU"
+  },
+  {
+    "verified": true,
+    "paymentUrl": "https://cc-example.com/pay/19g8esry9se8rgyse90r8ug4",
+    "name": "Credit Card"
+  }
+]

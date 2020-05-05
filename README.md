@@ -44,6 +44,15 @@ This module presents the aspects of template processing.
 |-----|-----------|-----------------|--------|-----------|
 |Getting started|Basic usage of [fragmentsHandler](https://github.com/Knotx/knotx-fragments/tree/master/handler) with a simple graph that uses data from external API and combines them with a static HTML provided by [fsRepoConnectionHandler](https://github.com/Knotx/knotx-repository-connector/tree/master/fs) | [Template Engine](https://github.com/Knotx/knotx-template-engine), Handlebars, Docker| |`./template-processing/handlebars`| 
 
+### Debugging with Fragments Chrome Extension
+This module presents the usage of [Fragments Chrome Plugin](https://github.com/Knotx/knotx-fragments-chrome-extension.
+
+|Topic|Description|Used technologies|Tutorial|Source code|
+|-----|-----------|-----------------|--------|-----------|
+|Template processing scenario|Basic usage of [Knot.x Fragments Chrome Plugin](https://github.com/Knotx/knotx-fragments-chrome-extension) during Task & Actions definition & external API responses investigation. | [Knot.x Fragments Chrome Plugin](https://github.com/Knotx/knotx-fragments-chrome-extension), [Fragments Handler](https://github.com/Knotx/knotx-fragments), [Template Engine](https://github.com/Knotx/knotx-template-engine), Docker| |`./chrome-extension`|
+
+
+
 [license]:https://github.com/Cognifide/knotx/blob/master/LICENSE
 [license img]:https://img.shields.io/badge/License-Apache%202.0-blue.svg
 
