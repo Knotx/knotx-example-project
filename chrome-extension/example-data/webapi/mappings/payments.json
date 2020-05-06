@@ -1,0 +1,13 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "/payments"
+  },
+  "response": {
+    "status": 200,
+    "bodyFileName": "paymentProviders.json",
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  }
+}

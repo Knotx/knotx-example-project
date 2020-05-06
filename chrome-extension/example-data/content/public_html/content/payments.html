@@ -1,0 +1,93 @@
+<!--
+  Copyright (C) 2019 Knot.x Project
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Knot.x Functional Test: Payments</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" href="http://cognifide.com/favicon.ico?v=2"/>
+  <link href="https://bootswatch.com/4/simplex/bootstrap.min.css" rel="stylesheet"/>
+</head>
+<body>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="jumbotron">
+        <h2>
+          Hello Knot.x - a reactive integration framework!
+        </h2>
+        <p>
+          This page combines dynamic data with a template. A template may consist of many
+          independent
+          fragments defining the data they require. Dynamic data may come from external web APIs,
+          databases etc.
+        </p>
+        <p>
+          <a class="btn btn-primary btn-large"
+             href="https://github.com/Knotx/knotx">Learn more</a>
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="row" style="margin-left: 10px">
+    <knotx:snippet data-knotx-task="user-task">
+      <div>
+        <h2>User details</h2>
+        <p>Id: {{fetch-user-info._result.id}}</p>
+        <p>Name: {{fetch-user-info._result.first_name}}</p>
+        <p>Surname: {{fetch-user-info._result.last_name}}</p>
+        <p>Email: {{fetch-user-info._result.email}}</p>
+      </div>
+    </knotx:snippet>
+  </div>
+  <div class="row">
+    <div class="row" style="margin-left: 10px">
+      <knotx:snippet data-knotx-task="payments-task">
+        <div>
+          <h2>Payment providers</h2>
+          <ul>
+            {% for provider in data['fetch-payment-providers']._result %}
+            <li>
+              <p>Payment provider: {{provider.name}}</p>
+              <p>Payment URL: {{provider.paymentUrl}}</p>
+            </li>
+            {% endfor %}
+          </ul>
+
+          <h2>Offers</h2>
+          <ul>
+            {% for offer in data['fetch-offers']._result %}
+            <li>
+              <p>Offer: {{offer.method}}</p>
+              <p>Price: {{offer.price}}</p>
+            </li>
+            {% endfor %}
+
+            {% for offer in data['fetch-offers-fallback']._result %}
+            <li>
+              <p>Offer: {{offer.method}} (fallback)</p>
+              <p>Price: {{offer.price}}</p>
+            </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </knotx:snippet>
+    </div>
+  </div>
+</div>
+</body>
+</html>
