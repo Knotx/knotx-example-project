@@ -9,6 +9,7 @@ dependencies {
         implementation(platform("$v-dependencies:${project.property("knotx.version")}"))
         implementation("$v-server-http-api:${project.property("knotx.version")}")
         implementation("$v-fragments-handler-api:${project.property("knotx.version")}")
+        implementation("$v-fragments-action-api:${project.property("knotx.version")}")
     }
     "io.vertx:vertx".let { v ->
         implementation("$v-web")
