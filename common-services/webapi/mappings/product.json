@@ -6,6 +6,9 @@
   "response": {
     "status": 200,
     "fixedDelayMilliseconds": 100,
-    "bodyFileName": "product.json"
+    "bodyFileName": "product.json",
+    "headers": {
+        "Content-Type": "application/json"
+    }
   }
 }

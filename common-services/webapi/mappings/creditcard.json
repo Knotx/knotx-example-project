@@ -6,6 +6,9 @@
   "response": {
     "status": 200,
     "fixedDelayMilliseconds": 100,
-    "bodyFileName": "creditcard.json"
+    "bodyFileName": "creditcard.json",
+    "headers": {
+        "Content-Type": "application/json"
+    }
   }
 }
