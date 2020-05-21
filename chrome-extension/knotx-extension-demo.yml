@@ -23,10 +23,9 @@ services:
       - knotnet
 
   knotx:
-    image: knotx/knotx:2.1.1-SNAPSHOT
+    image: knotx/knotx:2.2.0
     command: ["knotx", "run-knotx"]
     volumes:
-      - "./knotx/bin:/usr/local/knotx/bin"
       - "./knotx/conf:/usr/local/knotx/conf"
     ports:
       - "8092:8092"
