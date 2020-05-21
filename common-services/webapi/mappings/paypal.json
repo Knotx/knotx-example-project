@@ -6,6 +6,9 @@
   "response": {
     "status": 200,
     "fixedDelayMilliseconds": 3000,
-    "bodyFileName": "paypal.json"
+    "bodyFileName": "paypal.json",
+    "headers": {
+        "Content-Type": "application/json"
+    }
   }
 }
