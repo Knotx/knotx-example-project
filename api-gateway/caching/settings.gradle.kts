@@ -15,6 +15,14 @@
  */
 rootProject.name = "api-cache"
 
+pluginManagement {
+    val knotxVersion: String by settings
+    plugins {
+        id("io.knotx.distribution") version knotxVersion
+        id("io.knotx.release-base") version knotxVersion
+    }
+}
+
 include("health-check")
 
 project(":health-check").projectDir = file("modules/health-check")
