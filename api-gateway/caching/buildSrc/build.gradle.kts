@@ -1,5 +1,5 @@
 repositories {
-    mavenCentral()
+    jcenter()
     gradlePluginPortal()
 }
 dependencies {
