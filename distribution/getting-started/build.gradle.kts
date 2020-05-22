@@ -55,6 +55,6 @@ tasks.register("build-stack") {
     mustRunAfter("build-docker")
 }
 
-apply(from = "https://raw.githubusercontent.com/Knotx/knotx-starter-kit/${project.property("knotx.version")}/gradle/docker.gradle.kts")
-apply(from = "https://raw.githubusercontent.com/Knotx/knotx-starter-kit/${project.property("knotx.version")}/gradle/javaAndUnitTests.gradle.kts")
+apply(from = "https://raw.githubusercontent.com/Knotx/knotx-starter-kit/2.1.0/gradle/docker.gradle.kts")
+apply(from = "https://raw.githubusercontent.com/Knotx/knotx-starter-kit/2.1.0/gradle/javaAndUnitTests.gradle.kts")
 
