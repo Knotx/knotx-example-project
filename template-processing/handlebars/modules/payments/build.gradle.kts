@@ -6,10 +6,9 @@ dependencies {
     implementation(group = "org.apache.commons", name = "commons-lang3")
 
     "io.knotx:knotx".let { v ->
-        implementation(platform("$v-dependencies:${project.property("knotx.version")}"))
-        implementation("$v-server-http-api:${project.property("knotx.version")}")
-        implementation("$v-fragments-handler-api:${project.property("knotx.version")}")
-        implementation("$v-fragments-action-api:${project.property("knotx.version")}")
+        implementation(platform("$v-dependencies:${project.property("knotxVersion")}"))
+        implementation("$v-server-http-api:${project.property("knotxVersion")}")
+        implementation("$v-fragments-action-api:${project.property("knotxVersion")}")
     }
     "io.vertx:vertx".let { v ->
         implementation("$v-web")
