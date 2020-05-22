@@ -15,6 +15,14 @@
  */
 rootProject.name = "api-gateway-security"
 
+pluginManagement {
+    val knotxVersion: String by settings
+    plugins {
+        id("io.knotx.distribution") version knotxVersion
+        id("io.knotx.release-base") version knotxVersion
+    }
+}
+
 include("health-check")
 include("hello-module")
 include("security-module")
