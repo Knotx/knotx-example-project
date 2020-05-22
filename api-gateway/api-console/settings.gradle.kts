@@ -15,6 +15,14 @@
  */
 rootProject.name = "openapi"
 
+pluginManagement {
+    val knotxVersion: String by settings
+    plugins {
+        id("io.knotx.distribution") version knotxVersion
+        id("io.knotx.release-base") version knotxVersion
+    }
+}
+
 include("healthcheck")
 include("swagger")
 
