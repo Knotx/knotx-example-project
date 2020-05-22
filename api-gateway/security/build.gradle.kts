@@ -35,9 +35,7 @@ allprojects {
     repositories {
         jcenter()
         mavenLocal()
-        maven { url = uri("https://plugins.gradle.org/m2/") }
-        maven { url = uri("https://oss.sonatype.org/content/groups/staging/") }
-        maven { url = uri("https://oss.sonatype.org/content/repositories/snapshots") }
+        gradlePluginPortal()
     }
 }
 
@@ -57,6 +55,6 @@ tasks.register("build-stack") {
     mustRunAfter("build-docker")
 }
 
-apply(from = "https://raw.githubusercontent.com/Knotx/knotx-starter-kit/2.1.0/gradle/docker.gradle.kts")
-apply(from = "https://raw.githubusercontent.com/Knotx/knotx-starter-kit/2.1.0/gradle/javaAndUnitTests.gradle.kts")
+apply(from = "https://raw.githubusercontent.com/Knotx/knotx-starter-kit/${project.property("knotxVersion")}/gradle/docker.gradle.kts")
+apply(from = "https://raw.githubusercontent.com/Knotx/knotx-starter-kit/${project.property("knotxVersion")}/gradle/javaAndUnitTests.gradle.kts")
 
