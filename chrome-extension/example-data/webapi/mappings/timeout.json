@@ -1,0 +1,14 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "/timeout"
+  },
+  "response": {
+    "status": 200,
+    "fixedDelayMilliseconds": 3000,
+    "bodyFileName": "offers.json",
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  }
+}

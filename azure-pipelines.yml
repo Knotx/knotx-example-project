@@ -12,14 +12,20 @@ steps:
     ./distribution/getting-started/gradlew -p ./distribution/getting-started build-docker --info
   displayName: 'Build: Distribution -> Getting Started with Docker'
 - script: |
-    ./api-gateway/composing-many-apis/gradlew -p ./api-gateway/composing-many-apis build --info
-  displayName: 'Build: API gateway -> Composing many APIs'
+    ./api-gateway/api-console/gradlew -p ./api-gateway/api-console build --info
+  displayName: 'Build: API gateway -> OpenAPI & API Console'
 - script: |
-    ./api-gateway/caching-api-response/gradlew -p ./api-gateway/caching-api-response build --info
-  displayName: 'Build: API gateway -> Caching API response'
+    ./api-gateway/api-composition/gradlew -p ./api-gateway/api-composition build --info
+  displayName: 'Build: API gateway -> API Composition'
 - script: |
-    ./api-gateway/composing-many-apis/gradlew -p ./api-gateway/graphql-api build --info
+    ./api-gateway/caching/gradlew -p ./api-gateway/caching build --info
+  displayName: 'Build: API gateway -> Caching'
+- script: |
+    ./api-gateway/graphql-api/gradlew -p ./api-gateway/graphql-api build --info
   displayName: 'Build: API gateway -> GraphQL API'
+- script: |
+    ./api-gateway/security/gradlew -p ./api-gateway/security build-docker --info
+  displayName: 'Build: API gateway -> Secure API'
 - script: |
     ./template-processing/handlebars/gradlew -p ./template-processing/handlebars build --info
   displayName: 'Build: Template processing -> Handlebars'

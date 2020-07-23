@@ -1,0 +1,14 @@
+{
+  "request": {
+    "method": "GET",
+    "url": "/offers"
+  },
+  "response": {
+    "status": 200,
+    "fixedDelayMilliseconds": 100,
+    "bodyFileName": "offers.json",
+    "headers": {
+      "Content-Type": "application/json"
+    }
+  }
+}

@@ -6,6 +6,9 @@
   "response": {
     "status": 200,
     "fixedDelayMilliseconds": 200,
-    "bodyFileName": "payu.json"
+    "bodyFileName": "payu.json",
+    "headers": {
+        "Content-Type": "application/json"
+    }
   }
 }

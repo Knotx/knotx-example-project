@@ -1,0 +1,65 @@
+openapi: 3.0.0
+info:
+  version: 1.0.0
+  title: API Gateway Security
+  description: API Gateway Security with basic auth and security token
+  contact:
+    name: "Knot.x Community"
+    url: "http://knotx.io/community/"
+
+servers:
+  - url: https://{domain}:{port}
+    description: The local API server
+    variables:
+      domain:
+        default: localhost
+        description: api domain
+      port:
+        enum:
+          - '8092'
+        default: '8092'
+
+paths:
+  /healthcheck:
+    get:
+      operationId: healthcheck-operation
+      # https://vertx.io/docs/vertx-health-check/java/
+      responses:
+        '200':
+          description: Everything is fine
+        '204':
+          description: No procedure are registered.
+        '501':
+          description: At least one procedure has reported a non-healthy status
+        '500':
+          description: One procedure has thrown an error or has not reported a status in time
+  /api/secure/basic:
+    get:
+      operationId: hello-world-operation-basic
+      security:
+        - helloBasicAuth: []
+      responses:
+        '200':
+          description: Hello World API protected with Basic Auth
+        '401':
+          description: Unauthorized access
+  /api/secure/jwt:
+    get:
+      operationId: hello-world-operation-jwt
+      security:
+          - helloJwtAuth: []
+      responses:
+        '200':
+          description: Hello World API protected with JWT
+        '401':
+          description: Unauthorized access
+
+components:
+  securitySchemes:
+    helloBasicAuth:
+      type: http
+      scheme: basic
+    helloJwtAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT

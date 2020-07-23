@@ -19,9 +19,9 @@ import static io.knotx.example.payment.utils.ProvidersProvider.calculateProvider
 
 import org.apache.commons.lang3.StringUtils;
 
-import io.knotx.fragments.handler.api.Action;
-import io.knotx.fragments.handler.api.ActionFactory;
-import io.knotx.fragments.handler.api.domain.FragmentResult;
+import io.knotx.fragments.action.api.Action;
+import io.knotx.fragments.action.api.ActionFactory;
+import io.knotx.fragments.api.FragmentResult;
 import io.reactivex.Single;
 import io.vertx.core.Future;
 import io.vertx.core.Vertx;

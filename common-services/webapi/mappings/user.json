@@ -5,6 +5,9 @@
   },
   "response": {
     "status": 200,
-    "bodyFileName": "user.json"
+    "bodyFileName": "user.json",
+    "headers": {
+        "Content-Type": "application/json"
+    }
   }
 }

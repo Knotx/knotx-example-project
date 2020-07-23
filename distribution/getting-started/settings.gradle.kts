@@ -15,6 +15,14 @@
  */
 rootProject.name = "distribution-getting-started"
 
+pluginManagement {
+    val knotxVersion: String by settings
+    plugins {
+        id("io.knotx.distribution") version knotxVersion
+        id("io.knotx.release-base") version knotxVersion
+    }
+}
+
 include("hello-module")
 include("health-check")
 
