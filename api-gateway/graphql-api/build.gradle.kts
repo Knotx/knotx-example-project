@@ -44,4 +44,4 @@ tasks.named("build") {
 }
 
 apply(from = "gradle/javaAndUnitTests.gradle.kts")
-apply(from = "https://raw.githubusercontent.com/Knotx/knotx-starter-kit/2.1.0/gradle/docker.gradle.kts")
+apply(from = "https://raw.githubusercontent.com/Knotx/knotx-starter-kit/2.2.0/gradle/docker.gradle.kts")
