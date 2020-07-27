@@ -1,10 +1,8 @@
-[![][license img]][license]
-[![][gitter img]][gitter]
+# GraphQL Handler
+This project provides an example implementation of using GraphQL with [Knot.x HTTP Server](https://github.com/Knotx/knotx-server-http).
+It uses [Knot.x Fragments](https://github.com/Knotx/knotx-fragments) to deliver fault-tolerant
+GraphQL fetchers logic.
 
-
-# GraphQL
-
-This project provides an example implementation of using GraphQL with Knotx.
 See the [Using GraphQL with Knot.x](http://knotx.io/tutorials/graphql-usage/2_0.html) tutorial for an in depth explanation.
 
 It was created with [Knot.x Starter Kit](https://github.com/Knotx/knotx-starter-kit).
@@ -50,11 +48,5 @@ The same request in curl:
 ```bash
 curl -i -H 'Content-Type: application/json' -X POST -d '{"query": "{book(id: \"q5NoDwAAQBAJ\") {title publisher authors} books(match: \"java\") {title publisher authors}}"}' http://localhost:8092/api/graphql
 ```
-
-[license]:https://github.com/Cognifide/knotx/blob/master/LICENSE
-[license img]:https://img.shields.io/badge/License-Apache%202.0-blue.svg
-
-[gitter]:https://gitter.im/Knotx/Lobby
-[gitter img]:https://badges.gitter.im/Knotx/knotx-extensions.svg
 
 
