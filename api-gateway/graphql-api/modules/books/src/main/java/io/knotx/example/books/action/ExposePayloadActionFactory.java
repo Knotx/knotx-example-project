@@ -1,8 +1,9 @@
 package io.knotx.example.books.action;
 
-import io.knotx.fragments.handler.api.Action;
-import io.knotx.fragments.handler.api.ActionFactory;
-import io.knotx.fragments.handler.api.domain.FragmentResult;
+import io.knotx.fragments.action.api.Action;
+import io.knotx.fragments.action.api.ActionFactory;
+import io.knotx.fragments.api.FragmentResult;
+
 import io.reactivex.Single;
 import io.vertx.core.AsyncResult;
 import io.vertx.core.Future;

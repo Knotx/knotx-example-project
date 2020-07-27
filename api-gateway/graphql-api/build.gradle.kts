@@ -19,8 +19,17 @@ plugins {
     id("java")
 }
 
+repositories {
+    jcenter()
+    gradlePluginPortal()
+}
+
 dependencies {
     subprojects.forEach { "dist"(project(":${it.name}")) }
+
+    testImplementation(group = "io.vertx", name = "vertx-core")
+    testImplementation(group = "io.rest-assured", name = "rest-assured", version = "3.3.0")
+    testImplementation(group = "com.graphql-java", name = "graphql-java", version = "6.0")
 }
 
 sourceSets.named("test") {
@@ -32,10 +41,7 @@ allprojects {
 
     repositories {
         jcenter()
-        mavenLocal()
         maven { url = uri("https://plugins.gradle.org/m2/") }
-        maven { url = uri("https://oss.sonatype.org/content/groups/staging/") }
-        maven { url = uri("https://oss.sonatype.org/content/repositories/snapshots") }
     }
 }
 
@@ -43,5 +49,5 @@ tasks.named("build") {
     dependsOn("runTest")
 }
 
-apply(from = "gradle/javaAndUnitTests.gradle.kts")
-apply(from = "https://raw.githubusercontent.com/Knotx/knotx-starter-kit/2.2.0/gradle/docker.gradle.kts")
+apply(from = "https://raw.githubusercontent.com/Knotx/knotx-starter-kit/${project.property("knotxVersion")}/gradle/docker.gradle.kts")
+apply(from = "https://raw.githubusercontent.com/Knotx/knotx-starter-kit/${project.property("knotxVersion")}/gradle/javaAndUnitTests.gradle.kts")

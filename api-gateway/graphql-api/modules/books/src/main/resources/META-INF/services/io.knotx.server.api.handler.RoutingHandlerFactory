@@ -1,1 +1,1 @@
-io.knotx.example.books.handler.rx.GraphQLHandlerFactory
+io.knotx.example.books.GraphQLHandlerFactory

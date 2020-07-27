@@ -13,6 +13,20 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
+pluginManagement {
+    val knotxVersion: String by settings
+    plugins {
+        id("io.knotx.distribution") version knotxVersion
+        id("io.knotx.java-library") version knotxVersion
+        id("io.knotx.unit-test") version knotxVersion
+        id("org.nosphere.apache.rat") version "0.6.0"
+    }
+    repositories {
+        jcenter()
+        gradlePluginPortal()
+    }
+}
+
 rootProject.name = "graphql-api"
 
 include("healthcheck")
