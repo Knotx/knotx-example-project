@@ -22,6 +22,7 @@ import com.bmuschko.gradle.docker.tasks.image.DockerBuildImage
 import com.bmuschko.gradle.docker.tasks.image.DockerRemoveImage
 import org.apache.tools.ant.taskdefs.condition.Os.FAMILY_UNIX
 import org.apache.tools.ant.taskdefs.condition.Os.isFamily
+import java.time.Duration
 
 val dockerImageRef = "$buildDir/.docker/buildImage-imageId.txt"
 
@@ -29,7 +30,7 @@ tasks.register<Copy>("copyDockerfile") {
     group = "docker"
     from("docker")
     into("$buildDir")
-    expand("knotx_version" to project.property("knotx.version"))
+    expand("knotx_version" to project.property("knotxVersion"))
     mustRunAfter("cleanDistribution")
 }
 
@@ -52,7 +53,7 @@ tasks.register<DockerRemoveImage>("removeImage") {
 tasks.register<DockerBuildImage> ("buildImage") {
     group = "docker"
     inputDir.set(file("$buildDir"))
-    tags.add("${project.property("docker.image.name")}:latest")
+    images.add("${project.property("docker.image.name")}:latest")
     dependsOn("removeImage", "prepareDocker")
 }
 val buildImage = tasks.named<DockerBuildImage>("buildImage")
@@ -63,9 +64,9 @@ tasks.register<DockerCreateContainer>("createContainer") {
     group = "docker-functional-tests"
     dependsOn(buildImage)
     targetImageId(buildImage.get().imageId)
-    portBindings.set(listOf("8092:8092", "18092:18092"))
+    hostConfig.portBindings.set(listOf("8092:8092", "18092:18092"))
+    hostConfig.autoRemove.set(true)
     exposePorts("tcp", listOf(8092, 18092))
-    autoRemove.set(true)
     // allow container to access host's network
     dependsOn("configureUnix", "configureNonUnix")
 }
@@ -73,7 +74,7 @@ tasks.register<DockerCreateContainer>("createContainer") {
 tasks.register("configureUnix"){
     doLast {
         createContainer {
-            network.set("host")
+            hostConfig.network.set("host")
             withEnvVar("EXTERNAL_API_DOMAIN", "localhost")
         }
     }
@@ -101,6 +102,7 @@ tasks.register<DockerWaitHealthyContainer>("waitContainer") {
     group = "docker-functional-tests"
     dependsOn(tasks.named("startContainer"))
     targetContainerId(createContainer.get().containerId)
+    awaitStatusTimeout.set(60) // in seconds
 }
 
 tasks.register<DockerStopContainer>("stopContainer") {
