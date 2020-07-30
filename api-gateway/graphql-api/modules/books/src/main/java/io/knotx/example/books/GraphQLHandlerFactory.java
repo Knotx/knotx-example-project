@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package io.knotx.example.books.handler.rx;
+package io.knotx.example.books;
 
 import static graphql.schema.idl.RuntimeWiring.newRuntimeWiring;
 
@@ -76,7 +76,7 @@ public class GraphQLHandlerFactory implements RoutingHandlerFactory {
   }
 
   private Reader loadResource(String path) {
-    return new InputStreamReader(GraphQLHandlerFactory.class.getResourceAsStream("/" + path));
+    return new InputStreamReader(GraphQLHandlerFactory.class.getResourceAsStream(path));
   }
 
 }
