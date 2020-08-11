@@ -1,7 +1,8 @@
 package io.knotx.example.redis.action;
 
-import io.knotx.fragments.handler.api.Action;
-import io.knotx.fragments.handler.api.ActionFactory;
+import io.knotx.fragments.action.api.Action;
+import io.knotx.fragments.action.api.ActionFactory;
+import io.knotx.fragments.action.api.Cacheable;
 import io.vertx.core.Vertx;
 import io.vertx.core.json.JsonObject;
 
@@ -32,6 +33,7 @@ import io.vertx.core.json.JsonObject;
  *   cache.ttl - in seconds, default value: 60
  * </pre>
  */
+@Cacheable
 public class RedisCacheActionFactory implements ActionFactory {
 
   @Override

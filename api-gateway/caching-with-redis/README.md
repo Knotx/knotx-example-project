@@ -1,6 +1,3 @@
-[![][license img]][license]
-[![][gitter img]][gitter]
-
 # Redis Cache
 
 This project provides an example Redis cache implementation in Knot.x.
@@ -47,9 +44,3 @@ New value cached under key: the-book for 20 seconds
 ```
 
 [license]:https://github.com/Cognifide/knotx/blob/master/LICENSE
-[license img]:https://img.shields.io/badge/License-Apache%202.0-blue.svg
-
-[gitter]:https://gitter.im/Knotx/Lobby
-[gitter img]:https://badges.gitter.im/Knotx/knotx-extensions.svg
-
-

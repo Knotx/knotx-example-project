@@ -1,10 +1,11 @@
 package io.knotx.example.redis.action;
 
+import io.knotx.example.redis.client.RedisConnectionManager;
 import io.knotx.example.redis.util.JsonSerializer;
+import io.knotx.fragments.action.api.Action;
 import io.knotx.fragments.api.Fragment;
-import io.knotx.fragments.handler.api.Action;
-import io.knotx.fragments.handler.api.domain.FragmentContext;
-import io.knotx.fragments.handler.api.domain.FragmentResult;
+import io.knotx.fragments.api.FragmentContext;
+import io.knotx.fragments.api.FragmentResult;
 import io.knotx.server.api.context.ClientRequest;
 import io.knotx.server.common.placeholders.PlaceholdersResolver;
 import io.knotx.server.common.placeholders.SourceDefinitions;
@@ -16,8 +17,6 @@ import io.vertx.core.json.JsonObject;
 import io.vertx.core.logging.Logger;
 import io.vertx.core.logging.LoggerFactory;
 import io.vertx.core.net.SocketAddress;
-import io.vertx.redis.client.Redis;
-import io.vertx.redis.client.RedisAPI;
 import io.vertx.redis.client.RedisOptions;
 import io.vertx.redis.client.Response;
 import java.util.Optional;
@@ -28,71 +27,40 @@ import java.util.Optional;
 public class RedisCacheAction implements Action {
   private static final Logger LOGGER = LoggerFactory.getLogger(RedisCacheAction.class);
 
-  private static final String DEFAULT_HOST = "localhost";
-  private static final int DEFAULT_PORT = 6379;
-  private static final long DEFAULT_TTL = 60;
-
-  private final Redis redisClient;
-  private final RedisAPI redis;
-  private final JsonObject config;
-  private final String payloadKey;
-  private final long ttl;
+  private final RedisConnectionManager redisConnection;
+  private final RedisCacheActionOptions options;
   private final Action doAction;
 
   RedisCacheAction(Vertx vertx, JsonObject config, Action doAction) {
-    this.config = config;
+    this.options = new RedisCacheActionOptions(config);
     this.doAction = doAction;
-    this.payloadKey = getPayloadKey();
 
-    JsonObject cacheConfig = config.getJsonObject("cache");
-    ttl = cacheConfig != null
-        ? cacheConfig.getLong("ttl", DEFAULT_TTL)
-        : DEFAULT_TTL;
-
-    redisClient = Redis.createClient(vertx, getRedisOptions(config));
-    redis = RedisAPI.api(redisClient);
+    redisConnection = new RedisConnectionManager(vertx, buildRedisOptions(), 2);
   }
 
   @Override
   public void apply(FragmentContext fragmentContext, Handler<AsyncResult<FragmentResult>> resultHandler) {
-    String cacheKey = getCacheKey(fragmentContext.getClientRequest());
+    String cacheKey = resolveCacheKey(fragmentContext.getClientRequest());
 
-    redisClient.connect(onConnect -> {
-      if (onConnect.succeeded()) {
-        redis.get(cacheKey, response -> {
-          Object cachedValue = getObjectFromResponse(response.result());
+    LOGGER.info("Retrieving data from redis (key: {})", cacheKey);
+    redisConnection.call(redisAPI -> redisAPI.get(cacheKey, response -> {
+      Optional<Object> cachedValue = getObjectFromResponse(response.result());
 
-          if (cachedValue == null) {
-            LOGGER.info("No valid cache for key: {}, calling the action", cacheKey);
-            callDoActionAndCache(fragmentContext, resultHandler, cacheKey);
-          } else {
-            LOGGER.info("Retrieved value from cache under key {}", cacheKey);
-            Fragment fragment = fragmentContext.getFragment();
-            fragment.appendPayload(payloadKey, cachedValue);
-            FragmentResult result = new FragmentResult(fragment,
-                FragmentResult.SUCCESS_TRANSITION);
-            Future.succeededFuture(result)
-                .setHandler(resultHandler);
-          }
-        });
-      } else {
-        LOGGER.error("Couldn't connect to Redis, calling the action. Cause: {}", onConnect.cause());
+      if (!cachedValue.isPresent()) {
+        LOGGER.info("No valid cache for key '{}'. Calling the action", cacheKey);
         callDoActionAndCache(fragmentContext, resultHandler, cacheKey);
+      } else {
+        LOGGER.info("Retrieved value from cache under key '{}'", cacheKey);
+        proceedWithCachedValue(fragmentContext, resultHandler, cachedValue.get());
       }
+    }), () -> {
+      LOGGER.warn("Connection with Redis isn't live, calling the action");
+      callDoActionAndCache(fragmentContext, resultHandler, cacheKey);
     });
   }
 
-  private String getPayloadKey() {
-    return Optional.ofNullable(config.getString("payloadKey"))
-        .orElseThrow(() -> new IllegalArgumentException(
-            "Action requires payloadKey value in configuration."));
-  }
-
-  private String getCacheKey(ClientRequest clientRequest) {
-    return Optional.ofNullable(config.getString("cacheKey"))
-        .map(value -> PlaceholdersResolver.resolve(value, buildSourceDefinitions(clientRequest)))
-        .orElseThrow(
-            () -> new IllegalArgumentException("Action requires cacheKey value in configuration"));
+  private String resolveCacheKey(ClientRequest clientRequest) {
+    return PlaceholdersResolver.resolve(options.getCacheKey(), buildSourceDefinitions(clientRequest));
   }
 
   private SourceDefinitions buildSourceDefinitions(ClientRequest clientRequest) {
@@ -101,18 +69,20 @@ public class RedisCacheAction implements Action {
         .build();
   }
 
-  private RedisOptions getRedisOptions(JsonObject config) {
-    return Optional.ofNullable(config.getJsonObject("redis"))
-        .map(redisConfig -> {
-          String host = redisConfig.getString("host", DEFAULT_HOST);
-          int port = redisConfig.getInteger("port", DEFAULT_PORT);
-          String password = redisConfig.getString("password", null);
+  private RedisOptions buildRedisOptions() {
+    SocketAddress address = SocketAddress.inetSocketAddress(options.getRedisPort(), options.getRedisHost());
 
-          return new RedisOptions()
-            .setEndpoint(SocketAddress.inetSocketAddress(port, host))
-            .setPassword(password);
-        })
-        .orElseGet(RedisOptions::new);
+    return new RedisOptions()
+          .setEndpoint(address)
+          .setPassword(options.getRedisPassword());
+  }
+
+  private void proceedWithCachedValue(FragmentContext fragmentContext, Handler<AsyncResult<FragmentResult>> resultHandler, Object cachedValue) {
+    Fragment fragment = fragmentContext.getFragment();
+    fragment.appendPayload(options.getPayloadKey(), cachedValue);
+
+    FragmentResult result = new FragmentResult(fragment, FragmentResult.SUCCESS_TRANSITION);
+    Future.succeededFuture(result).setHandler(resultHandler);
   }
 
   private void callDoActionAndCache(FragmentContext fragmentContext, Handler<AsyncResult<FragmentResult>> resultHandler, String cacheKey) {
@@ -122,10 +92,11 @@ public class RedisCacheAction implements Action {
 
         if (FragmentResult.SUCCESS_TRANSITION.equals(fragmentResult.getTransition())) {
           JsonObject resultPayload = fragmentResult.getFragment().getPayload();
-          Object objectToSerialize = resultPayload.getMap().get(payloadKey);
+          Object objectToSerialize = resultPayload.getMap().get(options.getPayloadKey());
 
-          String serializedObject = JsonSerializer.serializeObject(objectToSerialize);
-          cacheObject(serializedObject, cacheKey);
+          JsonSerializer
+              .serializeObject(objectToSerialize)
+              .ifPresent(serializedObject -> cacheObject(serializedObject, cacheKey));
         }
 
         Future.succeededFuture(fragmentResult)
@@ -137,22 +108,21 @@ public class RedisCacheAction implements Action {
     });
   }
 
-  private Object getObjectFromResponse(Response response) {
+  private Optional<Object> getObjectFromResponse(Response response) {
     return Optional.ofNullable(response)
         .map(Response::toString)
-        .map(JsonSerializer::deserializeObject)
-        .orElse(null);
+        .flatMap(JsonSerializer::deserializeObject);
   }
 
   private void cacheObject(String serializedObject, String cacheKey) {
-    if (serializedObject != null) {
-      redis.setex(cacheKey, Long.toString(ttl), serializedObject, response -> {
+    redisConnection.call(redisAPI -> {
+      redisAPI.setex(cacheKey, options.getTtl(), serializedObject, response -> {
         if (response.succeeded()) {
-          LOGGER.info("New value cached under key: {} for {} seconds", cacheKey, ttl);
+          LOGGER.info("New value cached under key: {} for {} seconds", cacheKey, options.getTtl());
         } else {
           LOGGER.error("Error while caching new value under key: {}", response.cause(), cacheKey);
         }
       });
-    }
+    }, () -> LOGGER.warn("Cannot cache a new value (key: '{}'), because the Redis connection isn't live", cacheKey));
   }
 }
