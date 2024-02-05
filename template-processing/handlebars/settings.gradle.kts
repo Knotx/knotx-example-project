@@ -16,10 +16,16 @@
 rootProject.name = "template-processing"
 
 pluginManagement {
+    repositories {
+        mavenLocal()
+        gradlePluginPortal()
+    }
+
     val knotxVersion: String by settings
     plugins {
         id("io.knotx.distribution") version knotxVersion
         id("io.knotx.release-base") version knotxVersion
+        id("com.bmuschko.docker-remote-api") version "9.4.0"
     }
 }
 

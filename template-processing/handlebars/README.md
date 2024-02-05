@@ -2,16 +2,16 @@
 
 ## Run
 Build first docker image
-```
-$ gradlew clean build
+```bash
+./gradlew build-docker
 ```
 
 Run Knot.x instance and example data services (Web API and Content Repository) in a single node Docker Swarm:
-```
+```bash
 docker stack deploy -c template-processing.yml template-processing
 ```
 
-###Final page
+### Final page
 
 http://localhost:8092/content/payment.html
 
@@ -26,11 +26,11 @@ http://localhost:8092/content/payment.html
 
 ## Other
 Reload Wiremock after config changes:
-```
+```bash
 docker service update --force template-processing_webapi
 ```
 
 Restart Knot.x:
-```
+```bash
 docker service update --force template-processing_knotx
 ```

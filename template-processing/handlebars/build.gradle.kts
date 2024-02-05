@@ -31,14 +31,39 @@ allprojects {
     group = "io.knotx"
 
     repositories {
+        mavenLocal()
         jcenter()
         gradlePluginPortal()
+    }
+
+    pluginManager.withPlugin("java") {
+        java {
+            toolchain {
+                languageVersion.set(JavaLanguageVersion.of(11))
+                vendor.set(JvmVendorSpec.ADOPTIUM)
+            }
+        }
     }
 }
 
 tasks.named("build") {
-    dependsOn("runTest")
+    dependsOn("build-stack")
 }
 
-apply(from = "https://raw.githubusercontent.com/Knotx/knotx-starter-kit/${project.property("knotxVersion")}/gradle/docker.gradle.kts")
-apply(from = "https://raw.githubusercontent.com/Knotx/knotx-starter-kit/${project.property("knotxVersion")}/gradle/javaAndUnitTests.gradle.kts")
+tasks.register("build-docker") {
+    group = "docker"
+    dependsOn("runFunctionalTest")
+}
+
+tasks.register("build-stack") {
+    group = "stack"
+    // https://github.com/Knotx/knotx-gradle-plugins/blob/master/src/main/kotlin/io/knotx/distribution.gradle.kts
+    dependsOn("assembleCustomDistribution")
+    mustRunAfter("build-docker")
+}
+
+// apply(from = "https://raw.githubusercontent.com/Knotx/knotx-starter-kit/${project.property("knotxVersion")}/gradle/docker.gradle.kts")
+// apply(from = "https://raw.githubusercontent.com/Knotx/knotx-starter-kit/${project.property("knotxVersion")}/gradle/javaAndUnitTests.gradle.kts")
+// FixMe: use released version after Knot.x release
+apply(from = "https://raw.githubusercontent.com/Knotx/knotx-starter-kit/feature/openjdk-11/gradle/docker.gradle.kts")
+apply(from = "https://raw.githubusercontent.com/Knotx/knotx-starter-kit/feature/openjdk-11/gradle/javaAndUnitTests.gradle.kts")

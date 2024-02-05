@@ -15,9 +15,9 @@ class ExampleApiITCase {
 
     given().
         port(8092).
-        when().
+      when().
         get("/healthcheck").
-        then()
+      then()
         .assertThat().
         statusCode(200);
     // @formatter:on
