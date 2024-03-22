@@ -15,7 +15,7 @@ dependencies {
         implementation("$v-auth-jwt")
     }
     "org.apache".let { v ->
-        compile("$v.httpcomponents:httpclient:4.5.3")
-        compile("$v.commons:commons-lang3:3.9")
+        implementation("$v.httpcomponents:httpclient:4.5.3")
+        implementation("$v.commons:commons-lang3")
     }
 }

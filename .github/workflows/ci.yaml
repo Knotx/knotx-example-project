@@ -5,6 +5,7 @@ on:
     branches:
       - 'main'
       - 'releases/**'
+  pull_request:
 
 jobs:
   verify:
@@ -12,5 +13,19 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - uses: gradle/gradle-build-action@v2
-    - name: "Build: Distribution -> Getting Started with Stack"
+    - name: 'Build: Distribution -> Getting Started with Stack'
       run: ./distribution/getting-started/gradlew -p ./distribution/getting-started build --info
+    - name: 'Build: Distribution -> Getting Started with Docker'
+      run: ./distribution/getting-started/gradlew -p ./distribution/getting-started build-docker --info      
+    - name: 'Build: API gateway -> OpenAPI & API Console'
+      run: ./api-gateway/api-console/gradlew -p ./api-gateway/api-console build-docker --info
+    - name: 'Build: API gateway -> API Composition'
+      run: ./api-gateway/api-composition/gradlew -p ./api-gateway/api-composition build-docker --info
+    - name: 'Build: API gateway -> Caching'
+      run: ./api-gateway/caching/gradlew -p ./api-gateway/caching build --info
+    - name: 'Build: API gateway -> GraphQL API'
+      run: ./api-gateway/graphql-api/gradlew -p ./api-gateway/graphql-api build-docker --info
+    - name: 'Build: API gateway -> Secure API'
+      run: ./api-gateway/security/gradlew -p ./api-gateway/security build-docker --info
+    - name: 'Build: Template processing -> Handlebars'
+      run: ./template-processing/handlebars/gradlew -p ./template-processing/handlebars build-docker --info

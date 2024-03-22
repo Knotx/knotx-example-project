@@ -1,4 +1,4 @@
-[![Build Status](https://dev.azure.com/knotx/Knotx/_apis/build/status/Knotx.knotx-example-project?branchName=master)](https://dev.azure.com/knotx/Knotx/_build/latest?definitionId=15&branchName=master)
+[![CI](https://github.com/Knotx/knotx-example-project/actions/workflows/ci.yaml/badge.svg?branch=main)](https://github.com/Knotx/knotx-example-project/actions/workflows/ci.yaml)
 
 # Knot.x Examples
 Examples show how you can customize/extend [Knot.x Stack](https://github.com/Knotx/knotx-stack) in 
