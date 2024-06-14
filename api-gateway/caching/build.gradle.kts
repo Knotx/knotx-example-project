@@ -26,6 +26,7 @@ configurations {
 dependencies {
     subprojects.forEach { "dist"(project(":${it.name}")) }
     "wiremockExtensions"("com.opentable:wiremock-body-transformer:1.1.3") { isTransitive = false }
+    testCompile("com.github.tomakehurst:wiremock:2.24.1")
 }
 
 sourceSets.named("test") {
@@ -50,5 +51,5 @@ tasks.named("build") {
     dependsOn(downloadWireMockExtensions, "runFunctionalTest")
 }
 
-apply(from = "https://raw.githubusercontent.com/Knotx/knotx-starter-kit/${project.property("knotxVersion")}/gradle/docker.gradle.kts")
+apply(from = "docker.gradle.kts")
 apply(from = "https://raw.githubusercontent.com/Knotx/knotx-starter-kit/${project.property("knotxVersion")}/gradle/javaAndUnitTests.gradle.kts")
